@@ -1,0 +1,18 @@
+{
+  "title": "RECENT NEWS",
+  "title2": "NEWS & ARTICLES",
+  "BlogList": [
+    {
+      "img": "img1",
+      "date": "14 NOV 2019",
+      "posttitle": "Stay Updated: BIR Extends Deadline for Digital VAT Registration",
+      "postlink":"#",
+      "brief":
+        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered teration some form, by injected humour, or randomised words which don't look even slightly believable.",
+      "author": "by admin",
+      "authorlink": "#",
+      "comment": "0 Comments",
+      "commentlink": "#"
+    }
+  ]
+}
