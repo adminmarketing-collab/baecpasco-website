@@ -18,16 +18,9 @@ const Careers = () => {
         id="merox-services-area"
         className="merox-services-area py-3 relative z-[1] md:pb-20 sm:pb-20"
       >
-        <div className="merox-services-area-img absolute right-0 top-0 h-full w-2/3 bg-no-repeat bg-center bg-cover -z-[1]">
-          {/* <Image
-            className="h-full w-full"
-            src={ServicesData.bgimg}
-            alt="bgimage"
-          /> */}
-        </div>
 
         <div className="container text-center">
-          <p className=" font-bold mt-12 mb-12uppercase font-medium text-[20px] relative pl-[30px] mb-[15px] before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
+          <p className=" font-bold mt-12 mb-12uppercase font-bold text-[20px] relative pl-[30px] mb-[15px] before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
           Build Your Future with Balagot & Emperado CPA’s Co.
 
           </p>

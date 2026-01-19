@@ -14,17 +14,11 @@ import Image from "next/image";
 const History = () => {
   return (
     <>
-      <div
-        id="merox-services-area"
-        className="merox-services-area py-3  z-[1] md:pb-20 sm:pb-20"
-      >
-        <div className="merox-services-area-img absolute right-0 top-0 h-full w-2/3 bg-no-repeat bg-center bg-cover -z-[1]">
-          {/* <Image
-            className="h-full w-full"
-            src={ServicesData.bgimg}
-            alt="bgimage"
-          /> */}
-        </div>
+      <div className="container text-center">
+  <h1 className="text-[50px] font-bold leading-[49px] uppercase mb-16">
+    History
+  </h1>
+
 
         <div className="container text-center">
           <p className="mt-16 font-bold uppercase text-[20px]  pl-[30px] mb-[15px] before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">

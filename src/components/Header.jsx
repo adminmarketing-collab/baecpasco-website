@@ -20,13 +20,10 @@ const HeaderData = {
       link: "/about",
     },
     {
-      title: "pages",
-      link: "#",
-      submenu: [
-        {
-          title: "team",
-          link: "/team",
-        },
+      title: "services",
+      link: "/services",
+    },
+      /*submenu: [
         {
           title: "Offices/Our Locations",
           link: "/locations",
@@ -56,7 +53,12 @@ const HeaderData = {
         //   link: "/error",
         // },
       ],
-    },
+    },*/
+    { 
+  title: "Team",
+  link: "/team",
+},
+
     {
       title: "News & Articles",
       link: "#",

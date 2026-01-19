@@ -3,9 +3,11 @@ import React from "react";
 import About from "@/components/About";
 import Counter from "@/components/Counter";
 import Services from "@/components/Services";
+import Industries from "@/components/Industries";
 import Team from "@/components/Team";
 import Cta from "@/components/Cta";
 import Testimonial from "@/components/Testimonial";
+import Careers from "@/components/Careers";
 import Video from "@/components/Video";
 import Blog from "@/components/Blog";
 import Subscribe from "@/components/Subscribe";
@@ -25,19 +27,17 @@ const Index = () => {
       <main>
         <Hero />
         <About />
-        <Counter />
         <Services />
-        <Team />
+        <Industries />
         <Cta />
         <Testimonial />
-        <Video />
-        {/* <Blog /> */}
-        {/* <Subscribe /> */}
-        {/* <Client /> */}
+        <Careers />
         <Footer />
+       
       </main>
       <Scrolltop />
     </>
   );
 };
 export default Index;
+

@@ -13,20 +13,10 @@ const FooterData = {
   SocialList: [
     {
       icon: "facebook",
-      link: "#",
+      link: "https://www.facebook.com/share/19iAMdsZ65/",
     },
-    {
-      icon: "twitter",
-      link: "#",
-    },
-    {
-      icon: "instagram",
-      link: "#",
-    },
-    {
-      icon: "vk",
-      link: "#",
-    },
+   
+    
   ],
   title: "Quick Link",
   QuicklinkList: [
@@ -35,7 +25,7 @@ const FooterData = {
       link: "#",
     },
     {
-      title: "Privicey Police",
+      title: "Privacy Policy",
       link: "#",
     },
     {
@@ -48,11 +38,11 @@ const FooterData = {
     },
     {
       title: "About Us",
-      link: "#",
+      link: "https://www.baecpasco.com/about",
     },
     {
       title: "Contact",
-      link: "#",
+      link: "https://www.baecpasco.com/contact",
     },
   ],
   title2: "Recent Post",
@@ -81,7 +71,7 @@ const FooterData = {
     },
     {
       icon: "fa fa-phone",
-      title: "Landline: 064-577-7725",
+      title: "Landline: 064-572-7648",
     },
     {
       icon: "fa fa-envelope-o ",
@@ -91,6 +81,8 @@ const FooterData = {
       icon: "fa fa-envelope-o ",
       title: "Email: admin.marketing@baecpasco.com",
     },
+
+
     // {
     //   icon: "fa fa-clock-o",
     //   title: "Working Time: Mon-Sat: 9 Am – 5 Pm",

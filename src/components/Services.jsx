@@ -149,9 +149,9 @@ const Services = () => {
 
 
         <div className="container text-center">
-          <h4 className="text-white uppercase font-medium text-[20px] relative pl-[30px] mb-[15px] before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
-            {ServicesData.title}
-          </h4>
+          <h1 className="text-[50px] font-bold leading-[49px] uppercase text-white mb-10">
+  {ServicesData.title}
+</h1>
 
           <h3 className=" mb-20 font-bold text-indent text-[18px] text-white">At <span className="text-red-500">Balagot & Emperado CPA’s Co.</span>, We offer accounting, audit, tax, and financial advice to help businesses stay stable, follow rules, and grow. We make sure our work is accurate, honest, and fits each client’s needs.
 
@@ -258,7 +258,7 @@ const Services = () => {
 
           <div className="flex flex-wrap mx-[-12px]">
             <div className="xl:ml-[8.33333333%] xl:w-4/12 lg:w-4/12 md:w-full sm:w-full xsm:w-full order-2 wow fadeInRight flex-[0_0_auto]">
-              <div className="section-title lite mb-10 mt-[245px] sm:mt-20">
+              <div className="section-title lite mb-10 mt-[20px] sm:mt-20">
               </div>
             </div>
 

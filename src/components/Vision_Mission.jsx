@@ -26,6 +26,12 @@ const Vision_Mission = () => {
           /> */}
         </div>
 
+        <div className="container text-center mt-20 mb-16">
+  <h2 className="text-[50px] font-bold leading-[49px] uppercase">
+    Vision and Mission
+  </h2>
+</div>
+
         <div className="container text-center">
           <p className="font-bold mt-16 uppercase  text-[20px]  pl-[30px] mb-[15px] before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
             Vision Statement
