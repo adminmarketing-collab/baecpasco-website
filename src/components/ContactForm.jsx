@@ -1,139 +1,285 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
-const ContactForm = () => {
-  const [showServices, setShowServices] = useState(false);
-  const [formData, setFormData] = useState({
+const DEFAULT_SERVICES = [
+  "Audit & Assurance",
+  "Accounting & Financial Reporting",
+  "Taxation & Compliance",
+  "Bookkeeping & Payroll Services",
+  "Business & Financial Consultancy",
+  "Regulatory Compliance & Corporate Services",
+];
+
+export default function ContactForm({ services = DEFAULT_SERVICES }) {
+  const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
-    services: [],
+    service: "",
     message: "",
   });
 
-  const servicesList = [
-    "Audit & Assurance",
-    "Accounting & Financial Reporting",
-    "Taxation & Compliance",
-    "Bookkeeping & Payroll Services",
-    "Business & Financial Consultancy",
-    "Regulatory Compliance & Corporate Services",
-  ];
+  const [open, setOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const wrapRef = useRef(null);
+  const btnRef = useRef(null);
+
+  const list = useMemo(() => services.filter(Boolean), [services]);
+
+  // Close on outside click
+  useEffect(() => {
+    const onPointerDown = (e) => {
+      if (!wrapRef.current) return;
+      if (!wrapRef.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => document.removeEventListener("pointerdown", onPointerDown);
+  }, []);
+
+  // Close on ESC
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, []);
+
+  const setField = (name, value) => setForm((p) => ({ ...p, [name]: value }));
+
+  const selectService = (service) => {
+    setField("service", service);
+    setOpen(false);
+    setActiveIndex(-1);
+    btnRef.current?.focus();
   };
 
-  const handleCheckboxChange = (service) => {
-    setFormData((prev) => ({
-      ...prev,
-      services: prev.services.includes(service)
-        ? prev.services.filter((s) => s !== service)
-        : [...prev.services, service],
-    }));
+  const onDropdownKeyDown = (e) => {
+    if (!open && (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ")) {
+      e.preventDefault();
+      setOpen(true);
+      setActiveIndex((i) => (i >= 0 ? i : 0));
+      return;
+    }
+
+    if (!open) return;
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setActiveIndex((i) => Math.min(i + 1, list.length - 1));
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setActiveIndex((i) => Math.max(i - 1, 0));
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      if (activeIndex >= 0) selectService(list[activeIndex]);
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Message submitted (demo only)");
+    console.log("Contact form submit:", form);
+    alert(`Submitted! Selected service: ${form.service || "(none)"}`);
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-white p-8 shadow-md rounded-[20px] max-w-lg mx-auto space-y-6"
-    >
-      {/* Name */}
-      <div>
-        <label className="block mb-2 font-medium">Full Name</label>
+    <form onSubmit={handleSubmit} style={styles.card}>
+      <div style={styles.row}>
+        <label style={styles.label}>Full Name</label>
         <input
-          type="text"
+          style={styles.input}
+          value={form.name}
+          onChange={(e) => setField("name", e.target.value)}
           name="name"
-          value={formData.name}
-          onChange={handleChange}
           required
-          className="w-full border px-4 py-3 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
+          placeholder="Your full name"
         />
       </div>
 
-      {/* Email */}
-      <div>
-        <label className="block mb-2 font-medium">Email Address</label>
+      <div style={styles.row}>
+        <label style={styles.label}>Email Address</label>
         <input
-          type="email"
+          style={styles.input}
+          value={form.email}
+          onChange={(e) => setField("email", e.target.value)}
           name="email"
-          value={formData.email}
-          onChange={handleChange}
           required
-          className="w-full border px-4 py-3 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
+          type="email"
+          placeholder="you@email.com"
         />
       </div>
 
-      {/* Phone */}
-      <div>
-        <label className="block mb-2 font-medium">Phone Number</label>
+      <div style={styles.row}>
+        <label style={styles.label}>Phone Number</label>
         <input
-          type="text"
+          style={styles.input}
+          value={form.phone}
+          onChange={(e) => setField("phone", e.target.value)}
           name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          className="w-full border px-4 py-3 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
+          placeholder="Optional"
         />
       </div>
 
-      {/* Services Dropdown */}
-      <div>
+      {/* Custom Dropdown */}
+      <div style={{ ...styles.row, position: "relative" }} ref={wrapRef}>
+        <label style={styles.label}>Service</label>
+
         <button
+          ref={btnRef}
           type="button"
-          onClick={() => setShowServices(!showServices)}
-          className="w-full flex justify-between items-center border px-4 py-3 font-medium rounded focus:outline-none focus:ring-2 focus:ring-red-500"
+          onClick={() => setOpen((v) => !v)}
+          onKeyDown={onDropdownKeyDown}
+          aria-haspopup="listbox"
+          aria-expanded={open}
+          style={styles.dropdownBtn}
         >
-          Services Interested In
-          <span className={`transition-transform duration-300 ${showServices ? "rotate-180" : ""}`}>
-            ▼
+          <span style={{ fontWeight: 700, color: form.service ? "#111827" : "#6B7280" }}>
+            {form.service || "Services Interested In"}
           </span>
+          <span style={{ transform: open ? "rotate(180deg)" : "none", transition: "0.2s" }}>▼</span>
         </button>
 
-        {showServices && (
-          <div className="mt-4 border p-4 space-y-3 rounded bg-gray-50">
-            {servicesList.map((service, index) => (
-              <label key={index} className="flex items-center gap-3 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={formData.services.includes(service)}
-                  onChange={() => handleCheckboxChange(service)}
-                  className="w-5 h-5 border-2 border-gray-400 rounded checked:bg-red-500 checked:border-red-500"
-                />
-                <span className="text-[16px]">{service}</span>
-              </label>
-            ))}
+        {open && (
+          <div role="listbox" style={styles.menu}>
+            {list.map((service, idx) => {
+              const selected = service === form.service;
+              const active = idx === activeIndex;
+
+              return (
+                <div
+                  key={service}
+                  role="option"
+                  aria-selected={selected}
+                  tabIndex={-1}
+                  // Pointer events = guaranteed hover + click behavior
+                  onPointerEnter={() => setActiveIndex(idx)}
+                  onPointerDown={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    selectService(service);
+                  }}
+                  style={{
+                    ...styles.item,
+                    ...(selected || active ? styles.itemActive : null),
+                  }}
+                >
+                  <span>{service}</span>
+                  {selected && <span style={{ fontWeight: 900 }}>✓</span>}
+                </div>
+              );
+            })}
           </div>
         )}
       </div>
 
-      {/* Message */}
-      <div>
-        <label className="block mb-2 font-medium">Message</label>
+      <div style={styles.row}>
+        <label style={styles.label}>Message</label>
         <textarea
+          style={styles.textarea}
+          value={form.message}
+          onChange={(e) => setField("message", e.target.value)}
           name="message"
-          rows="5"
-          value={formData.message}
-          onChange={handleChange}
-          className="w-full border px-4 py-3 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
-        ></textarea>
+          rows={5}
+          placeholder="Tell us what you need..."
+        />
       </div>
 
-      {/* Submit */}
-      <button
-        type="submit"
-        className="bg-red-500 text-white px-8 py-3 font-semibold uppercase rounded hover:bg-red-600 transition w-full"
-      >
+      <button type="submit" style={styles.submit}>
         Send Message
       </button>
+
+      {/* Small CSS only for focus ring (optional but nice) */}
+      <style jsx>{`
+        input:focus,
+        textarea:focus,
+        button:focus {
+          outline: none;
+          border-color: #ef4444;
+          box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25);
+        }
+      `}</style>
     </form>
   );
+}
+const styles = {
+  card: {
+    background: "#fff",
+    padding: 32,
+    borderRadius: 10, // ← LESS ROUND
+    boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+    display: "flex",
+    flexDirection: "column",
+    gap: 18,
+  },
+  row: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 8,
+  },
+  label: {
+    fontWeight: 700,
+    color: "#111827",
+  },
+  input: {
+    border: "1px solid #D1D5DB",
+    borderRadius: 8, // ← LESS ROUND
+    padding: "12px 14px",
+    fontSize: 15,
+  },
+  textarea: {
+    border: "1px solid #D1D5DB",
+    borderRadius: 8, // ← LESS ROUND
+    padding: "12px 14px",
+    fontSize: 15,
+    resize: "vertical",
+  },
+  dropdownBtn: {
+    width: "100%",
+    border: "1px solid #D1D5DB",
+    borderRadius: 8, // ← LESS ROUND
+    padding: "12px 14px",
+    background: "#fff",
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  menu: {
+    position: "absolute",
+    left: 0,
+    top: "calc(100% + 8px)",
+    width: "100%",
+    background: "#fff",
+    border: "1px solid #E5E7EB",
+    borderRadius: 10, // ← LESS ROUND
+    overflow: "hidden",
+    boxShadow: "0 16px 35px rgba(0,0,0,0.14)",
+    zIndex: 999999,
+  },
+  item: {
+    padding: "12px 14px",
+    cursor: "pointer",
+    userSelect: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    background: "#fff",
+    color: "#111827",
+    transition: "background 0.15s ease, color 0.15s ease",
+  },
+  itemActive: {
+    background: "#EF4444",
+    color: "#fff",
+  },
+  submit: {
+    background: "#EF4444",
+    color: "#fff",
+    border: "none",
+    borderRadius: 8, // ← LESS ROUND
+    padding: "14px 16px",
+    fontWeight: 900,
+    textTransform: "uppercase",
+    cursor: "pointer",
+  },
 };
-
-export default ContactForm;
