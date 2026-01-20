@@ -7,6 +7,8 @@ import Scrolltop from "@/components/Scrolltop";
 import Breadcrumb from "@/components/Breadcrumb";
 import Contact from "@/components/Contact";
 
+
+
 const Index = () => {
   return (
     <>
@@ -15,6 +17,8 @@ const Index = () => {
       <main>
         <Breadcrumb title="Contact" />
         <Contact/>
+        
+
         <Footer />
       </main>
       <Scrolltop />

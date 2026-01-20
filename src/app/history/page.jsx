@@ -16,7 +16,6 @@ const Index = () => {
       <Header />
       <main>
         <History />
-        <Counter />
         <Footer />
       </main>
       <Scrolltop />
