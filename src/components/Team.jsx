@@ -17,7 +17,7 @@ const TeamData = {
   TeamList: [
     { img: img1, title: "Al Batara Balagot, CPA, MBA", desig: "Managing Partner" },
     { img: img2, title: "Rezyl Mae Emperado-Tero, CPA, MBA", desig: "Managing Partner" },
-    { img: img3, title: "Cherry Mae Castro-Orella, CPA, MBA", desig: "ManagerManaging Partner" },
+    { img: img3, title: "Cherry Mae Castro-Orella, CPA, MBA", desig: "Managing Partner" },
     { img: img4, title: "Jouie Kristian Ogatis-Tero, CPA", desig: "Human Resources - Partner" },
     { img: img5, title: "Marissa Francisco-Casero, CPA, CTT", desig: "Tax Director - Partner" },
     { img: img6, title: "Von Zerick M. Casero, CPA, CTT", desig: "Branch Manager - Partner" },
