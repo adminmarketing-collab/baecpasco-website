@@ -77,11 +77,38 @@ export default function ContactForm({ services = DEFAULT_SERVICES }) {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Contact form submit:", form);
-    alert(`Submitted! Selected service: ${form.service || "(none)"}`);
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+    const result = await res.json();
+
+    if (result.success) {
+      alert("Message sent successfully!");
+
+      // Reset form after sending
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
+      });
+    } else {
+      alert("Failed to send message. Please try again.");
+    }
+  } catch (error) {
+    console.error(error);
+    alert("Something went wrong. Please try again.");
+  }
+};
+
 
   return (
     <form onSubmit={handleSubmit} style={styles.card}>
