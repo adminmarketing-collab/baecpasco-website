@@ -33,8 +33,8 @@ const FooterData = {
   ],
   title3: "Contact Info",
   ContactinfoList: [
-    { icon: "fa fa-mobile", title: "Mobile: 0954-341-3680" },
-    { icon: "fa fa-phone", title: "Landline: 064-572-7648" },
+    { icon: "fa fa-mobile", title: "0954-341-3680" },
+    { icon: "fa fa-phone", title: "064-572-7648" },
     { icon: "fa fa-envelope-o", title: "balagotandemperadocpas@baecpasco.com" },
     { icon: "fa fa-envelope-o", title: "admin.marketing@baecpasco.com" },
   ],
