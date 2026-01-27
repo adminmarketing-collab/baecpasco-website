@@ -24,16 +24,15 @@ const Index = () => {
     <>
       <Preloader />
       <Header />
-      <main>
-        <Hero />
-        <About />
+      <main className="overflow-x-hidden pb-0 mb-0">
+       <Hero />
+       <About /> 
         <Services />
         <Industries />
         <Cta />
         <Testimonial />
         <Careers />
         <Footer />
-       
       </main>
       <Scrolltop />
     </>
