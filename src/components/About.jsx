@@ -30,7 +30,7 @@ const AboutData = {
 const About = () => {
   return (
     <>
-      <div id="merox-about-area" className="merox-about-area mt-[100px] mb-[70px]">
+      <div id="merox-about-area" className="merox-about-area mt-[50px] mb-[50px]">
         <div className="container">
           <div className="flex flex-wrap mx-[-12px]">
             <div className="xl:w-5/12 lg:w-6/12 md:w-full sm:w-full xsm:w-full px-[12px] wow fadeInLeft">
