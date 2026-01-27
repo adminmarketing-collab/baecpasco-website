@@ -1,90 +1,71 @@
 "use client";
-import React, { useState } from "react";
-import ModalVideo from "react-modal-video";
+import React from "react";
 import bgimg from "../../public/img/video/video-bg.png";
-import videobg from "../../public/img/video/video-1.png";
 import Image from "next/image";
 
 const VideoData = {
-  title: "VIDEOS",
-  title2: "VIDEOS",
+  title: "OUR",
+  title2: "SERVICES",
   bgimg: bgimg,
-  videobg: videobg,
-  videoid: "1ug4NBuLjzgHDgPaOXh0XXvWI5gjmzQcY",
 };
 
 const Video = () => {
-  const [isOpen, setOpen] = useState(false);
   return (
-    <>
-      <div
-        id="merox-video-area"
-        className="merox-video-area py-32 bg-[#24262d] relative md:pb-20"
-      >
-        <div className="merox-video-area-img absolute right-0 top-0 h-full w-2/3 bg-no-repeat bg-center bg-cover ">
-          <Image
-            className="h-full w-full"
-            src={VideoData.bgimg}
-            alt="video-img"
-          />
-        </div>
-        <div className="container relative">
-          <div className="flex flex-wrap mx-[-12px]">
-            <div className="xl:ml-[8.33333333%] xl:w-4/12 lg:w-4/12 md:w-full sm:w-full order-2 wow fadeInRight flex-[0_0_auto]">
-              <div className="section-title lite mb-10 mt-[245px] sm:mt-20">
-                <h4 className="text-white uppercase font-medium text-[20px] relative pl-[30px] mb-[15px] before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
-                  {VideoData.title}
-                </h4>
-                <h3 className="text-white text-[50px] font-bold leading-[49px] uppercase">
-                  {VideoData.title2}
-                </h3>
-              </div>
+    <section
+      id="merox-video-area"
+      className="relative pt-48 pb-24 bg-[#24262d] overflow-hidden" // ✅ pt-40 -> pt-48 (moves video down)
+    >
+      {/* Background image */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Image
+          src={VideoData.bgimg}
+          alt="video-bg"
+          fill
+          priority
+          className="object-cover"
+          style={{ objectPosition: "10% center" }}
+        />
+        <div className="absolute inset-0 bg-[#24262d] opacity-35"></div>
+      </div>
+
+      {/* ✅ lower z-index so header dropdown always wins */}
+      <div className="container relative z-0">
+        <div className="flex flex-wrap items-start gap-y-10">
+          {/* LEFT: Titles */}
+          <div className="w-full lg:w-5/12 order-2 lg:order-1 relative -top-64">
+            <div className="section-title lite">
+              <h4
+                className="text-white uppercase font-medium text-[20px] relative pl-[30px] mb-[15px]
+                before:bg-[#f90908] before:h-[2px] before:w-5 before:content-['']
+                before:absolute before:left-0 before:top-[11px]"
+              >
+                {VideoData.title}
+              </h4>
+
+              <h3 className="text-white text-[50px] font-bold leading-[49px] uppercase">
+                {VideoData.title2}
+              </h3>
             </div>
-            <div className="xl:w-7/12 lg:w-8/12 md:w-full sm:w-full wow fadeInLeft flex-[0_0_auto]">
-              <div className="video-box text-center relative z-[1] before:content-[''] before:absolute before:left-0 before:top-0 before:bg-[#24262d80] before:w-full before:h-full">
-                <Image
-                  className="w-full h-full rounded-[20px]"
-                  src={VideoData.videobg}
-                  alt="video-img"
-                  
-                />
-                <div className="videos-icon absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 ">
-                  <div
-                    className="popup-video inline-block relative rounded-[50%] text-[#f90908] bg-white duration-[0.3s] h-20 w-20 text-[30px] leading-[80px] animate-[heartbeat_1s_infinite_alternate]  before:content-[''] before:inline-block before:absolute before:-top-[15px] before:-bottom-[15px] before:-left-[15px] before:-right-[15px] before:border-[1px] before:border-solid before:border-white before:animate-[btnIconRipple_3s_cubic-bezier(0.23,1,0.32,1)_both_infinite] before:rounded-[50%] after:content-[''] after:inline-block after:absolute after:-top-[30px] after:-right-[30px] after:-bottom-[30px] after:-left-[30px] after:animate-[btnIconRipple_2s_cubic-bezier(0.23,1,0.32,1)_both_infinite] after:rounded-[50%] cursor-pointer"
-                    onClick={() => setOpen(true)}
-                  >
-                    <i className="fa fa-play"></i>
-                  </div>
-                </div>
-              </div>
+          </div>
+
+          {/* RIGHT: Video */}
+          <div className="w-full lg:w-7/12 order-1 lg:order-2">
+            <div className="ml-auto relative w-full max-w-[680px] aspect-video translate-x-6 lg:translate-x-12 rounded-[20px] overflow-hidden bg-black shadow-lg">
+              <video
+                src="/video/services.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                preload="auto"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
       </div>
-      <ModalVideo
-        // channel="youtube"
-        // youtube={{ mute: 0, autoplay: 0 }}
-        isOpen={isOpen}
-        // videoId={VideoData.videoid}
-        onClose={() => setOpen(false)}
-      >
-
-<iframe
-  src="https://drive.google.com/file/d/1ug4NBuLjzgHDgPaOXh0XXvWI5gjmzQcY/preview"
-  width="100%"
-  height="100%"
-  allow="autoplay"
-  allowFullScreen
-  title="Google Drive Video"
-/>
-
-
-
-
-
-
-      </ModalVideo>
-    </>
+    </section>
   );
 };
 
