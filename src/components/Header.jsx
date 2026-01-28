@@ -53,11 +53,11 @@ const HeaderData = {
         //   link: "/error",
         // },
       ],
-    },*/
+    },
     { 
   title: "Team",
   link: "/team",
-},
+},*/
 
     {
       title: "News & Articles",

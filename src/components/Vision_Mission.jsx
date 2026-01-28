@@ -1,95 +1,214 @@
 "use client";
-import React from "react";
-import bgimg from "../../public/img/services/services-bg.jpg";
-import icon1 from "../../public/img/services/1.png";
-import icon2 from "../../public/img/services/2.png";
-import icon3 from "../../public/img/services/3.png";
-import icon4 from "../../public/img/services/4.png";
-import icon5 from "../../public/img/services/5.png";
-import icon6 from "../../public/img/services/6.png";
+import React, { useMemo, useState } from "react";
 import Image from "next/image";
 
-
-
 const Vision_Mission = () => {
+  const coreValues = useMemo(
+    () => [
+      {
+        key: "accountability",
+        title: "Accountability",
+        desc: "We take full ownership of our work, ensuring that every decision and service reflects our commitment to integrity and excellence.",
+      },
+      {
+        key: "sustainability",
+        title: "Sustainability",
+        desc: "We go beyond short-term gains, focusing on long-term financial stability and fostering lasting relationships with our clients.",
+      },
+      {
+        key: "collaboration",
+        title: "Collaboration",
+        desc: "We believe success is built through strong partnerships, working closely with businesses and individuals to help them grow.",
+      },
+      {
+        key: "excellence",
+        title: "Excellence",
+        desc: "We hold ourselves to the highest standards, delivering precise, insightful, and effective financial solutions.",
+      },
+      {
+        key: "nurturing_growth",
+        title: "Nurturing Growth",
+        desc: "We don’t just manage finances; we empower businesses to expand, innovate, and thrive in a competitive landscape.",
+      },
+      {
+        key: "dedication",
+        title: "Dedication",
+        desc: "Our commitment to client success is unwavering, driving us to continuously improve and adapt to meet evolving needs.",
+      },
+    ],
+    []
+  );
+
+  const [activeKey, setActiveKey] = useState("accountability");
+  const active = coreValues.find((v) => v.key === activeKey) || coreValues[0];
+
   return (
     <>
       <div
         id="merox-services-area"
-        className="merox-services-area py-  z-[1] md:pb-20 sm:pb-20"
+        className="merox-services-area relative z-[1] md:pb-20 sm:pb-20"
       >
-        <div className="merox-services-area-img absolute right-0 top-0 h-full w-2/3 bg-no-repeat bg-center bg-cover -z-[1]">
-          {/* <Image
-            className="h-full w-full"
-            src={ServicesData.bgimg}
-            alt="bgimage"
-          /> */}
+        <div className="container text-center mt-20 mb-16">
+          <h2 className="text-[50px] font-bold leading-[49px] uppercase">
+            Vision and Mission
+          </h2>
         </div>
 
-        <div className="container text-center mt-20 mb-16">
-  <h2 className="text-[50px] font-bold leading-[49px] uppercase">
-    Vision and Mission
-  </h2>
-</div>
-
-        <div className="container text-center">
-          <p className="font-bold mt-16 uppercase  text-[20px]  pl-[30px] mb-[15px] before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
+        <div className="container">
+          {/* Vision */}
+          <p className="font-bold mt-16 uppercase text-[20px] pl-[30px] mb-[15px] relative before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
             Vision Statement
           </p>
 
-          <p className="text-left text-[18px]">Our vision is to be the <span className="text-[#f90908]">trusted partner in financial excellence</span>, known for our commitment to <span className="text-[#f90908]">trust, innovation, and holistic growth.</span> We aim to help businesses and individuals not just achieve financial stability but thrive with confidence, supported by strategic insights and sustainable solutions. Rooted in <span className="text-[#f90908]">integrity and long-term partnerships</span>, we strive to strengthen our foundation while expanding our reach, embracing opportunities beyond local markets. By upholding our ASCEND values, we transform the way businesses grow, ensuring success is measured not just in numbers but in lasting impact and shared prosperity. We see <span className="text-[#f90908]">Balagot & Emperado CPAs Co.</span> as more than a financial firm, we are a force for progress, helping businesses elevate their potential, expand their horizons, and build a lasting legacy.
+          <p className="text-left text-[18px]">
+            Our vision is to be the{" "}
+            <span className="text-[#f90908]">
+              trusted partner in financial excellence
+            </span>
+            , known for our commitment to{" "}
+            <span className="text-[#f90908]">
+              trust, innovation, and holistic growth.
+            </span>{" "}
+            We aim to help businesses and individuals not just achieve financial
+            stability but thrive with confidence, supported by strategic insights
+            and sustainable solutions. Rooted in{" "}
+            <span className="text-[#f90908]">
+              integrity and long-term partnerships
+            </span>
+            , we strive to strengthen our foundation while expanding our reach,
+            embracing opportunities beyond local markets. By upholding our ASCEND
+            values, we transform the way businesses grow, ensuring success is
+            measured not just in numbers but in lasting impact and shared
+            prosperity. We see{" "}
+            <span className="text-[#f90908]">
+              Balagot &amp; Emperado CPAs Co.
+            </span>{" "}
+            as more than a financial firm, we are a force for progress, helping
+            businesses elevate their potential, expand their horizons, and build
+            a lasting legacy.
           </p>
 
-          <p className="font-bold mt-16 uppercase  text-[20px]  pl-[30px] mb-[15px] before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
+          {/* Mission */}
+          <p className="font-bold mt-16 uppercase text-[20px] pl-[30px] mb-[15px] relative before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
             Mission Statement
           </p>
 
-          <p className="text-left text-[18px]">At <span className="text-[#f90908]">Balagot & Emperado CPAs Co.</span>, we go beyond numbers to help businesses and individuals achieve lasting success. Guided by our <span className="text-[#f90908]">ASCEND</span> values, we provide strategic financial solutions that support growth in every aspect. We are committed to building trust, fostering long-term relationships, and upholding integrity, ensuring a strong foundation for our clients. At the same time, we embrace innovation, expand beyond local markets, and provide insights that drive sustainable progress.
+          <p className="text-left text-[18px]">
+            At{" "}
+            <span className="text-[#f90908]">
+              Balagot &amp; Emperado CPAs Co.
+            </span>
+            , we go beyond numbers to help businesses and individuals achieve
+            lasting success. Guided by our{" "}
+            <span className="text-[#f90908]">ASCEND</span> values, we provide
+            strategic financial solutions that support growth in every aspect. We
+            are committed to building trust, fostering long-term relationships,
+            and upholding integrity, ensuring a strong foundation for our
+            clients. At the same time, we embrace innovation, expand beyond local
+            markets, and provide insights that drive sustainable progress.
           </p>
 
-          <p className="font-bold mt-16 uppercase  text-[20px]  pl-[30px] mb-[15px] before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
+          {/* Core Values header */}
+          <p className="font-bold mt-16 uppercase text-[20px] pl-[30px] mb-[15px] relative before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
             Core Values
-
           </p>
-          <p className="text-left uppercase  text-[20px]  pl-[30px] mb-[15px] before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
+
+          <p className="text-left uppercase text-[20px] pl-[30px] mb-[15px] relative before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
             ASCEND ONWARDS CENTER
           </p>
 
-          <div className="xl:mr-10">
-            <ul className="about-content-list p-0 mt-[25px] mb-[30px] mx-0 list-none">
-              <li className="text-left text-[18px] font-semibold mb-[15px]">
-                <p> <i className="fa fa-check text-[#f90908] mr-[10px]"></i><span className="text-[#f90908] font-bold">Accountability</span> – We take full ownership of our work, ensuring that every decision and service reflects our commitment to integrity and excellence
-                </p> </li>
+          {/* ✅ FIXED LAYOUT: Desktop left wheel + right description */}
+          <div className="mt-10">
+            <div className="grid grid-cols-1 gap-10 items-start lg:grid-cols-[520px_1fr] lg:gap-16">
+              {/* LEFT: Wheel (stick to left) */}
+              <div className="justify-self-center lg:justify-self-start">
+                <div className="relative w-[360px] h-[360px] sm:w-[420px] sm:h-[420px] lg:w-[520px] lg:h-[520px]">
+                  <Image
+                    src="/img/core-values-wheel.png"
+                    alt="ASCEND Core Values Wheel"
+                    fill
+                    priority
+                    className="object-contain select-none"
+                    draggable={false}
+                  />
 
-              <li className="text-left text-[18px] font-semibold mb-[15px]">
-                <p> <i className="fa fa-check text-[#f90908] mr-[10px]"></i><span className="text-[#f90908] font-bold">Sustainability</span> –We go beyond short-term gains, focusing on long-term financial stability and fostering lasting relationships with our clients.
-                </p> </li>
+                  {/* Hotspots (hover) */}
+                  <div
+                    className="absolute left-1/2 -translate-x-1/2 top-[4%] w-[46%] h-[20%] rounded-[999px] cursor-pointer"
+                    onMouseEnter={() => setActiveKey("accountability")}
+                    onFocus={() => setActiveKey("accountability")}
+                    tabIndex={0}
+                    aria-label="Accountability"
+                  />
+                  <div
+                    className="absolute right-[0%] top-[18%] w-[28%] h-[42%] rounded-[999px] cursor-pointer"
+                    onMouseEnter={() => setActiveKey("sustainability")}
+                    onFocus={() => setActiveKey("sustainability")}
+                    tabIndex={0}
+                    aria-label="Sustainability"
+                  />
+                  <div
+                    className="absolute right-[6%] bottom-[22%] w-[36%] h-[26%] rounded-[999px] cursor-pointer rotate-[22deg]"
+                    onMouseEnter={() => setActiveKey("collaboration")}
+                    onFocus={() => setActiveKey("collaboration")}
+                    tabIndex={0}
+                    aria-label="Collaboration"
+                  />
+                  <div
+                    className="absolute left-1/2 -translate-x-1/2 bottom-[5%] w-[52%] h-[22%] rounded-[999px] cursor-pointer"
+                    onMouseEnter={() => setActiveKey("excellence")}
+                    onFocus={() => setActiveKey("excellence")}
+                    tabIndex={0}
+                    aria-label="Excellence"
+                  />
+                  <div
+                    className="absolute left-[4%] bottom-[14%] w-[30%] h-[40%] rounded-[999px] cursor-pointer -rotate-[18deg]"
+                    onMouseEnter={() => setActiveKey("nurturing_growth")}
+                    onFocus={() => setActiveKey("nurturing_growth")}
+                    tabIndex={0}
+                    aria-label="Nurturing Growth"
+                  />
+                  <div
+                    className="absolute left-[2%] top-[18%] w-[30%] h-[32%] rounded-[999px] cursor-pointer -rotate-[25deg]"
+                    onMouseEnter={() => setActiveKey("dedication")}
+                    onFocus={() => setActiveKey("dedication")}
+                    tabIndex={0}
+                    aria-label="Dedication"
+                  />
+                </div>
+              </div>
 
+              {/* RIGHT: Description (full width of right column, NOT centered) */}
+              <div className="w-full justify-self-stretch">
+                <div className="w-full rounded-2xl border border-black/10 bg-white p-6 sm:p-8 shadow-sm text-left">
+                  <p className="text-gray-500 text-xs uppercase tracking-widest">
+                    Selected Value
+                  </p>
 
-              <li className="text-left text-[18px] font-semibold mb-[15px]">
-                <p> <i className="fa fa-check text-[#f90908] mr-[10px]"></i><span className="text-[#f90908] font-bold">Collaboration </span> –  We believe success is built through strong partnerships, working closely with businesses and individuals to help them grow.
-                </p> </li>
+                  <h4 className="text-[#24262d] text-3xl font-extrabold mt-2">
+                    {active.title}
+                  </h4>
 
-              <li className="text-left text-[18px] font-semibold mb-[15px]">
-                <p> <i className="fa fa-check text-[#f90908] mr-[10px]"></i><span className="text-[#f90908] font-bold">Excellence </span> –  We hold ourselves to the highest standards, delivering precise, insightful, and effective financial solutions.
-                </p> </li>
-
-              <li className="text-left text-[18px] font-semibold mb-[15px]">
-                <p> <i className="fa fa-check text-[#f90908] mr-[10px]"></i><span className="text-[#f90908] font-bold">Nurturing Growth</span> – We don’t just manage finances; we empower businesses to expand, innovate, and thrive in a competitive landscape.
-                </p> </li>
-
-              <li className="text-left text-[18px] font-semibold mb-[15px]">
-                <p> <i className="fa fa-check text-[#f90908] mr-[10px]"></i><span className="text-[#f90908] font-bold">Dedication </span> – Our commitment to client success is unwavering, driving us to continuously improve and adapt to meet evolving needs.
-                </p> </li>
-
-            </ul>
+                  <p className="text-[#24262d]/80 text-base sm:text-lg mt-4 leading-relaxed">
+                    {active.desc}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <p className="text-left mt-20text-[18px]">With <span className="text-[#f90908] font-bold">ASCEND</span> as our guiding principle, we don’t just serve; we elevate. By staying accountable, fostering sustainability, collaborating with clients, delivering excellence, nurturing growth, and remaining dedicated to success, Balagot & Emperado CPAs Co. continues to reach new heights while empowering businesses to grow not just financially, but strategically and sustainably. As we move onward and upward, we remain committed to strengthening our roots by anchoring our growth in trust, integrity, and long-term partnerships while expanding our horizons to reach new markets, innovate our services, and help businesses unlock their full potential.
+          {/* Closing paragraph */}
+          <p className="text-left mt-20 text-[18px]">
+            With{" "}
+            <span className="text-[#f90908] font-bold">ASCEND</span> as our guiding
+            principle, we don’t just serve; we elevate. By staying accountable,
+            fostering sustainability, collaborating with clients, delivering
+            excellence, nurturing growth, and remaining dedicated to success,
+            Balagot &amp; Emperado CPAs Co. continues to reach new heights while
+            empowering businesses to grow not just financially, but strategically
+            and sustainably.
           </p>
-
         </div>
-
       </div>
     </>
   );

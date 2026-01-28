@@ -3,6 +3,7 @@ import React from "react";
 import History from "./History";
 import Vision_Mission from "./Vision_Mission";
 import Locations from "./Locations";
+import Team from "./Team";
 
 const AboutExtra = () => {
   return (
@@ -35,6 +36,7 @@ const AboutExtra = () => {
         <History />
         <Vision_Mission />
         <Locations />
+        <Team />
       </div>
     </section>
   );

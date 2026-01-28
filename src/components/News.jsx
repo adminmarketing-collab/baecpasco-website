@@ -56,7 +56,7 @@ const News = () => {
     <>
       <div id="merox-blog-area" className="merox-blog-area my-[100px]">
         <div className="container">
-          <div className="flex flex-wrap mx-[-12px]">
+          <div className="flex flex-wrap  justify-center">
             <div className="xl:w-8/12 lg:w-8/12 md:w-7/12 sm:w-full xl:pr-[30px] lg:pr-[30px] md:pr-[30px] px-[12px]">
 
 

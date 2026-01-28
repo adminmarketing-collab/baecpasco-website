@@ -15,10 +15,12 @@ const Cta = () => {
   return (
     <>
       <div
-        id="merox-cta-area"
-        className="merox-cta-area py-[100px] text-center bg-center bg-cover relative h-full bg-no-repeat before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-black "
-        style={{ backgroundImage: `url(${CtaData.bgimg.src})` }}
-      >
+  id="merox-cta-area"
+  className="merox-cta-area py-[50px] md:py-[70px] text-center bg-center bg-cover relative bg-no-repeat overflow-hidden
+before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-black/100"
+
+  style={{ backgroundImage: `url(${CtaData.bgimg.src})` }}
+>
         <div className="container relative text-center">
           <div className="flex flex-wrap mx-[-12px]">
             <div className="xl:w-10/12 lg:w-10/12 md:w-full sm:w-full xsm:w-full mx-auto px-[12px] flex-[0_0_auto]">
@@ -26,7 +28,7 @@ const Cta = () => {
                 <p className="text-white capitalize m-0 font-semibold text-[24px]">
                   {CtaData.title}
                 </p>
-                <h2 className="wow fadeInUp text-[50px] text-white font-bold leading-[55px] inline-block capitalize mt-5 mb-[25px]">
+                <h2 className="wow fadeInUp text-[34px] md:text-[42px] text-white font-bold leading-tight inline-block capitalize mt-4 mb-4">
                   {CtaData.title2}
                 </h2>
                 <div className="cta-btn my-[13px] mx-0">
