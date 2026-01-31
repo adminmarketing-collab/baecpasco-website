@@ -108,94 +108,101 @@ const Vision_Mission = () => {
             markets, and provide insights that drive sustainable progress.
           </p>
 
-          {/* Core Values header */}
-          <p className="font-bold mt-16 uppercase text-[20px] pl-[30px] mb-[15px] relative before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
-            Core Values
-          </p>
+          {/* CORE VALUES HEADER */}
+<div className="mt-20 mb-14 text-center">
+  <h2 className="text-[50px] font-bold leading-[49px] uppercase">
+    Core Values
+  </h2>
 
-          <p className="text-left uppercase text-[20px] pl-[30px] mb-[15px] relative before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
-            ASCEND ONWARDS CENTER
-          </p>
+  {/* Red line */}
+  <div className="flex justify-center mt-4 mb-3">
+    <span className="block w-[70px] h-[3px] bg-[#f90908]" />
+  </div>
 
-          {/* ✅ FIXED LAYOUT: Desktop left wheel + right description */}
-          <div className="mt-10">
-            <div className="grid grid-cols-1 gap-10 items-start lg:grid-cols-[520px_1fr] lg:gap-16">
-              {/* LEFT: Wheel (stick to left) */}
-              <div className="justify-self-center lg:justify-self-start">
-                <div className="relative w-[360px] h-[360px] sm:w-[420px] sm:h-[420px] lg:w-[520px] lg:h-[520px]">
-                  <Image
-                    src="/img/core-values-wheel.png"
-                    alt="ASCEND Core Values Wheel"
-                    fill
-                    priority
-                    className="object-contain select-none"
-                    draggable={false}
-                  />
+  <p className="uppercase font-semibold tracking-widest text-[18px]">
+    Ascend Onwards Center
+  </p>
+</div>
 
-                  {/* Hotspots (hover) */}
-                  <div
-                    className="absolute left-1/2 -translate-x-1/2 top-[4%] w-[46%] h-[20%] rounded-[999px] cursor-pointer"
-                    onMouseEnter={() => setActiveKey("accountability")}
-                    onFocus={() => setActiveKey("accountability")}
-                    tabIndex={0}
-                    aria-label="Accountability"
-                  />
-                  <div
-                    className="absolute right-[0%] top-[18%] w-[28%] h-[42%] rounded-[999px] cursor-pointer"
-                    onMouseEnter={() => setActiveKey("sustainability")}
-                    onFocus={() => setActiveKey("sustainability")}
-                    tabIndex={0}
-                    aria-label="Sustainability"
-                  />
-                  <div
-                    className="absolute right-[6%] bottom-[22%] w-[36%] h-[26%] rounded-[999px] cursor-pointer rotate-[22deg]"
-                    onMouseEnter={() => setActiveKey("collaboration")}
-                    onFocus={() => setActiveKey("collaboration")}
-                    tabIndex={0}
-                    aria-label="Collaboration"
-                  />
-                  <div
-                    className="absolute left-1/2 -translate-x-1/2 bottom-[5%] w-[52%] h-[22%] rounded-[999px] cursor-pointer"
-                    onMouseEnter={() => setActiveKey("excellence")}
-                    onFocus={() => setActiveKey("excellence")}
-                    tabIndex={0}
-                    aria-label="Excellence"
-                  />
-                  <div
-                    className="absolute left-[4%] bottom-[14%] w-[30%] h-[40%] rounded-[999px] cursor-pointer -rotate-[18deg]"
-                    onMouseEnter={() => setActiveKey("nurturing_growth")}
-                    onFocus={() => setActiveKey("nurturing_growth")}
-                    tabIndex={0}
-                    aria-label="Nurturing Growth"
-                  />
-                  <div
-                    className="absolute left-[2%] top-[18%] w-[30%] h-[32%] rounded-[999px] cursor-pointer -rotate-[25deg]"
-                    onMouseEnter={() => setActiveKey("dedication")}
-                    onFocus={() => setActiveKey("dedication")}
-                    tabIndex={0}
-                    aria-label="Dedication"
-                  />
-                </div>
-              </div>
+         
+         {/* ✅ Core Values (Desktop: left wheel, right description. Mobile: stacked) */}
+<div className="mt-10 w-full text-left">
+  <div className="flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-14 text-left">
 
-              {/* RIGHT: Description (full width of right column, NOT centered) */}
-              <div className="w-full justify-self-stretch">
-                <div className="w-full rounded-2xl border border-black/10 bg-white p-6 sm:p-8 shadow-sm text-left">
-                  <p className="text-gray-500 text-xs uppercase tracking-widest">
-                    Selected Value
-                  </p>
+    {/* LEFT: Wheel */}
+    <div className="w-full lg:w-[380px] max-w-[340px] lg:max-w-none shrink-0 mx-auto lg:mx-0">
+  <div className="relative w-full aspect-square">
+    <Image
+      src="/img/core-values-wheel.png"
+      alt="ASCEND Core Values Wheel"
+      fill
+      priority
+      className="object-contain select-none"
+      draggable={false}
+    />
 
-                  <h4 className="text-[#24262d] text-3xl font-extrabold mt-2">
-                    {active.title}
-                  </h4>
+        {/* Hotspots */}
+        <div
+          className="absolute left-1/2 -translate-x-1/2 top-[4%] w-[46%] h-[20%] rounded-[999px] cursor-pointer"
+          onMouseEnter={() => setActiveKey("accountability")}
+          onClick={() => setActiveKey("accountability")}
+          tabIndex={0}
+          aria-label="Accountability"
+        />
+        <div
+          className="absolute right-[0%] top-[18%] w-[28%] h-[42%] rounded-[999px] cursor-pointer"
+          onMouseEnter={() => setActiveKey("sustainability")}
+          onClick={() => setActiveKey("sustainability")}
+          tabIndex={0}
+          aria-label="Sustainability"
+        />
+        <div
+          className="absolute right-[6%] bottom-[22%] w-[36%] h-[26%] rounded-[999px] cursor-pointer rotate-[22deg]"
+          onMouseEnter={() => setActiveKey("collaboration")}
+          onClick={() => setActiveKey("collaboration")}
+          tabIndex={0}
+          aria-label="Collaboration"
+        />
+        <div
+          className="absolute left-1/2 -translate-x-1/2 bottom-[5%] w-[52%] h-[22%] rounded-[999px] cursor-pointer"
+          onMouseEnter={() => setActiveKey("excellence")}
+          onClick={() => setActiveKey("excellence")}
+          tabIndex={0}
+          aria-label="Excellence"
+        />
+        <div
+          className="absolute left-[4%] bottom-[14%] w-[30%] h-[40%] rounded-[999px] cursor-pointer -rotate-[18deg]"
+          onMouseEnter={() => setActiveKey("nurturing_growth")}
+          onClick={() => setActiveKey("nurturing_growth")}
+          tabIndex={0}
+          aria-label="Nurturing Growth"
+        />
+        <div
+          className="absolute left-[2%] top-[18%] w-[30%] h-[32%] rounded-[999px] cursor-pointer -rotate-[25deg]"
+          onMouseEnter={() => setActiveKey("dedication")}
+          onClick={() => setActiveKey("dedication")}
+          tabIndex={0}
+          aria-label="Dedication"
+        />
+      </div>
+    </div>
 
-                  <p className="text-[#24262d]/80 text-base sm:text-lg mt-4 leading-relaxed">
-                    {active.desc}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+    {/* RIGHT: Description */}
+    <div className="w-full lg:flex-1 min-w-0">
+  <div className="rounded-2xl border border-black/10 bg-white p-6 sm:p-8 shadow-sm text-center">
+    
+    <h4 className="text-[#24262d] text-2xl sm:text-3xl font-extrabold">
+      {active.title}
+    </h4>
+
+    <p className="text-[#24262d]/80 text-base sm:text-lg mt-4 leading-relaxed max-w-[720px] mx-auto">
+      {active.desc}
+    </p>
+
+  </div>
+</div>
+  </div>
+</div>
 
           {/* Closing paragraph */}
           <p className="text-left mt-20 text-[18px]">
