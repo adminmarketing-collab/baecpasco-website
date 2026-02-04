@@ -1,18 +1,22 @@
 "use client";
+
+import React, { useEffect, useState } from "react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
-import React from "react";
+
 import img1 from "../../public/img/testimonial/client-1.jpg";
 import img2 from "../../public/img/testimonial/client-1.jpg";
+
+// Keep your Swiper styles (important for dots + layout)
+import "swiper/css";
+import "swiper/css/pagination";
 
 const TestimonialData = {
   title: "TESTIMONIALS",
   title2: "CLIENT’S SAY",
   TesstimonialList: [
     {
-      // title: "MELVIN LOPEZ LUMBAYAN",
-   //  desig: "AM LUMBAYAN AGRIBUSINESS INC.KIDAPAWAN CITY, NORTH COTABATO",
       title: "Anonymous ",
       desig: "",
       brief:
@@ -20,40 +24,45 @@ const TestimonialData = {
       img: img1,
     },
     {
-      // title: "Valdez Family",
       title: "Anonymous ",
       desig: "",
       brief:
         "On our 23rd year in business, we were lucky to find an accounting firm that patiently guided us with our tax concerns and BSP reports. Thank you, Balagot & Emperado CPA’s Co.—keep up the great work!",
       img: img2,
     },
-
   ],
 };
 
 const Testimonial = () => {
+  // ✅ Delay autoplay to reduce initial load jank
+  const [enableAutoplay, setEnableAutoplay] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setEnableAutoplay(true), 300);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <>
       <div
-        
-  id="merox-testimonial-area"
-  className="merox-testimonial-area py-[60px] md:py-[80px] wow fadeInUp"
->
-  <div className="container">
-    <div className="flex flex-wrap mx-[-12px]">
-      <div className="w-full px-[12px] flex-[0_0_auto]">
-        <div className="section-title mb-6 md:mb-8">
-          <h4 className="uppercase font-medium text-[20px] relative pl-[30px] mb-[15px] before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
-            {TestimonialData.title}
-          </h4>
-          <h3 className="text-[50px] font-bold leading-[49px] uppercase">
-            {TestimonialData.title2}
-          </h3>
+        id="merox-testimonial-area"
+        className="merox-testimonial-area py-[60px] md:py-[80px] wow fadeInUp"
+      >
+        <div className="container">
+          <div className="flex flex-wrap mx-[-12px]">
+            <div className="w-full px-[12px] flex-[0_0_auto]">
+              <div className="section-title mb-6 md:mb-8">
+                <h4 className="uppercase font-medium text-[20px] relative pl-[30px] mb-[15px] before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
+                  {TestimonialData.title}
+                </h4>
+                <h3 className="text-[50px] font-bold leading-[49px] uppercase">
+                  {TestimonialData.title2}
+                </h3>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-  
+
         <div className="container relative">
           <div className="flex flex-wrap mx-[-12px]">
             <div className="w-full px-[12px] flex-[0_0_auto]">
@@ -62,25 +71,19 @@ const Testimonial = () => {
                 modules={[Pagination, Autoplay]}
                 slidesPerView="auto"
                 breakpoints={{
-                  0: {
-                    slidesPerView: 1,
-                  },
-                  600: {
-                    slidesPerView: 2,
-                  },
-                  992: {
-                    slidesPerView: 2,
-                  },
-                  1200: {
-                    slidesPerView: 2,
-                  },
+                  0: { slidesPerView: 1 },
+                  600: { slidesPerView: 2 },
+                  992: { slidesPerView: 2 },
+                  1200: { slidesPerView: 2 },
                 }}
-                autoplay={true}
+                autoplay={
+                  enableAutoplay
+                    ? { delay: 4500, disableOnInteraction: false }
+                    : false
+                }
                 allowTouchMove={true}
                 loop={true}
-                pagination={{
-                  clickable: true,
-                }}
+                pagination={{ clickable: true }}
                 speed={1000}
               >
                 {TestimonialData.TesstimonialList.map((item, i) => (
@@ -89,12 +92,16 @@ const Testimonial = () => {
                       <div className="testimonial-img inline-block">
                         <Image
                           src={item.img}
+                          alt="testimonial-img"
                           className="img-fluid !w-[110px] md:!w-[160px] h-auto rounded-[50%] border-[5px] border-solid border-[#f90908]"
-        alt="testimonial-img"
+                          // ✅ small perf win: don't prioritize these images
+                          loading="lazy"
                         />
                       </div>
+
                       <div className="testimonial-content pl-[15px]">
                         <p className="m-0">{item.brief}</p>
+
                         <div className="title-desig mb-[15px]">
                           <h3 className="text-[24px] font-bold capitalize font-poppins mt-[13px] mb-[10px]">
                             {item.title}

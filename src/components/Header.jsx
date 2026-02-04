@@ -115,8 +115,21 @@ const Header = () => {
     }
   };
   useEffect(() => {
-    window.addEventListener("scroll", stickyHeader);
-  }, []);
+  let ticking = false;
+
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        setSticky(window.scrollY > 200);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  return () => window.removeEventListener("scroll", onScroll);
+}, []);
 
   //mobile menu
   const navLinksRef = useRef(null);
@@ -196,7 +209,7 @@ const Header = () => {
                                 : ""
                             }`}
                           >
-                            <Link href={item.link}>
+                            <Link href={item.link} prefetch>
                               {item.title}
                               {item.submenu && (
                                 <i className="fa fa-angle-down ml-[4px]"></i>
@@ -206,7 +219,7 @@ const Header = () => {
                               <ul className="sub-menu text-left">
                                 {item.submenu.map((item, i) => (
                                   <li key={i}>
-                                    <Link href={item.link}>{item.title}</Link>
+                                    <Link href={item.link} prefetch >{item.title}</Link>
                                   </li>
                                 ))}
                               </ul>
