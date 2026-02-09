@@ -56,10 +56,13 @@ const Vision_Mission = () => {
 
         <div className="container">
           {/* Vision */}
-          <p className="font-bold mt-16 uppercase text-[20px] pl-[30px] mb-[15px] relative before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
-            Vision Statement
-          </p>
-
+      
+  <div className="flex items-center justify-center gap-3 mt-16 mb-[15px]">
+  <span className="w-4 h-[3px] bg-[#f90908]"></span>
+  <p className="uppercase font-bold text-[20px] text-[#24262d]">
+    Vision Statement
+  </p>
+</div>
           <p className="text-left text-[18px]">
             Our vision is to be the{" "}
             <span className="text-[#f90908]">
@@ -89,9 +92,12 @@ const Vision_Mission = () => {
           </p>
 
           {/* Mission */}
-          <p className="font-bold mt-16 uppercase text-[20px] pl-[30px] mb-[15px] relative before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
-            Mission Statement
-          </p>
+          <div className="flex items-center justify-center gap-3 mt-16 mb-[15px]">
+  <span className="w-4 h-[3px] bg-[#f90908]"></span>
+  <p className="uppercase font-bold text-[20px] text-[#24262d]">
+    Mission Statement
+  </p>
+</div>
 
           <p className="text-left text-[18px]">
             At{" "}
@@ -109,10 +115,12 @@ const Vision_Mission = () => {
           </p>
 
           {/* CORE VALUES HEADER */}
-<div className="mt-20 mb-14 text-center">
-  <h2 className="text-[50px] font-bold leading-[49px] uppercase">
-    Core Values
-  </h2>
+<div className="flex items-center justify-center gap-3 mt-16 mb-[15px]">
+  
+  <p className="uppercase font-bold text-[20px] text-[#24262d]">
+    CORE VALUES
+  </p>
+</div>
 
   {/* Red line */}
   <div className="flex justify-center mt-4 mb-3">
@@ -125,21 +133,43 @@ const Vision_Mission = () => {
 </div>
 
          
-         {/* ✅ Core Values (Desktop: left wheel, right description. Mobile: stacked) */}
+        {/* ✅ Core Values (Desktop: wheel + floating tooltip outside; Mobile: centered) */}
 <div className="mt-10 w-full text-left">
   <div className="flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-14 text-left">
 
-    {/* LEFT: Wheel */}
+    {/* LEFT: Wheel (IBALIK SA GAMAY NGA SIZE) */}
     <div className="w-full lg:w-[380px] max-w-[340px] lg:max-w-none shrink-0 mx-auto lg:mx-0">
-  <div className="relative w-full aspect-square">
-    <Image
-      src="/img/core-values-wheel.png"
-      alt="ASCEND Core Values Wheel"
-      fill
-      priority
-      className="object-contain select-none"
-      draggable={false}
-    />
+      {/* ✅ allow tooltip outside */}
+      <div className="relative w-full aspect-square overflow-visible">
+        <Image
+          src="/img/core-values-wheel.png"
+          alt="ASCEND Core Values Wheel"
+          fill
+          priority
+          className="object-contain select-none"
+          draggable={false}
+        />
+
+        {/* ✅ FLOATING TOOLTIP (OUTSIDE THE WHEEL, no overlap) */}
+        <div
+          className={`
+            absolute z-20 w-[260px] sm:w-[320px]
+            rounded-xl bg-white shadow-lg border border-black/10 p-4
+            ${activeKey === "accountability" ? "left-1/2 -translate-x-1/2 top-[-55%]" : ""}
+            ${activeKey === "sustainability" ? "right-[-78%] top-[10%]" : ""}
+            ${activeKey === "collaboration" ? "right-[-82%] bottom-[18%]" : ""}
+            ${activeKey === "excellence" ? "left-1/2 -translate-x-1/2 bottom-[-50%]" : ""}
+            ${activeKey === "nurturing_growth" ? "left-[-82%] bottom-[18%]" : ""}
+            ${activeKey === "dedication" ? "left-[-78%] top-[10%]" : ""}
+          `}
+        >
+          <div className="text-[#24262d] font-extrabold text-lg leading-tight">
+            {active.title}
+          </div>
+          <div className="mt-2 text-[#24262d]/80 text-sm leading-relaxed">
+            {active.desc}
+          </div>
+        </div>
 
         {/* Hotspots */}
         <div
@@ -187,20 +217,7 @@ const Vision_Mission = () => {
       </div>
     </div>
 
-    {/* RIGHT: Description */}
-    <div className="w-full lg:flex-1 min-w-0">
-  <div className="rounded-2xl border border-black/10 bg-white p-6 sm:p-8 shadow-sm text-center">
-    
-    <h4 className="text-[#24262d] text-2xl sm:text-3xl font-extrabold">
-      {active.title}
-    </h4>
-
-    <p className="text-[#24262d]/80 text-base sm:text-lg mt-4 leading-relaxed max-w-[720px] mx-auto">
-      {active.desc}
-    </p>
-
-  </div>
-</div>
+    {/* RIGHT SIDE: (REMOVE NA) — no more big card below/right since tooltip is near wheel */}
   </div>
 </div>
 
@@ -216,7 +233,6 @@ const Vision_Mission = () => {
             and sustainably.
           </p>
         </div>
-      </div>
     </>
   );
 };

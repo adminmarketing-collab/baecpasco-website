@@ -1,14 +1,9 @@
 "use client";
-
-import React, { useEffect, useState } from "react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
+import React from "react";
 
-import img1 from "../../public/img/testimonial/client-1.jpg";
-import img2 from "../../public/img/testimonial/client-1.jpg";
-
-// Keep your Swiper styles (important for dots + layout)
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -17,107 +12,95 @@ const TestimonialData = {
   title2: "CLIENT’S SAY",
   TesstimonialList: [
     {
-      title: "Anonymous ",
-      desig: "",
+      title: "Anonymous",
       brief:
         "I’ve tried other bookkeeping services before, but BALAGOT & Co. is the best. I’ve been with them since 2014. They reply fast, usually within minutes, and are always ready to help. My books are always updated early each month. I highly recommend them for any business, big or small",
-      img: img1,
     },
     {
-      title: "Anonymous ",
-      desig: "",
+      title: "Anonymous",
       brief:
         "On our 23rd year in business, we were lucky to find an accounting firm that patiently guided us with our tax concerns and BSP reports. Thank you, Balagot & Emperado CPA’s Co.—keep up the great work!",
-      img: img2,
     },
   ],
 };
 
 const Testimonial = () => {
-  // ✅ Delay autoplay to reduce initial load jank
-  const [enableAutoplay, setEnableAutoplay] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setEnableAutoplay(true), 300);
-    return () => clearTimeout(t);
-  }, []);
-
   return (
-    <>
-      <div
-        id="merox-testimonial-area"
-        className="merox-testimonial-area py-[60px] md:py-[80px] wow fadeInUp"
-      >
-        <div className="container">
-          <div className="flex flex-wrap mx-[-12px]">
-            <div className="w-full px-[12px] flex-[0_0_auto]">
-              <div className="section-title mb-6 md:mb-8">
-                <h4 className="uppercase font-medium text-[20px] relative pl-[30px] mb-[15px] before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
-                  {TestimonialData.title}
-                </h4>
-                <h3 className="text-[50px] font-bold leading-[49px] uppercase">
-                  {TestimonialData.title2}
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div
+      id="merox-testimonial-area"
+      className="merox-testimonial-area py-[60px] md:py-[80px] wow fadeInUp"
+    >
+      {/* HEADER */}
+      <div className="container mb-10">
+        <h4 className="uppercase font-medium text-[20px] relative pl-[30px] mb-[15px]
+          before:bg-[#f90908] before:h-[2px] before:w-5 before:absolute before:left-0 before:top-[11px]">
+          {TestimonialData.title}
+        </h4>
 
-        <div className="container relative">
-          <div className="flex flex-wrap mx-[-12px]">
-            <div className="w-full px-[12px] flex-[0_0_auto]">
-              <Swiper
-                className="testimonial-wraper"
-                modules={[Pagination, Autoplay]}
-                slidesPerView="auto"
-                breakpoints={{
-                  0: { slidesPerView: 1 },
-                  600: { slidesPerView: 2 },
-                  992: { slidesPerView: 2 },
-                  1200: { slidesPerView: 2 },
-                }}
-                autoplay={
-                  enableAutoplay
-                    ? { delay: 4500, disableOnInteraction: false }
-                    : false
-                }
-                allowTouchMove={true}
-                loop={true}
-                pagination={{ clickable: true }}
-                speed={1000}
-              >
-                {TestimonialData.TesstimonialList.map((item, i) => (
-                  <SwiperSlide key={i}>
-                    <div className="single-testimonial flex py-0 px-[15px]">
-                      <div className="testimonial-img inline-block">
-                        <Image
-                          src={item.img}
-                          alt="testimonial-img"
-                          className="img-fluid !w-[110px] md:!w-[160px] h-auto rounded-[50%] border-[5px] border-solid border-[#f90908]"
-                          // ✅ small perf win: don't prioritize these images
-                          loading="lazy"
-                        />
-                      </div>
-
-                      <div className="testimonial-content pl-[15px]">
-                        <p className="m-0">{item.brief}</p>
-
-                        <div className="title-desig mb-[15px]">
-                          <h3 className="text-[24px] font-bold capitalize font-poppins mt-[13px] mb-[10px]">
-                            {item.title}
-                          </h3>
-                          <h4 className="uppercase text-[16px]">{item.desig}</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-          </div>
-        </div>
+        <h3 className="text-[50px] font-bold leading-[49px] uppercase">
+          {TestimonialData.title2}
+        </h3>
       </div>
-    </>
+
+      {/* SLIDER */}
+      <div className="container">
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          slidesPerView={2}
+          spaceBetween={40}
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+          }}
+          autoplay={{ delay: 4500 }}
+          loop
+          pagination={{ clickable: true }}
+          speed={900}
+        >
+          {TestimonialData.TesstimonialList.map((item, i) => (
+            <SwiperSlide key={i}>
+              <div className="flex items-start gap-4">
+                
+               {/* ICON: black user behind, red ring in front (guaranteed) */}
+<span className="relative w-[22px] h-[22px] flex-shrink-0 mt-[4px]">
+  {/* black user (behind) */}
+  <span className="absolute inset-0 rounded-full bg-white overflow-hidden flex items-start justify-center pt-[3px] z-[1]">
+    <i className="fa fa-user text-black text-[10px] leading-none" />
+  </span>
+
+  {/* red ring (front) - SVG so it will NEVER disappear */}
+  <svg
+    className="absolute inset-0 z-[5] pointer-events-none"
+    viewBox="0 0 22 22"
+    fill="none"
+  >
+    <circle
+      cx="11"
+      cy="11"
+      r="9"
+      stroke="#f90908"
+      strokeWidth="3"
+    />
+  </svg>
+</span>
+
+                {/* TEXT */}
+                <div>
+                  <p className="text-[#6b7280] leading-relaxed mb-4">
+                    {item.brief}
+                  </p>
+
+                  <h4 className="font-bold text-[#24262d] text-[20px]">
+                    {item.title}
+                  </h4>
+                </div>
+
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
   );
 };
 
