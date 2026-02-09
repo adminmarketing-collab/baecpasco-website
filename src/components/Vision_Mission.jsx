@@ -58,7 +58,7 @@ const Vision_Mission = () => {
           {/* Vision */}
       
   <div className="flex items-center justify-center gap-3 mt-16 mb-[15px]">
-  <span className="w-4 h-[3px] bg-[#f90908]"></span>
+  <span className="w-4 h-[2px] bg-[#f90908]"></span>
   <p className="uppercase font-bold text-[20px] text-[#24262d]">
     Vision Statement
   </p>
@@ -93,7 +93,7 @@ const Vision_Mission = () => {
 
           {/* Mission */}
           <div className="flex items-center justify-center gap-3 mt-16 mb-[15px]">
-  <span className="w-4 h-[3px] bg-[#f90908]"></span>
+  <span className="w-4 h-[2px] bg-[#f90908]"></span>
   <p className="uppercase font-bold text-[20px] text-[#24262d]">
     Mission Statement
   </p>
