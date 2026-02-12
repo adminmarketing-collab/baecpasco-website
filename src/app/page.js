@@ -57,8 +57,6 @@ export default function Index() {
         <Industries />
         <Cta />
         <Testimonial />
-        <Careers />
-
         <Footer />
       </main>
 

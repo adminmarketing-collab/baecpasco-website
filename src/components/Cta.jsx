@@ -7,7 +7,7 @@ const CtaData = {
   title: "Do You Have Any Financial Goals?",
   title2: "Let’s Talk About Smart Accounting and Tax Solutions Today",
   btntext: "WORK WITH US",
-  btnurl: "/team",
+  btnurl: "/contact",
   bgimg: bgimg,
 };
 

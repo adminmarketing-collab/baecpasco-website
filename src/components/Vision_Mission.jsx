@@ -57,7 +57,7 @@ const Vision_Mission = () => {
         <div className="container">
           {/* Vision */}
       
-  <div className="flex items-center justify-center gap-3 mt-16 mb-[15px]">
+  <div className="justify-center gap-3 mt-16 mb-[15px]">
   <span className="w-4 h-[2px] bg-[#f90908]"></span>
   <p className="uppercase font-bold text-[20px] text-[#24262d]">
     Vision Statement
@@ -92,7 +92,7 @@ const Vision_Mission = () => {
           </p>
 
           {/* Mission */}
-          <div className="flex items-center justify-center gap-3 mt-16 mb-[15px]">
+          <div className="justify-center gap-3 mt-16 mb-[15px]">
   <span className="w-4 h-[2px] bg-[#f90908]"></span>
   <p className="uppercase font-bold text-[20px] text-[#24262d]">
     Mission Statement
@@ -122,16 +122,11 @@ const Vision_Mission = () => {
   </p>
 </div>
 
-  {/* Red line */}
-  <div className="flex justify-center mt-4 mb-3">
-    <span className="block w-[70px] h-[3px] bg-[#f90908]" />
-  </div>
 
   <p className="uppercase font-semibold tracking-widest text-[18px]">
     Ascend Onwards Center
   </p>
 </div>
-
          
         {/* ✅ Core Values (Desktop: wheel + floating tooltip outside; Mobile: centered) */}
 <div className="mt-10 w-full text-left">

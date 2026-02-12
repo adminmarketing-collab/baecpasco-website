@@ -15,7 +15,7 @@ const History = () => {
   return (
     <>
       <div className="container text-center">
-  <h1 className="text-[50px] font-bold leading-[49px] uppercase mb-16">
+  <h1 className="text-[50px] font-bold leading-[2px] uppercase mb-16">
     History
   </h1>
 

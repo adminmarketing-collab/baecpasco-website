@@ -74,19 +74,18 @@ const TeamData = {
 
 const Team = () => {
   return (
-    <div id="merox-team-area" className="merox-team-area pt-[100px] pb-[120px]">
+    <div id="merox-team-area" className="merox-team-area pt-[5px] pb-[5px]">
       <div className="container">
         {/* Section Title */}
-        <div className="section-title mb-10 flex flex-col items-center mt-4">
-  <h4 className="uppercase font-medium text-[20px] relative pl-[30px] mb-2 before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
-    OUR TEAM
-  </h4>
+        <div className="section-title mb-10">
+          <h4 className="uppercase font-medium text-[20px] relative pl-[30px] mb-2 before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
+            OUR TEAM
+          </h4>
 
-  <h3 className="text-[50px] font-bold leading-[49px] uppercase text-center">
-    MEET THE EXPERTS
-  </h3>
-</div>
-
+          <h3 className="text-[50px] font-bold leading-[49px] uppercase text-center">
+            MEET THE EXPERTS
+          </h3>
+        </div>
 
         {/* Team Profiles */}
         <div className="flex flex-wrap mx-[-12px]">
@@ -95,63 +94,75 @@ const Team = () => {
               key={i}
               className="xl:w-1/4 lg:w-1/4 md:w-6/12 sm:w-full px-[12px] mb-[50px]"
             >
-              <div className="single-team-wrapper group text-center overflow-hidden shadow-[0px_8px_20px_rgba(0,0,0,0.14)] cursor-pointer h-full">
-                {/* Image */}
-                <div className="team-img">
-                  <Image
-                    className="rounded-tr-[10px] rounded-tl-[10px] w-full"
-                    src={item.img}
-                    alt={item.title}
-                  />
+              {/* ✅ IMPORTANT: relative + pb reserves space so bottom is FIXED */}
+              <div className="single-team-wrapper group relative text-center shadow-[0px_8px_20px_rgba(0,0,0,0.14)] cursor-pointer rounded-[10px] overflow-visible pb-[210px]">
+ 
+                {/* Image (clipped only here) */}
+                <div className="team-img overflow-hidden rounded-tr-[10px] rounded-tl-[10px]">
+                  <Image className="w-full" src={item.img} alt={item.title} />
                 </div>
 
-                {/* Content */}
-                <div
-                  className="
-                    team-content relative bg-white rounded-br-[10px] rounded-bl-[10px]
-                    px-[35px] pt-6 pb-10 -mt-[50px] translate-y-[50px]
-                    transition-all duration-200 ease-linear
-                    min-h-[190px]  /* ✅ makes cards uniform height */
-                    before:content-[''] before:absolute before:bottom-full before:left-1/2 before:-translate-x-1/2
-                    before:border-l-[15px] before:border-r-[15px] before:border-b-[15px]
-                    before:border-transparent before:border-b-white
-                    group-hover:translate-y-0 group-hover:bg-[#f90908]
-                    group-hover:before:border-b-[#f90908]
-                  "
-                >
-                  <h4 className="text-lg font-bold mb-[5px] group-hover:text-white">
-                    {item.title}
-                  </h4>
+                {/* ✅ Panel: absolute bottom-0 (BOTTOM NEVER MOVES) */}
+                <div className="team-content absolute left-0 right-0 bottom-0 overflow-visible">
+                  
+                  {/* Triangle (always visible) */}
+                  <span
+  className="
+    pointer-events-none absolute left-1/2 -translate-x-1/2 -top-[15px]
+    border-l-[15px] border-r-[15px] border-b-[15px]
+    border-l-transparent border-r-transparent border-b-white
+    transition-colors duration-300
+    group-hover:border-b-[#f90908]
+  "
+/>
 
-                  {/* ROLE (no border line here anymore) */}
-                  <span className="uppercase text-sm font-semibold block text-[#f90908] group-hover:text-white">
-                    {item.desig}
-                  </span>
-
-                  {/* ✅ Divider line (hidden first, shows on hover) */}
+                  {/* Inner box (this is what grows UP) */}
                   <div
                     className="
-                      w-full h-[1px] bg-white
-                      my-4
-                      opacity-0
-                      transition-opacity duration-300
-                      group-hover:opacity-100
-                    "
-                  />
+                      rounded-br-[10px] rounded-bl-[10px]
+                      bg-white
+                      px-[35px] pt-6 pb-8
+                      overflow-hidden
 
-                  {/* ✅ Specialization (hidden first, shows on hover) */}
-                  <p
-                    className="
-                      text-[14px] leading-[20px]
-                      opacity-0 translate-y-2 max-h-0 overflow-hidden
-                      transition-all duration-300 ease-in-out
-                      group-hover:opacity-100 group-hover:translate-y-0 group-hover:max-h-[120px]
-                      text-white/95
+                     + h-[210px] group-hover:h-[340px]
+                      transition-[height,background-color] duration-300 ease-in-out
+                      group-hover:bg-[#f90908]
                     "
                   >
-                    {item.spec}
-                  </p>
+                    <h4 className="text-lg font-bold mb-[5px] group-hover:text-white">
+                      {item.title}
+                    </h4>
+
+                    {/* ROLE */}
+                    <span className="uppercase text-sm font-semibold block text-[#f90908] group-hover:text-white">
+                      {item.desig}
+                    </span>
+
+                    {/* Divider line (hidden -> show on hover) */}
+                    <div
+                      className="
+                        w-full h-[1px] bg-white
+                        my-4
+                        opacity-0 transition-opacity duration-300
+                        group-hover:opacity-100
+                      "
+                    />
+
+                    {/* Specialization (hidden -> show on hover) */}
+                    <p
+                      className="
+                        text-[14px] leading-[20px]
+                        opacity-0 translate-y-2
+                        transition-all duration-300 ease-in-out
+                        group-hover:opacity-100 group-hover:translate-y-0
+                        text-white/95
+                      "
+                    >
+                      {item.spec}
+                    </p>
+                  </div>
                 </div>
+
               </div>
             </div>
           ))}

@@ -11,212 +11,221 @@ const DEFAULT_SERVICES = [
 ];
 
 export default function ContactForm({ services = DEFAULT_SERVICES }) {
+  const list = useMemo(() => services.filter(Boolean), [services]);
+
   const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
-    service: "",
+    services: [], // ✅ array for multi-select
     message: "",
   });
 
-  const [open, setOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(-1);
+  const [touched, setTouched] = useState({
+    name: false,
+    email: false,
+    phone: false,
+    services: false,
+    message: false,
+  });
 
-  const wrapRef = useRef(null);
-  const btnRef = useRef(null);
-
-  const list = useMemo(() => services.filter(Boolean), [services]);
-
-  // Close on outside click
-  useEffect(() => {
-    const onPointerDown = (e) => {
-      if (!wrapRef.current) return;
-      if (!wrapRef.current.contains(e.target)) setOpen(false);
-    };
-    document.addEventListener("pointerdown", onPointerDown);
-    return () => document.removeEventListener("pointerdown", onPointerDown);
-  }, []);
-
-  // Close on ESC
-  useEffect(() => {
-    const onKeyDown = (e) => {
-      if (e.key === "Escape") setOpen(false);
-    };
-    document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
-  }, []);
+  const [submitted, setSubmitted] = useState(false);
 
   const setField = (name, value) => setForm((p) => ({ ...p, [name]: value }));
+  const touch = (name) => setTouched((p) => ({ ...p, [name]: true }));
 
-  const selectService = (service) => {
-    setField("service", service);
-    setOpen(false);
-    setActiveIndex(-1);
-    btnRef.current?.focus();
+  const toggleService = (service) => {
+    setForm((p) => {
+      const exists = p.services.includes(service);
+      const next = exists ? p.services.filter((s) => s !== service) : [...p.services, service];
+      return { ...p, services: next };
+    });
+    touch("services");
   };
 
-  const onDropdownKeyDown = (e) => {
-    if (!open && (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ")) {
-      e.preventDefault();
-      setOpen(true);
-      setActiveIndex((i) => (i >= 0 ? i : 0));
-      return;
-    }
+  // ✅ Validation
+  const errors = useMemo(() => {
+    const e = {};
 
-    if (!open) return;
+    if (!form.name.trim()) e.name = "Full name is required.";
+    if (!form.email.trim()) e.email = "Email address is required.";
+    else if (!/^\S+@\S+\.\S+$/.test(form.email.trim())) e.email = "Please enter a valid email.";
 
-    if (e.key === "ArrowDown") {
-      e.preventDefault();
-      setActiveIndex((i) => Math.min(i + 1, list.length - 1));
-    } else if (e.key === "ArrowUp") {
-      e.preventDefault();
-      setActiveIndex((i) => Math.max(i - 1, 0));
-    } else if (e.key === "Enter") {
-      e.preventDefault();
-      if (activeIndex >= 0) selectService(list[activeIndex]);
-    }
-  };
+    if (!form.phone.trim()) e.phone = "Phone number is required.";
+
+    if (!form.services || form.services.length === 0)
+      e.services = "Please select at least one service.";
+
+    if (!form.message.trim()) e.message = "Message is required.";
+
+    return e;
+  }, [form]);
+
+  const isValid = useMemo(() => Object.keys(errors).length === 0, [errors]);
+
+  const showErr = (field) => (submitted || touched[field]) && errors[field];
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
+    setSubmitted(true);
 
-  try {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
+    // ✅ Block submit if invalid (before submit)
+    if (!isValid) return;
 
-    const result = await res.json();
-
-    if (result.success) {
-      alert("Message sent successfully!");
-
-      // Reset form after sending
-      setForm({
-        name: "",
-        email: "",
-        phone: "",
-        service: "",
-        message: "",
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
       });
-    } else {
-      alert("Failed to send message. Please try again.");
-    }
-  } catch (error) {
-    console.error(error);
-    alert("Something went wrong. Please try again.");
-  }
-};
 
+      const result = await res.json();
+
+      if (result.success) {
+        alert("Message sent successfully!");
+
+        // Reset
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          services: [],
+          message: "",
+        });
+        setTouched({
+          name: false,
+          email: false,
+          phone: false,
+          services: false,
+          message: false,
+        });
+        setSubmitted(false);
+      } else {
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong. Please try again.");
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit} style={styles.card}>
+      {/* FULL NAME */}
       <div style={styles.row}>
         <label style={styles.label}>Full Name</label>
         <input
-          style={styles.input}
+          style={{
+            ...styles.input,
+            ...(showErr("name") ? styles.inputError : null),
+          }}
           value={form.name}
           onChange={(e) => setField("name", e.target.value)}
+          onBlur={() => touch("name")}
           name="name"
           required
           placeholder="Your full name"
         />
+        {showErr("name") ? <div style={styles.errorText}>{errors.name}</div> : null}
       </div>
 
+      {/* EMAIL */}
       <div style={styles.row}>
         <label style={styles.label}>Email Address</label>
         <input
-          style={styles.input}
+          style={{
+            ...styles.input,
+            ...(showErr("email") ? styles.inputError : null),
+          }}
           value={form.email}
           onChange={(e) => setField("email", e.target.value)}
+          onBlur={() => touch("email")}
           name="email"
           required
           type="email"
           placeholder="you@email.com"
         />
+        {showErr("email") ? <div style={styles.errorText}>{errors.email}</div> : null}
       </div>
 
+      {/* PHONE */}
       <div style={styles.row}>
         <label style={styles.label}>Phone Number</label>
         <input
-          style={styles.input}
+          style={{
+            ...styles.input,
+            ...(showErr("phone") ? styles.inputError : null),
+          }}
           value={form.phone}
           onChange={(e) => setField("phone", e.target.value)}
+          onBlur={() => touch("phone")}
           name="phone"
-          placeholder="Optional"
+          required
+          placeholder="Your phone number"
         />
+        {showErr("phone") ? <div style={styles.errorText}>{errors.phone}</div> : null}
       </div>
 
-      {/* Custom Dropdown */}
-      <div style={{ ...styles.row, position: "relative" }} ref={wrapRef}>
+      {/* ✅ SERVICES (CHECKBOXES) */}
+      <div style={styles.row}>
         <label style={styles.label}>Service</label>
 
-        <button
-          ref={btnRef}
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          onKeyDown={onDropdownKeyDown}
-          aria-haspopup="listbox"
-          aria-expanded={open}
-          style={styles.dropdownBtn}
+        <div
+          style={{
+            ...styles.checkboxBox,
+            ...(showErr("services") ? styles.inputError : null),
+          }}
         >
-          <span style={{ fontWeight: 700, color: form.service ? "#111827" : "#6B7280" }}>
-            {form.service || "Services Interested In"}
-          </span>
-          <span style={{ transform: open ? "rotate(180deg)" : "none", transition: "0.2s" }}>▼</span>
-        </button>
+          {list.map((service) => {
+            const checked = form.services.includes(service);
+            return (
+              <label key={service} style={styles.checkboxRow}>
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onChange={() => toggleService(service)}
+                  style={styles.checkbox}
+                />
+                <span style={styles.checkboxText}>{service}</span>
+              </label>
+            );
+          })}
+        </div>
 
-        {open && (
-          <div role="listbox" style={styles.menu}>
-            {list.map((service, idx) => {
-              const selected = service === form.service;
-              const active = idx === activeIndex;
-
-              return (
-                <div
-                  key={service}
-                  role="option"
-                  aria-selected={selected}
-                  tabIndex={-1}
-                  // Pointer events = guaranteed hover + click behavior
-                  onPointerEnter={() => setActiveIndex(idx)}
-                  onPointerDown={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    selectService(service);
-                  }}
-                  style={{
-                    ...styles.item,
-                    ...(selected || active ? styles.itemActive : null),
-                  }}
-                >
-                  <span>{service}</span>
-                  {selected && <span style={{ fontWeight: 900 }}>✓</span>}
-                </div>
-              );
-            })}
-          </div>
-        )}
+        {showErr("services") ? <div style={styles.errorText}>{errors.services}</div> : null}
       </div>
 
+      {/* MESSAGE */}
       <div style={styles.row}>
         <label style={styles.label}>Message</label>
         <textarea
-          style={styles.textarea}
+          style={{
+            ...styles.textarea,
+            ...(showErr("message") ? styles.inputError : null),
+          }}
           value={form.message}
           onChange={(e) => setField("message", e.target.value)}
+          onBlur={() => touch("message")}
           name="message"
           rows={5}
+          required
           placeholder="Tell us what you need..."
         />
+        {showErr("message") ? <div style={styles.errorText}>{errors.message}</div> : null}
       </div>
 
-      <button type="submit" style={styles.submit}>
+      <button
+        type="submit"
+        style={{
+          ...styles.submit,
+          ...(isValid ? null : styles.submitDisabled),
+        }}
+        disabled={!isValid}
+      >
         Send Message
       </button>
 
-      {/* Small CSS only for focus ring (optional but nice) */}
+      {/* focus ring */}
       <style jsx>{`
         input:focus,
         textarea:focus,
@@ -229,11 +238,12 @@ export default function ContactForm({ services = DEFAULT_SERVICES }) {
     </form>
   );
 }
+
 const styles = {
   card: {
     background: "#fff",
     padding: 32,
-    borderRadius: 10, // ← LESS ROUND
+    borderRadius: 10,
     boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
     display: "flex",
     flexDirection: "column",
@@ -250,63 +260,69 @@ const styles = {
   },
   input: {
     border: "1px solid #D1D5DB",
-    borderRadius: 8, // ← LESS ROUND
+    borderRadius: 8,
     padding: "12px 14px",
     fontSize: 15,
   },
   textarea: {
     border: "1px solid #D1D5DB",
-    borderRadius: 8, // ← LESS ROUND
+    borderRadius: 8,
     padding: "12px 14px",
     fontSize: 15,
     resize: "vertical",
   },
-  dropdownBtn: {
-    width: "100%",
+
+  // ✅ Checkbox styling
+  checkboxBox: {
     border: "1px solid #D1D5DB",
-    borderRadius: 8, // ← LESS ROUND
+    borderRadius: 8,
     padding: "12px 14px",
+    display: "flex",
+    flexDirection: "column",
+    gap: 10,
     background: "#fff",
-    cursor: "pointer",
+  },
+  checkboxRow: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-between",
-  },
-  menu: {
-    position: "absolute",
-    left: 0,
-    top: "calc(100% + 8px)",
-    width: "100%",
-    background: "#fff",
-    border: "1px solid #E5E7EB",
-    borderRadius: 10, // ← LESS ROUND
-    overflow: "hidden",
-    boxShadow: "0 16px 35px rgba(0,0,0,0.14)",
-    zIndex: 999999,
-  },
-  item: {
-    padding: "12px 14px",
+    gap: 10,
     cursor: "pointer",
     userSelect: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    background: "#fff",
-    color: "#111827",
-    transition: "background 0.15s ease, color 0.15s ease",
   },
-  itemActive: {
-    background: "#EF4444",
-    color: "#fff",
+  checkbox: {
+    width: 16,
+    height: 16,
+    accentColor: "#EF4444",
+    cursor: "pointer",
+  },
+  checkboxText: {
+    fontSize: 15,
+    color: "#111827",
+    fontWeight: 600,
+  },
+
+  // ✅ Errors + disabled
+  inputError: {
+    borderColor: "#EF4444",
+  },
+  errorText: {
+    color: "#EF4444",
+    fontSize: 13,
+    fontWeight: 600,
+    marginTop: 2,
   },
   submit: {
     background: "#EF4444",
     color: "#fff",
     border: "none",
-    borderRadius: 8, // ← LESS ROUND
+    borderRadius: 8,
     padding: "14px 16px",
     fontWeight: 900,
     textTransform: "uppercase",
     cursor: "pointer",
+  },
+  submitDisabled: {
+    opacity: 0.6,
+    cursor: "not-allowed",
   },
 };
