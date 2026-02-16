@@ -36,11 +36,11 @@ const Locations = () => {
     <>
       <div
         id="merox-services-area"
-        className="merox-services-area py-32 relative z-[1] md:pb-10 sm:pb-10"
+        className="merox-services-area py-8 md:py-12 relative z-[1]"
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-2">
           <div className="text-center">
-            <h1 className="text-[50px] font-bold leading-[2px] uppercase pb-16">
+             <h1 className="text-[50px] font-bold leading-[1.1] uppercase mb-8">
               Offices/Our Locations
             </h1>
 

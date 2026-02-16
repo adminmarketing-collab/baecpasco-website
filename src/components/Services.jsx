@@ -137,7 +137,7 @@ const Services = () => {
     <>
       <div
         id="merox-services-area"
-        className="merox-services-area py-32 bg-[#24262d] relative z-[1] md:pb-20 sm:pb-20"
+        className="merox-services-area py-16 bg-[#24262d] relative z-[1] md:pb-8 sm:pb-8"
       >
         <div className="merox-services-area-img absolute right-0 top-0 h-full w-2/3 bg-no-repeat bg-center bg-cover -z-[1]">
           {/* <Image

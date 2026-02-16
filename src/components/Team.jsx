@@ -74,11 +74,11 @@ const TeamData = {
 
 const Team = () => {
   return (
-    <div id="merox-team-area" className="merox-team-area pt-[5px] pb-[5px]">
+    <div id="merox-team-area" className="merox-team-area pt-[2px] pb-[4px]">
       <div className="container">
         {/* Section Title */}
-        <div className="section-title mb-10">
-          <h4 className="uppercase font-medium text-[20px] relative pl-[30px] mb-2 before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
+        <div className="section-title mb-8">
+          <h4 className="uppercase font-medium text-[20px] relative pl-[30px] mb-1 ">
             OUR TEAM
           </h4>
 

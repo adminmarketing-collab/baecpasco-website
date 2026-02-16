@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div
       id="merox-about-area"
-      className="merox-about-area py-[60px] md:py-[80px]"
+      className="merox-about-area py-[60px] md:py-[60px]"
     >
       <div className="container">
         <div className="flex flex-wrap mx-[-12px] items-start">
@@ -21,7 +21,7 @@ const About = () => {
           {/* Content */}
           <div className="xl:ml-[8.33333333%] xl:w-6/12 lg:w-6/12 md:w-full sm:w-full xsm:w-full px-[12px] wow fadeInRight">
             <div className="section-title mb-6 md:mb-8 md:mt-10 sm:mt-10">
-              <h4 className="uppercase font-medium text-[18px] relative pl-[30px] mb-[12px] before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[10px]">
+              <h4 className="uppercase font-medium text-[18px] ">
                 overview
               </h4>
               <h3 className="text-[40px] md:text-[50px] font-bold leading-tight uppercase">

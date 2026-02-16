@@ -48,7 +48,7 @@ const Vision_Mission = () => {
         id="merox-services-area"
         className="merox-services-area relative z-[1] md:pb-20 sm:pb-20"
       >
-        <div className="container text-center mt-20 mb-16">
+        <div className="container text-center mt-8 mb-12">
           <h2 className="text-[50px] font-bold leading-[49px] uppercase">
             Vision and Mission
           </h2>
@@ -57,8 +57,7 @@ const Vision_Mission = () => {
         <div className="container">
           {/* Vision */}
       
-  <div className="justify-center gap-3 mt-16 mb-[15px]">
-  <span className="w-4 h-[2px] bg-[#f90908]"></span>
+  <div className="justify-center gap-3 mt-12 mb-[14px]">
   <p className="uppercase font-bold text-[20px] text-[#24262d]">
     Vision Statement
   </p>
@@ -92,8 +91,7 @@ const Vision_Mission = () => {
           </p>
 
           {/* Mission */}
-          <div className="justify-center gap-3 mt-16 mb-[15px]">
-  <span className="w-4 h-[2px] bg-[#f90908]"></span>
+          <div className="justify-center gap-3 mt-12 mb-[15px]">
   <p className="uppercase font-bold text-[20px] text-[#24262d]">
     Mission Statement
   </p>
@@ -217,7 +215,7 @@ const Vision_Mission = () => {
 </div>
 
           {/* Closing paragraph */}
-          <p className="text-left mt-20 text-[18px]">
+          <p className="text-left mt-6 text-[18px]">
             With{" "}
             <span className="text-[#f90908] font-bold">ASCEND</span> as our guiding
             principle, we don’t just serve; we elevate. By staying accountable,

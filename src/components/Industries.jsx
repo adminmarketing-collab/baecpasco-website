@@ -82,12 +82,12 @@ const Industries = () => {
       id="merox-services-area"
       className="merox-services-area py-10 bg-left z-[1] md:pb-20 sm:pb-20"
     >
-      <div className="container text-center mt-16 mb-16">
+      <div className="container text-center mt-8 mb-8">
         <h1 className="text-[50px] font-bold leading-[49px] uppercase">
           Industries We Serve
         </h1>
 
-        <p className="mt-12 mb-12 font-bold text-center text-[18px]">
+        <p className="mt-8 mb-8 font-bold text-center text-[18px]">
           Empowering Businesses Across Diverse Sectors
         </p>
 

@@ -5,8 +5,6 @@ import logo from "../../public/img/logo1-2.png";
 import Link from "next/link";
 
 const FooterData = {
-  copyright:
-    '© all right reserved by <a class="text-[#f90908] font-bold" href="#">theme_group</a>',
   logo: logo,
   brief:
     "Balagot & Emperado CPA’s Co. is a trusted firm that offers accounting and financial services. With years of experience, we help clients make smart and honest financial decisions. We focus on giving clear advice, practical solutions, and excellent service.",
@@ -135,15 +133,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* COPYRIGHT BAR (SHORT) */}
-      <div className="py-[10px] bg-white">
-        <div className="container">
-          <p
-            className="text-center text-[#24262d] text-[14px] mb-0 leading-5 capitalize"
-            dangerouslySetInnerHTML={{ __html: FooterData.copyright }}
-          />
-        </div>
-      </div>
+      
     </footer>
   );
 };
