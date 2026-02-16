@@ -51,16 +51,19 @@ const Video = () => {
           {/* RIGHT: Video */}
           <div className="w-full lg:w-7/12 order-1 lg:order-2">
             <div className="ml-auto relative w-full max-w-[680px] aspect-video translate-x-6 lg:translate-x-12 rounded-[20px] overflow-hidden bg-black shadow-lg">
-              <video
-  src="/video/services.mp4"
+             <video
+  src="/video/services-v2.mp4"
   autoPlay
   muted
   loop
   playsInline
   preload="metadata"
+  poster="/img/video/video-bg.png"
   className="absolute inset-0 w-full h-full object-cover"
-  onError={(e) => console.log("VIDEO ERROR:", e)}
-/>
+  onError={() => console.log("VIDEO ERROR CODE:", document.querySelector("video")?.error)}
+  onCanPlay={() => console.log("VIDEO can play now")}
+ />
+
 
             </div>
           </div>
