@@ -52,15 +52,16 @@ const Video = () => {
           <div className="w-full lg:w-7/12 order-1 lg:order-2">
             <div className="ml-auto relative w-full max-w-[680px] aspect-video translate-x-6 lg:translate-x-12 rounded-[20px] overflow-hidden bg-black shadow-lg">
               <video
-                src="/video/services.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls
-                preload="auto"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
+  src="/video/services.mp4"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="metadata"
+  poster="/img/video/video-bg.png"
+  className="absolute inset-0 w-full h-full object-cover"
+/>
+
             </div>
           </div>
         </div>
