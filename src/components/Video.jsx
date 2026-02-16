@@ -58,8 +58,8 @@ const Video = () => {
   loop
   playsInline
   preload="metadata"
-  poster="/img/video/video-bg.png"
   className="absolute inset-0 w-full h-full object-cover"
+  onError={(e) => console.log("VIDEO ERROR:", e)}
 />
 
             </div>
