@@ -143,11 +143,11 @@ const Header = () => {
     };
   }, []);
 
-  return (
+  return ( 
     <>
       <header>
         <div
-  className={`bg-[#0000004d] header-area absolute left-0 right-0 top-0 z-10 border-b border-[#cacaca] ${
+  className={`bg-[#0000004d] header-area absolute left-0 right-0 top-0 z-10 border-b-0 shadow-none ${
     sticky ? "header-fixed animated slideInDown" : ""
   } h-[72px] flex items-center`}
 >
@@ -213,8 +213,8 @@ const Header = () => {
                   )}
                 </li>
               ))}
-            </ul>
-          </nav>
+            </ul> 
+          </nav> 
         </div>
       </div>
     </div>
@@ -233,14 +233,14 @@ const Header = () => {
                   {HeaderData.Menu.map((item, i) => (
                     <li className="m-0" key={i}>
                       <Link
-                        className="text-white uppercase text-sm m-0 px-[5%] py-[15px] border-b-[rgba(255,255,255,0.5)] border-b border-solid"
+                        className="text-white uppercase text-sm m-0 px-[5%] py-[15px] "
                         href={item.link}
                         onClick={(e) => {
                           if (item.submenu) {
                             e.preventDefault();
                             toggleSubmenu(item);
                           }
-                        }}
+                        }} 
                       >
                         {item.title}
                                 {item.submenu && (
@@ -252,7 +252,7 @@ const Header = () => {
                             {item.submenu.map((item, i) => (
                               <li className="m-0" key={i}>
                                 <Link
-                                  className="text-white uppercase text-sm m-0 px-[10%] py-[15px] border-b-[rgba(255,255,255,0.5)] border-b border-solid"
+                                  className="text-white uppercase text-sm m-0 px-[10%] py-[15px] "
                                   href={item.link}
                                 >
                                   {item.title}

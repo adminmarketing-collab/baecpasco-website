@@ -1,24 +1,22 @@
-"use client";
-import React from "react";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Preloader from "@/components/Preloader";
-import Scrolltop from "@/components/Scrolltop";
-import Breadcrumb from "@/components/Breadcrumb";
-import News from "@/components/News";
+import NewsPageClient from "@/components/NewsPageClient";
 
-const Index = () => {
-  return (
-    <>
-      <Preloader />
-      <Header />
-      <main>
-        <Breadcrumb title="News" />
-        <News/>
-        <Footer />
-      </main>
-      <Scrolltop />
-    </>
-  );
+export const metadata = {
+  title: "Accounting News and Updates | BAE CPAS CO",
+  description:
+    "Stay updated with accounting news, tax updates, and compliance advisories relevant to businesses in North Cotabato and nearby areas.",
+  alternates: {
+    canonical: "https://www.baecpasco.com/news",
+  },
+  openGraph: {
+    title: "Accounting News and Updates | BAE CPAS CO",
+    description:
+      "Stay updated with accounting news, tax updates, and compliance advisories relevant to businesses in North Cotabato and nearby areas.",
+    url: "https://www.baecpasco.com/news",
+    siteName: "BAE CPAS CO",
+    type: "website",
+  },
 };
-export default Index;
+
+export default function Page() {
+  return <NewsPageClient />;
+}

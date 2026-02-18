@@ -1,23 +1,22 @@
-"use client";
-import React from "react";
-import Video from "@/components/Video";
-import Services from "@/components/Services";
-import Careers from "@/components/Careers";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import ServicesPageClient from "@/components/ServicesPageClient";
 
-const ServicesPage = () => {
-  return (
-    <>
-      <Header />
-      <main>
-        <Video />
-        <Services />
-        <Careers />
-      </main>
-      <Footer />
-    </>
-  );
+export const metadata = {
+  title: "Accounting Services in North Cotabato | BAE CPAS CO",
+  description:
+    "Comprehensive accounting services in North Cotabato including bookkeeping, payroll, tax compliance, audit, and business advisory support.",
+  alternates: {
+    canonical: "https://www.baecpasco.com/services",
+  },
+  openGraph: {
+    title: "Accounting Services in North Cotabato | BAE CPAS CO",
+    description:
+      "Comprehensive accounting services in North Cotabato including bookkeeping, payroll, tax compliance, audit, and business advisory support.",
+    url: "https://www.baecpasco.com/services",
+    siteName: "BAE CPAS CO",
+    type: "website",
+  },
 };
 
-export default ServicesPage;
+export default function Page() {
+  return <ServicesPageClient />;
+}

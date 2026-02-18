@@ -1,29 +1,22 @@
-"use client";
-import React from "react";
-import About from "@/components/About";
-import AboutExtra from "@/components/AboutExtra";
-import Counter from "@/components/Counter";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Preloader from "@/components/Preloader";
-import Scrolltop from "@/components/Scrolltop";
-import Breadcrumb from "@/components/Breadcrumb";
+import AboutPageClient from "@/components/AboutPageClient";
 
-
-
-const Index = () => {
-  return (
-    <>
-      <Preloader />
-      <Header />
-      <main>
-        <Breadcrumb title="About" />
-        <About />
-         <AboutExtra />
-        <Footer />
-      </main>
-      <Scrolltop />
-    </>
-  ); 
+export const metadata = {
+  title: "About BAE CPAS CO | Trusted CPA Firm in North Cotabato",
+  description:
+    "Learn about BAE CPAS CO, a CPA firm in North Cotabato providing reliable accounting, tax, payroll, and advisory services to local businesses.",
+  alternates: {
+    canonical: "https://www.baecpasco.com/about",
+  },
+  openGraph: {
+    title: "About BAE CPAS CO | Trusted CPA Firm in North Cotabato",
+    description:
+      "Learn about BAE CPAS CO, a CPA firm in North Cotabato providing reliable accounting, tax, payroll, and advisory services to local businesses.",
+    url: "https://www.baecpasco.com/about",
+    siteName: "BAE CPAS CO",
+    type: "website",
+  },
 };
-export default Index;
+
+export default function Page() {
+  return <AboutPageClient />;
+}

@@ -21,7 +21,7 @@ const History = () => {
 
 
         <div className="container text-center">
-          <p className="mt-16 font-bold uppercase text-[20px]  pl-[30px] mb-[15px] before:bg-[#f90908] before:h-[2px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
+          <p className="mt-16 font-bold uppercase text-[20px]  pl-[30px] mb-[15px] before:w-5 before:content-[''] before:absolute before:left-0 before:top-[11px]">
             From Vision to Legacy: The Evolution of Balagot & Emperado CPAs Co.
           </p>
 
