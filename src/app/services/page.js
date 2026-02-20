@@ -1,18 +1,18 @@
 import ServicesPageClient from "@/components/ServicesPageClient";
 
 export const metadata = {
-  title: "Accounting Services in North Cotabato | BAE CPAS CO",
+  title: "Accounting Services in North Cotabato | BAECPASCO",
   description:
     "Comprehensive accounting services in North Cotabato including bookkeeping, payroll, tax compliance, audit, and business advisory support.",
   alternates: {
     canonical: "https://www.baecpasco.com/services",
   },
   openGraph: {
-    title: "Accounting Services in North Cotabato | BAE CPAS CO",
+    title: "Accounting Services in North Cotabato | BAECPASCO",
     description:
       "Comprehensive accounting services in North Cotabato including bookkeeping, payroll, tax compliance, audit, and business advisory support.",
     url: "https://www.baecpasco.com/services",
-    siteName: "BAE CPAS CO",
+    siteName: "BAECPASCO",
     type: "website",
   },
 };

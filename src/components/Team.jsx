@@ -77,13 +77,8 @@ const Team = () => {
     <div id="merox-team-area" className="merox-team-area pt-[2px] pb-[4px]">
       <div className="container">
         {/* Section Title */}
-        <div className="section-title mb-8">
-          <h4 className="uppercase font-medium text-[20px] relative pl-[30px] mb-1 ">
-            OUR TEAM
-          </h4>
-
           <h3 className="text-[50px] font-bold leading-[49px] uppercase text-center">
-            MEET THE EXPERTS
+            MEET OUR TEAM
           </h3>
         </div>
 
@@ -168,7 +163,6 @@ const Team = () => {
           ))}
         </div>
       </div>
-    </div>
   );
 };
 

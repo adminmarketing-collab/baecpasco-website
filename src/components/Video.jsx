@@ -92,7 +92,7 @@ export default function Video() {
           <div className="w-full lg:w-5/12 order-2 lg:order-1 relative -top-64">
             <div className="section-title lite">
               <h4
-                className="text-white uppercase font-medium text-[20px] mb-[15px]">
+                className="text-white uppercase font-medium text-[20px] mb-[5px]">
 
                 {VideoData.title}
               </h4>

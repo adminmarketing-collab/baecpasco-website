@@ -16,10 +16,6 @@ const FooterData = {
   ],
   title: "Quick Link",
   QuicklinkList: [
-    { title: "Help Center", link: "#" },
-    { title: "Privacy Policy", link: "#" },
-    { title: "Support Policy", link: "#" },
-    { title: "Terms & Condition", link: "#" },
     { title: "About Us", link: "https://www.baecpasco.com/about" },
     { title: "Contact", link: "https://www.baecpasco.com/contact" },
   ],

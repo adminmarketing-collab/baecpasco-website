@@ -2,6 +2,7 @@
 import React from "react";
 import Video from "@/components/Video";
 import Services from "@/components/Services";
+import CoreProcess from "@/components/CoreProcess";
 import Careers from "@/components/Careers";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -13,6 +14,7 @@ export default function ServicesPageClient() {
       <main>
         <Video />
         <Services />
+        <CoreProcess/>
         <Careers />
       </main>
       <Footer />

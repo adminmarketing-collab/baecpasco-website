@@ -2,9 +2,9 @@
 
 import React from "react";
 import dynamic from "next/dynamic";
-
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import HomeServices from "@/components/HomeServices";
 import Footer from "@/components/Footer";
 import Scrolltop from "@/components/Scrolltop";
 // If Preloader makes the site feel slow, you can remove it OR lazy-load it too:
@@ -54,7 +54,7 @@ export default function Index() {
 
         {/* Lazy sections */}
         <About />
-        <Services />
+        <HomeServices />
         <Industries />
         <Cta />
         <Testimonial />
@@ -63,5 +63,5 @@ export default function Index() {
 
       <Scrolltop />
     </>
-  );
+  ); 
 }

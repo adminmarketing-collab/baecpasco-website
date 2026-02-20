@@ -4,33 +4,34 @@
 
 @layer base {
     * {
-        @apply break-words [line-height:inherit] text-[100%] border-none p-0 m-0
+        @apply break-words [line-height:inherit] text-[100%] border-none p-0 m-0;
     }
 
     body {
-        @apply font-poppins font-normal
+        @apply font-normal;
+        font-family: var(--font-inter), sans-serif;
     }
 
     img {
-        @apply max-w-full h-auto transition-all duration-[0.3s] ease-out
+        @apply max-w-full h-auto transition-all duration-[0.3s] ease-out;
     }
 
     a,
     .button,
     .btn {
-        @apply transition-all duration-[0.3s] ease-out
+        @apply transition-all duration-[0.3s] ease-out;
     }
 
     a:focus,
     .button:focus,
     .btn:focus {
-        @apply ring-0
+        @apply ring-0;
     }
 
     a,
     a:focus,
     a:hover {
-        @apply decoration-[none]
+        @apply decoration-[none];
     }
 
     .btn:focus,
@@ -39,11 +40,11 @@
     textarea,
     textarea:focus,
     .form-control:focus {
-        @apply outline-[0] bg-white shadow-none border-[1px] border-solid border-[#f1f1f1]
+        @apply outline-[0] bg-white shadow-none border-[1px] border-solid border-[#f1f1f1];
     }
 
     button {
-        @apply cursor-pointer
+        @apply cursor-pointer;
     }
 
     h1,
@@ -52,7 +53,9 @@
     h4,
     h5,
     h6 {
-        @apply mb-[10px] font-normal text-[#353858] font-ubuntu leading-[1.2]
+        @apply mb-[10px] text-[#353858] leading-[1.2];
+        font-family: "EYInterstate", sans-serif;
+        font-weight: 700;
     }
 
     h1 a,
@@ -61,51 +64,51 @@
     h4 a,
     h5 a,
     h6 a {
-        @apply text-inherit
+        @apply text-inherit;
     }
 
     li {
-        @apply mb-[10px]
+        @apply mb-[10px];
     }
 
     p {
-        @apply font-poppins text-lg font-normal leading-[30px] text-[#656970]
+        @apply text-lg font-normal leading-[30px] text-[#656970];
     }
 
     hr {
-        @apply border-b-[1px] border-solid border-[#eceff8] my-[30px] mx-0 p-0
+        @apply border-b-[1px] border-solid border-[#eceff8] my-[30px] mx-0 p-0;
     }
 
     label {
-        @apply text-[#7e7e7e] cursor-pointer text-sm font-normal
+        @apply text-[#7e7e7e] cursor-pointer text-sm font-normal;
     }
 
     *::-moz-selection {
-        @apply bg-[#d6b161] text-white shadow-none
+        @apply bg-[#d6b161] text-white shadow-none;
     }
 
     ::-moz-selection {
-        @apply bg-[#444444] text-white shadow-none
+        @apply bg-[#444444] text-white shadow-none;
     }
 
     ::selection {
-        @apply bg-[#106ad2] text-white shadow-none
+        @apply bg-[#106ad2] text-white shadow-none;
     }
 
     *::-moz-placeholder {
-        @apply text-[#555555] text-sm opacity-[1]
+        @apply text-[#555555] text-sm opacity-[1];
     }
 
     *::placeholder {
-        @apply text-[#555555] text-sm opacity-[1]
+        @apply text-[#555555] text-sm opacity-[1];
     }
-
 }
+
 
 @layer components {
     .btn {
-        @apply text-lg font-medium !leading-none uppercase inline-block font-poppins text-white !h-auto
-    }
+        @apply text-lg font-medium !leading-none uppercase inline-block text-white !h-auto
+}
 
     .btn-1 {
         @apply bg-[#f90908] py-5 px-[30px] border-[2px] border-solid border-[#f90908]
@@ -205,7 +208,7 @@ body.search-active .search-form-area {
 }
 
 .main-menu nav>ul>li>a {
-    @apply text-white block text-base font-semibold py-[42px] px-[13px] transition-all duration-[0.3s] ease-out leading-tight font-poppins capitalize
+    @apply text-white block text-base font-semibold py-[42px] px-[13px] transition-all duration-[0.3s] ease-out leading-tight capitalize
 }
 
 .main-menu nav>ul>li:hover>a,
@@ -226,7 +229,7 @@ body.search-active .search-form-area {
 }
 
 .main-menu nav>ul>li .sub-menu li a {
-    @apply text-[#666666] text-[15px] font-semibold m-0 py-[13px] px-5 capitalize block font-poppins
+    @apply text-[#666666] text-[15px] font-semibold m-0 py-[13px] px-5 capitalize block
 }
 
 .main-menu nav>ul>li:hover>.sub-menu li>a:hover {
@@ -439,4 +442,12 @@ body.search-active .search-form-area {
     width: calc((100% - 48px) / 3) !important;
     max-width: calc((100% - 48px) / 3) !important;
   }
+}
+
+@font-face {
+  font-family: "EYInterstate";
+  src: url("/fonts/EYInterstate-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }

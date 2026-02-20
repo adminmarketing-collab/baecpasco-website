@@ -26,7 +26,7 @@ export default function ContactPageClient() {
             <div className="mb-10 text-center">
               <h4
                 className="uppercase font-medium text-[20px] relative inline-block pl-[30px] mb-[15px]
-                before:bg-[#f90908] before:h-[2px] before:w-5 before:content-['']
+                before:w-5 before:content-['']
                 before:absolute before:left-0 before:top-[11px]"
               >
                 contact

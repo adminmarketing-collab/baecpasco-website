@@ -32,8 +32,8 @@ const Testimonial = () => {
     >
       {/* HEADER */}
       <div className="container mb-10">
-        <h4 className="uppercase font-medium text-[20px] relative pl-[30px] mb-[15px]
-          before:bg-[#f90908] before:h-[2px] before:w-5 before:absolute before:left-0 before:top-[11px]">
+        <h4 className="uppercase font-medium text-[20px] 
+           before:w-5 before:absolute before:left-0 before:top-[11px]">
           {TestimonialData.title}
         </h4>
 
