@@ -20,7 +20,7 @@ ${data.message}
     `;
 
     await resend.emails.send({
-      from: "Website Contact <noreply@send.baecpasco.com>",
+      from: "Website Contact <onboarding@resend.dev>",
       to: ["admin.marketing@baecpasco.com"], // 👈 CHANGE to client email
       reply_to: data.email,
       subject: `New message from ${data.name}`,
