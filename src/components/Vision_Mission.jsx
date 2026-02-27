@@ -130,7 +130,7 @@ const Vision_Mission = () => {
 <div className="mt-10 w-full text-left">
   <div className="flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-14 text-left">
 
-    {/* LEFT: Wheel (IBALIK SA GAMAY NGA SIZE) */}
+    {/* LEFT: Wheel */}
     <div className="w-full lg:w-[380px] max-w-[340px] lg:max-w-none shrink-0 mx-auto lg:mx-0">
       {/* ✅ allow tooltip outside */}
       <div className="relative w-full aspect-square overflow-visible">
@@ -210,7 +210,7 @@ const Vision_Mission = () => {
       </div>
     </div>
 
-    {/* RIGHT SIDE: (REMOVE NA) — no more big card below/right since tooltip is near wheel */}
+   
   </div>
 </div>
 

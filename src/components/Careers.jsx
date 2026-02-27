@@ -5,7 +5,7 @@ const Careers = () => {
   return (
     <div
       id="merox-careers-area "
-      className="bg-[#fffff] relative z-[1] py-10 md:py-14"
+      className="bg-[#fffff] relative z-[1] py-1 md:py-2 "
     >
       <div className="container">
         <p className="font-bold text-[20px] text-center relative pl-[30px] mb-6 ">
@@ -28,7 +28,7 @@ const Careers = () => {
         </p>
 
         {/* reduced spacing so footer won't be pushed down */}
-        <p className="text-left text-[18px] text-center leading-7 mt-8">
+        <p className="text-left text-[18px] text-center leading-7 mt-8 mb-8">
           Join a company that values integrity, teamwork, and continuous
           learning. Your future starts here.
         </p>

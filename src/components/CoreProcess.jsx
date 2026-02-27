@@ -36,11 +36,11 @@ const processSteps = [
 
 const CoreProcess = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 bg-white">
       <div className="container">
         
         {/* Section Heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold text-[#24262d]">
             Our Working Process
           </h2>
@@ -58,7 +58,7 @@ const CoreProcess = () => {
 
               {/* Content */}
               <div>
-                <h3 className="text-xl font-semibold text-[#24262d] mb-2">
+                <h3 className="text-xl font-semibold text-[#24262d] mb-1">
                   {step.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-
+console.log("API KEY:", process.env.RESEND_API_KEY);
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req) {
@@ -20,22 +20,19 @@ ${data.message}
     `;
 
     await resend.emails.send({
-      from: "Website Contact <onboarding@resend.dev>",
-      to: ["admin.marketing@baecpasco.com"], // 👈 CHANGE to client email
-      reply_to: data.email,
-      subject: `New message from ${data.name}`,
+      from: "Website Contact <onboarding@resend.dev>", // temporary sender
+      to: "client@email.com", // ← replace with client email
+      subject: "New Contact Form Message",
       text: emailBody,
     });
 
     return NextResponse.json({ success: true });
 
   } catch (error) {
-    console.error("EMAIL ERROR:", error);
-
+    console.error(error);
     return NextResponse.json(
       { success: false, message: "Email failed to send" },
       { status: 500 }
     );
   }
 }
-
