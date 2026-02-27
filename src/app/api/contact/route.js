@@ -1,21 +1,41 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-export async function GET() {
-  try {
-    const resend = new Resend(process.env.RESEND_API_KEY);
+console.log("API route triggered");
+console.log("API KEY:", process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-    const response = await resend.emails.send({
-      from: "onboarding@resend.dev",
-      to: ["lgbasalo@gmail.com"],
-      subject: "Direct Test",
-      html: "<p>Direct API test</p>",
+export async function POST(req) {
+
+  
+  try {
+    const data = await req.json();
+
+    const emailBody = `
+New Contact Form Message
+
+Name: ${data.name}
+Email: ${data.email}
+Phone: ${data.phone || "Not provided"}
+Service Interested In: ${data.service || "Not selected"}
+
+Message:
+${data.message}
+    `;
+
+    await resend.emails.send({
+      from: "Website Contact <noreply@send.baecpasco.com>", 
+      to: "admin.marketing@baecpasco.com", 
+      subject: "New Contact Form Message",
+      text: emailBody,
     });
 
-    return NextResponse.json(response);
+    return NextResponse.json({ success: true });
+
   } catch (error) {
+    console.error(error);
     return NextResponse.json(
-      { error: error.message },
+      { success: false, message: "Email failed to send" },
       { status: 500 }
     );
   }
