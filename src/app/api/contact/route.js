@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+
+console.log("API route triggered");
 console.log("API KEY:", process.env.RESEND_API_KEY);
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -21,7 +23,7 @@ ${data.message}
 
     await resend.emails.send({
       from: "Website Contact <noreply@send.baecpasco.com>", 
-      to: "lgbasalo@gmail.com", 
+      to: "admin.marketing@baecpasco.com", 
       subject: "New Contact Form Message",
       text: emailBody,
     });
