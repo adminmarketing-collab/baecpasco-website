@@ -20,8 +20,8 @@ ${data.message}
     `;
 
     await resend.emails.send({
-      from: "Website Contact <onboarding@resend.dev>", // temporary sender
-      to: "client@email.com", // ← replace with client email
+      from: "Website Contact <noreply@send.baecpasco.com>", 
+      to: "admin.marketing@baecpasco.com", 
       subject: "New Contact Form Message",
       text: emailBody,
     });
