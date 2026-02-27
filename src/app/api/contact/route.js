@@ -21,7 +21,7 @@ ${data.message}
 
     await resend.emails.send({
       from: "Website Contact <noreply@send.baecpasco.com>", 
-      to: "admin.marketing@baecpasco.com", 
+      to: "lgbasalo@gmail.com", 
       subject: "New Contact Form Message",
       text: emailBody,
     });
