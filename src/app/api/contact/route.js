@@ -22,7 +22,7 @@ Service Interested In: ${data.service || "Not selected"}
 Message:
 ${data.message}
     `;
-
+   
     await resend.emails.send({
       from: "Website Contact <noreply@send.baecpasco.com>", 
       to: "lgbasalo@gmail.com", 
