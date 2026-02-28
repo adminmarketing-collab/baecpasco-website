@@ -83,7 +83,7 @@ const Team = () => {
         </div>
 
         {/* Team Profiles */}
-        <div className="flex flex-wrap mx-[-12px]">
+        <div className="flex flex-wrap justify-center mx-[-12px]">
           {TeamData.TeamList.map((item, i) => (
             <div
               key={i}
