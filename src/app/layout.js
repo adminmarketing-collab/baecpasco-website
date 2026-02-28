@@ -19,7 +19,7 @@ export const metadata = {
     default: "Balagot & Emperado CPA's Co.",
     template: "%s | BAECPASCO",
   },
-  description: "Balagot & Emperado CPA's Co.",
+  description: "Balagot & Emperado CPA's Co. provides accounting, audit, tax, and financial advisory services in the Philippines.",
 };
 
 export default function RootLayout({ children }) {
