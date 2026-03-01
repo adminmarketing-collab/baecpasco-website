@@ -7,93 +7,129 @@ export default function Services() {
     <section className="bg-[#24262d] py-16">
   <div className="max-w-5xl mx-auto px-6 space-y-4">
 
+<h2 className="text-4xl font-bold text-white text-center mb-12">
+      Accounting Services in Mindanao
+    </h2>
+
+    <div className="text-center mx-auto mb-10 space-y-4">
+  <p className="text-white">
+    Businesses today operate in an increasingly regulated and competitive environment. Accurate financial reporting, regulatory compliance, and strategic planning are no longer optional — they are essential to long term sustainability.
+  </p>
+
+  <p className="text-white">
+    We provide comprehensive accounting services Mindanao companies rely on to maintain financial clarity, strengthen compliance, and support informed decision making. Our firm serves businesses across Mindanao with physical offices in Kidapawan City, Midsayap, Koronadal City, Samal, Bukidnon and Davao City, allowing us to deliver responsive and localized professional support.
+  </p>
+  
+  <p className="text-white">
+    We provide comprehensive accounting, audit, tax, and financial advisory
+    services tailored to meet the evolving needs of businesses in North Cotabato
+    and beyond.
+  </p>
+
+  <p className="text-white">
+    Our team of experienced professionals is committed to delivering accurate,
+    transparent, and strategic financial solutions that help organizations grow
+    with confidence.
+  </p>
+
+  <p className="text-white">
+    Through a fully integrated approach covering audit, financial reporting, taxation, bookkeeping, payroll, advisory, and corporate compliance, we provide structured financial systems that help organizations operate confidently and grow responsibly.
+  </p>
+  
+</div>
+
   <ServiceAccordion title="Audit & Assurance">
-    <p className="mb-6 text-gray-600">
-      We deliver reliable audit and assurance services to ensure financial transparency,
-      compliance, and credibility.
+    <p className="mb-4 text-gray-600">
+      Reliable audit and assurance services provide credibility, transparency, and operational discipline. Our firm delivers independent audit and assurance engagements to businesses throughout Mindanao seeking structured financial oversight and regulatory compliance.
+      </p>
+     <p className="mb-4 text-gray-600">
+      Our audit services are designed to support organizations seeking stronger internal governance and regulatory compliance  are designed to strengthen internal governance, support stakeholder confidence, and ensure compliance with applicable accounting standards.
     </p>
 
      <div className="space-y-5">
     <div>
       <h4 className="font-semibold text-lg mb-2">Financial Statement Audits</h4>
-      <p className="list-disc space-y-2 text-gray-600">
-        Independent audits of financial statements to ensure they are fairly presented
-        and compliant with applicable accounting standards.
+      <p className="text-gray-600 mb-4">
+        We conduct independent financial statement audits to determine whether financial statements are presented fairly, in all material respects, in accordance with Philippine Financial Reporting Standards.
+      </p>
+      <p className="text-gray-600 mb-4">
+      Our audit methodology includes risk assessment, evaluation of internal controls, substantive testing, and analytical review procedures. These engagements are particularly valuable for companies seeking financing, investor confidence, regulatory compliance, or enhanced financial credibility.
       </p>
     </div>
 
     <div>
       <h3 className="font-semibold text-lg mb-2">Internal Audit Services</h3>
-      <p className="list-disc space-y-2 text-gray-600">
-        Evaluation and improvement of internal controls, risk management,
-        and governance processes.
+      <p className="text-gray-600 mb-4">
+        Internal audit services focus on improving operational efficiency and strengthening internal controls. We evaluate governance frameworks, risk management procedures, and control systems to identify weaknesses and recommend improvements.
+     </p>
+     <p className="text-gray-600 mb-4">
+      This service integrates naturally with our Risk Management and Internal Controls advisory support.
       </p>
     </div>
 
     <div>
       <h4 className="font-semibold text-lg mb-2">Compliance Audits</h4>
       <p className="list-disc space-y-2 text-gray-600">
-        Assessment of adherence to laws, regulations, and contractual obligations.
+        We assess adherence to regulatory requirements, contractual obligations, and internal policies. Compliance audits help prevent regulatory penalties and operational disruptions.
       </p>
     </div>
 
     <div>
       <h4 className="font-semibold text-lg mb-2">Review & Compilation Engagements</h4>
       <p className="list-disc space-y-2 text-gray-600">
-        Assistance in presenting financial information or providing limited assurance
-        without full audit procedures.
+       For companies that do not require a full audit opinion, we provide review and compilation services that ensure financial information is structured, consistent, and professionally prepared.
       </p>
     </div>
 
     <div>
-      <h4 className="font-semibold text-lg mb-2">Agreed-Upon Procedures (AUP)</h4>
+      <h4 className="font-semibold text-lg mb-2">Agreed Upon Procedures Engagements</h4>
       <p className="list-disc space-y-2 text-gray-600">
-        Performance of specific procedures agreed with the client, with factual findings reported.
+        We perform specific audit procedures requested by management or third parties and provide factual findings reports tailored to the engagement objectives.
       </p>
     </div>
 
     <div>
       <h4 className="font-semibold text-lg mb-2">Specialized Assurance Services</h4>
       <p className="list-disc space-y-2 text-gray-600">
-        Tailored assurance services designed for specific industries or unique business needs.
-      </p>
+        We provide assurance engagements designed for specific industries or regulatory requirements, adapting our methodology to client needs.      </p>
     </div>
   </div>
 </ServiceAccordion>
 
   <ServiceAccordion title="Accounting & Financial Reporting">
-    <p className="mb-6 text-gray-600">
-      We provide comprehensive accounting solutions that enable businesses to maintain accurate financial records and make data-driven decisions.
+    <p className="mb-4 text-gray-600">
+      Accurate accounting systems are fundamental to sustainable business operations. Our accounting services in Mindanao businesses are designed to maintain structured financial records, improve reporting accuracy, and enhance management decision making.
     </p>
    
+   <p className="mb-4 text-gray-600">
+      We support companies operating in Kidapawan, Midsayap, Koronadal, and surrounding municipalities in building reliable accounting frameworks that promote long term financial stability.
+    </p>
+
     <div className="space-y-6">
 
   {/* SUB CATEGORY 1 */}
   <div>
     <h4 className="font-semibold text-lg mb-2">Core Accounting</h4>
-    <p className="text-gray-600 mb-3"> 
-      These services form the foundation of financial record-keeping, ensuring accuracy and organization.
-    </p>
 
     <ul className="list-disc pl-5 space-y-2 text-gray-600">
-      <li><span className="font-medium">General Ledger Maintenance:</span> Maintaining the master financial record.</li>
-      <li><span className="font-medium">Bank Reconciliations:</span> Ensuring bank and book balances match.</li>
-      <li><span className="font-medium">Accounts Payable & Receivable:</span> Managing outgoing and incoming payments.</li>
+      <li><strong>General Ledger Maintenance -  </strong>   We maintain comprehensive and properly structured general ledgers to ensure accurate documentation of all transactions.</li>
+      <li><strong>Bank Reconciliations -  </strong>   We reconcile internal accounting records with bank statements to detect discrepancies and maintain reporting integrity.</li>
+      <li><strong>Accounts Payable & Receivable Management -  </strong>   We assist businesses in managing supplier obligations and customer receivables to improve working capital management.</li>
     </ul>
+
+    <p className="text-gray-600 mt-3 mb-3"> 
+      These services integrate directly with our Bookkeeping Services and Payroll Services to ensure consistency across financial systems.
+    </p>
   </div>
 
   {/* SUB CATEGORY 2 */}
   <div>
     <h4 className="font-semibold text-lg mb-2">Financial Reporting</h4>
-    <p className="text-gray-600 mb-3">
-      Providing clear financial insights to support better business decisions.
-    </p>
 
     <ul className="list-disc pl-5 space-y-2 text-gray-600">
-      <li><span className="font-medium">Financial Statement Preparation:</span> Preparing accurate income statements and balance sheets.</li>
-      <li><span className="font-medium">Management Reports:</span> Generating periodic financial summaries for decision-making.</li>
-      <li><span className="font-medium">Budget Preparation:</span> Planning financial resources and expenditures.</li>
-      <li><span className="font-medium">Cash Flow Analysis:</span> Monitoring inflow and outflow to maintain liquidity.</li>
+      <li><strong>Preparation of Financial Statements -  </strong>   We prepare complete financial statements in accordance with Philippine standards, ensuring accuracy and compliance.</li>
+      <li><strong>Management Reporting -  </strong>   We develop customized financial reports and performance indicators to support strategic decision making.</li>
+      <li><strong>Budgeting and Forecasting -  </strong>   We assist in developing structured budgets and financial projections that align with business objectives.</li>
     </ul>
   </div>
 
@@ -101,44 +137,54 @@ export default function Services() {
   </ServiceAccordion>
 
   <ServiceAccordion title="Taxation & Compliance">
-    <p className="mb-6 text-gray-600">
-      Navigating the complexities of taxation is crucial for financial health. We provide expert guidance to help businesses manage tax obligations efficiently while maximizing savings.
+    <p className="mb-4 text-gray-600">
+      Navigating taxation requires technical precision, timely reporting, and a clear understanding of evolving regulations. We assist businesses across Mindanao in managing tax obligations efficiently while minimizing risk and exposure to penalties.
       </p>
     
+    <p className="mb-4 text-gray-600">
+      Our tax filing services form part of our integrated compliance support framework for organizations operating in Kidapawan, Midsayap, Koronadal, and nearby municipalities.
+    </p>
+
      <div className="space-y-6">
 
      {/* SUB CATEGORY 1 */}
   <div>
     <h4 className="font-semibold text-lg mb-2">Tax Compliance Services</h4>
     <p className="text-gray-600 mb-3">
-      These services ensure businesses meet their tax obligations under the law.
+      We ensure businesses meet their obligations under the Bureau of Internal Revenue and other regulatory authorities.
       </p>
 
     <ul className="list-disc pl-5 space-y-2 text-gray-600">
-      <li><span className="font-medium">Tax Return Preparation and Filing: </span> This includes preparing and filing annual income tax returns, quarterly business tax returns, and other tax forms on time to avoid penalties.</li>
-      <li><span className="font-medium">Tax Planning and Advisory: </span> Providing strategies to minimize tax liabilities, improve tax efficiency, and ensure compliance, such as identifying deductions and incentives.</li>
-      <li><span className="font-medium">Tax Compliance Reviews: </span> Reviewing tax records and processes to find potential compliance issues and recommend fixes.</li>
-      <li><span className="font-medium">Assistance with Tax Audits: </span> Representing clients during tax audits, providing documentation, and answering questions to ensure a smooth process.</li>
+      <li><strong>Tax Return Preparation and Filing -  </strong>   We prepare and file annual income tax returns, quarterly percentage and VAT returns, withholding tax returns, and other required filings accurately and on schedule to prevent penalties and interest charges.</li>
+      <li><strong>Tax Planning and Advisory -  </strong>   We provide structured tax strategies that help minimize liabilities while maintaining full compliance. This includes identifying allowable deductions, incentives, and strategic planning opportunities.</li>
+      <li><strong>Tax Compliance Reviews -  </strong>   We conduct detailed assessments of tax records, accounting entries, and reporting procedures to identify compliance gaps and recommend corrective actions.</li>
+      <li><strong>Tax Audit Assistance -  </strong>   We represent clients during BIR audits by coordinating documentation, responding to inquiries, and assisting in resolution discussions to ensure a smooth audit process.
+</li>
     </ul>
+
+   <p className="text-gray-600 mt-3 mb-3">
+      These services integrate closely with our Accounting and Financial Reporting and Payroll Services to maintain consistency across financial reporting.
+      </p>
+
   </div>
 
   {/* SUB CATEGORY 2 */}
   <div>
     <h4 className="font-semibold text-lg mb-2">Regulatory Compliance Services</h4>
     <p className="text-gray-600 mb-3">
-      These services help businesses meet legal and regulatory requirements beyond taxes.
-    </p>
+      Beyond taxation, businesses must comply with corporate governance, regulatory filings, and statutory requirements. We assist companies throughout Mindanao in maintaining proper legal and regulatory standing.
+   </p>
 
     <ul className="list-disc pl-5 space-y-2 text-gray-600">
-      <li><span className="font-medium">Compliance Program Development: </span> Helping companies create compliance programs tailored to their industry and regulatory environment.</li>
-      <li><span className="font-medium">Compliance Audits and Reviews: </span> Assessing a company's compliance with laws, regulations, and internal policies.</li>
-      <li><span className="font-medium">Corporate Governance: </span> Advising on corporate governance to ensure transparency, accountability, and ethical behavior.</li>
-      <li><span className="font-medium">Training and Education: </span> Providing employee training on tax and compliance matters to promote a culture of compliance.</li>
-      <li><span className="font-medium">Risk Management: </span> Identifying and assessing tax and compliance risks and developing strategies to reduce them.</li>
-      <li><span className="font-medium">Assistance with Government Incentives: </span> Helping businesses apply for government incentives and grants to lower their tax burden.</li>
-      <li><span className="font-medium">Due Diligence Reviews: </span>Conducting tax and compliance due diligence for business transactions to identify potential risks.</li>
-      <li><span className="font-medium">Estate and Trust Tax Services:</span> Providing tax preparation and planning for estates and trusts, helping clients manage complex tax rules.</li>
-      <li><span className="font-medium">Non-Filed Tax Returns:</span> Helping clients file overdue tax returns to regain compliance.</li>
+      <li><strong>Compliance Program Development -  </strong>   We help design structured compliance programs tailored to industry specific requirements and operational risk levels.</li>
+      <li><strong>Compliance Audits and Reviews -  </strong>   We assess adherence to internal policies, contractual obligations, and applicable regulations to identify operational risks.</li>
+      <li><strong>Corporate Governance Advisory -  </strong>   We provide guidance on governance structures, board responsibilities, and reporting transparency to promote accountability.</li>
+      <li><strong>Training and Education -  </strong>   We conduct compliance oriented training sessions to promote awareness and strengthen internal control culture.</li>
+      <li><strong>Risk Management Advisory -  </strong>   We identify financial and operational risks and develop mitigation strategies to protect business assets.</li>
+      <li><strong>Government Incentives Assistance -  </strong>   We assist in identifying and applying for available tax incentives and government programs.</li>
+      <li><strong>Due Diligence Reviews -  </strong>  We conduct compliance and financial due diligence for mergers, acquisitions, or restructuring initiatives.</li>
+      <li><strong>Estate and Trust Tax Services -  </strong>   We provide tax planning and preparation services for estates and trusts with complex reporting requirements.</li>
+      <li><strong>Non-Filed Tax Returns Assistance -  </strong>   We help businesses file overdue returns and implement structured corrective compliance plans.</li>
     </ul>
   </div>
 </div>
@@ -155,67 +201,81 @@ export default function Services() {
   <div>
     <h4 className="font-semibold text-lg mb-2 text-lg mb-2">Bookkeeping Services</h4>
     <p className="text-gray-600 mb-3">
-      These services involve maintaining accurate and up-to-date financial records for businesses.
+      Accurate bookkeeping ensures financial clarity, audit readiness, and compliance. Our bookkeeping services support organizations across Mindanao in maintaining reliable financial records.
       </p>
 
+     <p className="mb-4 text-gray-600">
+      We provide ongoing bookkeeping support for small enterprises, growing corporations, and established businesses seeking structured financial systems.
+    </p> 
+  
+  <h4 className="font-semibold text-lg mb-2 text-gray-600 mb-2">Core Bookkeeping Functions:</h4>
     <ul className="list-disc pl-5 space-y-2 text-gray-600">
-      <li><span className="font-medium">Transaction Recording:  </span> Recording all financial transactions, such as sales, purchases, and payments, in the appropriate accounts.</li>
-      <li><span className="font-medium">Cloud Accounting Solutions: </span> Using cloud-based accounting systems to improve efficiency and accessibility.</li>
-      <li><span className="font-medium">Creating and Adjusting Journal Entries: </span> Ensuring that all financial transactions are correctly recorded in the books by creating and adjusting journal entries.</li>
-      <li><span className="font-medium">Monthly Closing of Books: </span> Performing the necessary procedures to close the books at the end of each month, ensuring that all transactions are accounted for and financial records are accurate.</li>
+      <li><strong>Transaction Recording -  </strong>  We systematically record daily transactions including sales, purchases, expenses, and payments in accordance with accounting standards.</li>
+      <li><strong>Cloud Accounting Solutions -  </strong>  We implement secure and efficient cloud based accounting platforms to improve accessibility and internal control.</li>
+      <li><strong>Journal Entries and Adjustments -  </strong>   We create and adjust journal entries to ensure accurate account balances and correct classification of transactions.</li>
+      <li><strong>Monthly Closing of Books -  </strong>   We perform structured month end procedures to ensure financial statements remain accurate and up to date.</li>
     </ul>
+  
+  <p className="text-gray-600 mt-3 mb-3">
+      Bookkeeping services align directly with our Taxation and Compliance and Audit and Assurance engagements to maintain reporting consistency.
+      </p>
+
   </div>
      
     {/* SUB CATEGORY 2 */}
   <div>
     <h4 className="font-semibold text-lg mb-2">Payroll Services</h4>
     <p className="text-gray-600 mb-3">
-      Payroll services focus on managing employee compensation and ensuring compliance with labor laws and tax regulations.
+      Payroll administration affects both compliance and employee satisfaction. We provide structured payroll services to businesses operating across Mindanao, ensuring timely compensation and regulatory adherence.
       </p>
 
+    <p className="text-gray-600 mt-3 mb-3">
+      Our payroll services form part of our integrated accounting support framework.
+      </p>
+
+    <h4 className="font-semibold text-lg mb-2 text-gray-600 mb-2">Payroll Management Services:</h4>
     <ul className="list-disc pl-5 space-y-2 text-gray-600">
-      <li><span className="font-medium">Payroll Processing: </span> Calculating employee wages, deductions, and net pay accurately and on time.</li>
-      <li><span className="font-medium">Tax Withholding and Remittance:  </span> Withholding the correct amount of taxes from employee wages and remitting them to the appropriate government agencies.</li>
-      <li><span className="font-medium">Payroll Tax Compliance: </span> Ensuring compliance with payroll tax laws and regulations, including accurate calculation and timely filing of tax returns.</li>
-      <li><span className="font-medium">13th Month Pay Computation: </span> Computing and processing the mandatory 13th-month pay for employees, in compliance with Philippine labor laws.</li>
-      <li><span className="font-medium">Final Pay Computation: </span> Computing and processing the final pay for employees who are leaving the company, including all wages, benefits, and deductions.</li>
-      <li><span className="font-medium">Statutory Benefits Administration: </span> Managing statutory benefits such as SSS, PhilHealth, and Pag-IBIG contributions, ensuring accurate and timely remittance.</li>      
+      <li><strong>Payroll Processing -  </strong>  We calculate wages, overtime pay, allowances, deductions, and net salaries accurately and on time.</li>
+      <li><strong>Tax Withholding and Remittance -  </strong>   We ensure proper withholding of payroll taxes and timely remittance to government agencies.</li>
+      <li><strong>Payroll Tax Compliance -  </strong>   We manage payroll related reporting and ensure adherence to labor and tax regulations.</li>
+      <li><strong>13th Month Pay Computation -  </strong>   We compute and process statutory 13th month pay in compliance with Philippine labor standards.</li>
+      <li><strong>Final Pay Computation -  </strong>  We prepare final compensation packages for employees leaving the organization, including accrued benefits and statutory deductions.</li>
+      <li><strong>Statutory Benefits Administration -  </strong>   We manage SSS, PhilHealth, and Pag IBIG contributions to ensure accurate remittance and compliance.</li>      
     </ul>
+
+  <p className="text-gray-600 mt-3 mb-3">
+      Payroll services integrate seamlessly with our Bookkeeping Services and Tax Compliance support.
+     </p>
+
   </div>
 </div>
   </ServiceAccordion>
 
-<ServiceAccordion title="Business & Financial Consultancy">
+<ServiceAccordion title="Business Advisory & Financial Consultancy">
   {/* INTRO */}
-  <p className="mb-6 text-gray-600">
-    We provide expert consultancy services to help businesses navigate financial
-    challenges and drive sustainable growth.
+  <p className="mb-4 text-gray-600">
+    Strong financial strategy supports sustainable growth and operational resilience. Our business advisory services Mindanao companies engage are focused on improving performance, managing risk, and guiding long term success.
   </p>
 
-  <p className="mb-8 text-gray-600">
-    Business and financial consultancy services are designed to help organizations
-    improve their performance, efficiency, and overall financial health. These
-    services cover a broad range of areas, from strategic planning to financial
-    management and operational improvements.
+  <p className="mb-4 text-gray-600">
+    We work closely with business owners, management teams, and stakeholders across the province to strengthen organizational foundations.
   </p>
 
   {/* SUB CATEGORY */}
   <div className="space-y-6">
     <div>
       <h4 className="font-semibold text-lg mb-2 text-lg mb-2">
-        1. Strategic Planning
+       Strategic Planning
       </h4>
       <p className="text-gray-600 mb-3">
-        Strategic planning services help organizations define their long-term
-        goals and develop strategies to achieve them.
+        We assist organizations in defining long term goals and developing structured strategies to achieve them.
       </p>
 
       <ul className="list-disc pl-5 space-y-2 text-gray-600">
-        <li><strong>Market Analysis:</strong> Conduct market research to identify opportunities, threats, and customer needs.</li>
-        <li><strong>SWOT Analysis:</strong> Evaluate strengths, weaknesses, opportunities, and threats.</li>
-        <li><strong>Goal Setting:</strong> Set realistic and measurable goals aligned with mission and vision.</li>
-        <li><strong>Strategy Development:</strong> Develop strategies for growth, expansion, and product development.</li>
-        <li><strong>Implementation Planning:</strong> Create action plans with timelines, responsibilities, and resources.</li>
+        <li><strong>Market Analysis - </strong> We evaluate market conditions, competitive landscapes, and industry trends to identify growth opportunities.</li>
+        <li><strong>SWOT Analysis - </strong> We assess strengths, weaknesses, opportunities, and threats to inform strategic decisions.</li>
+        <li><strong>Goal Setting and Strategy Development - </strong> We establish measurable objectives and actionable roadmaps aligned with business vision.</li>
+        <li><strong>Implementation Planning - </strong> We develop structured execution plans with defined timelines and accountability measures.</li>
       </ul>
     </div>
   </div>
@@ -224,18 +284,18 @@ export default function Services() {
   <div className="space-y-6">
     <div>
       <h4 className="font-semibold text-lg mb-2 text-lg mt-4 mb-2">
-        2. Financial Management
+      Financial Management
       </h4>
       <p className="text-gray-600 mb-3">
-        Financial management services focus on improving an organization's financial performance and stability.
-      </p>
+      We help improve financial stability and operational efficiency through structured financial analysis and planning.
+     </p>
 
       <ul className="list-disc pl-5 space-y-2 text-gray-600">
-        <li><strong>Financial Analysis: </strong> Analyzing financial statements, key performance indicators (KPIs), and financial ratios to assess financial health and identify areas for improvement.</li>
-        <li><strong>Budgeting and Forecasting: </strong> Developing budgets and financial forecasts to help organizations plan for the future and manage their resources effectively.</li>
-        <li><strong>Cost Management:</strong> Identifying and implementing cost-saving measures to improve profitability and efficiency.</li>
-        <li><strong>Financial Restructuring: </strong> Providing advice on debt restructuring, equity financing, and other financial strategies to improve financial stability.</li>
-        <li><strong>Investment Management: </strong> Offering guidance on investment decisions, asset allocation, and portfolio management to maximize returns and minimize risk.</li>
+        <li><strong>Financial Analysis -  </strong>  We evaluate financial statements, ratios, and key performance indicators to assess overall health.</li>
+        <li><strong>Budgeting and Forecasting -  </strong>  We develop structured budgets and projections to guide resource allocation.</li>
+        <li><strong>Cost Management - </strong> We identify cost saving opportunities and implement efficiency measures.</li>
+        <li><strong>Financial Restructuring -  </strong>  We provide guidance on debt restructuring and capital optimization strategies.</li>
+        <li><strong>Investment Advisory -  </strong>  We assist in evaluating investment opportunities and risk exposure.</li>
       </ul>
     </div>
   </div>
@@ -244,18 +304,18 @@ export default function Services() {
   <div className="space-y-6">
     <div>
       <h4 className="font-semibold text-lg mb-2 text-lg mt-4 mb-2">
-        3. Operational Improvement
+      Operational Improvement
       </h4>
       <p className="text-gray-600 mb-3">
-        Operational improvement services aim to enhance an organization's efficiency, productivity, and overall performance.
-      </p>
+        We enhance business performance through structured operational analysis.
+     </p>
 
       <ul className="list-disc pl-5 space-y-2 text-gray-600">
-        <li><strong>Process Optimization:  </strong> Analyzing and streamlining business processes to eliminate bottlenecks, reduce waste, and improve efficiency.</li>
-        <li><strong>Supply Chain Management: </strong> Optimizing supply chain operations to reduce costs, improve delivery times, and enhance customer satisfaction.</li>
-        <li><strong>Technology Implementation:</strong> Assisting with the selection, implementation, and integration of technology solutions to improve operational efficiency.</li>
-        <li><strong>Change Management: </strong> Helping organizations manage change effectively, including communication, training, and stakeholder engagement.</li>
-        <li><strong>Performance Measurement: </strong> Developing and implementing performance measurement systems to track progress, identify areas for improvement, and drive accountability.</li>
+        <li><strong>Process Optimization -  </strong> We streamline workflows to eliminate inefficiencies.</li>
+        <li><strong>Supply Chain Optimization -  </strong>  We improve procurement and distribution systems to reduce costs.</li>
+        <li><strong>Technology Implementation - </strong> We assist with financial system upgrades and automation.</li>
+        <li><strong>Change Management -  </strong>  We support structured transitions and organizational improvements.</li>
+        <li><strong>Performance Measurement -  </strong>  We design KPI systems to track progress and accountability.</li>
       </ul>
     </div>
   </div>
@@ -264,18 +324,18 @@ export default function Services() {
   <div className="space-y-6">
     <div>
       <h4 className="font-semibold text-lg mb-2 text-lg mt-4 mb-2">
-        4. Risk Management
+      Risk Management
       </h4>
       <p className="text-gray-600 mb-3">
-        Risk management services help organizations identify, assess, and mitigate risks that could impact their business.
+        We help organizations identify, assess, and mitigate operational and financial risks.
       </p>
 
       <ul className="list-disc pl-5 space-y-2 text-gray-600">
-        <li><strong>Risk Assessment: </strong> Conducting thorough risk assessments to identify potential risks, including financial, operational, and compliance risks.</li>
-        <li><strong>Risk Mitigation Strategies: </strong>  Developing and implementing strategies to mitigate identified risks, such as insurance, hedging, and internal controls.</li>
-        <li><strong>Compliance Management: </strong> Ensuring compliance with relevant laws, regulations, and industry standards to minimize legal and regulatory risks.</li>
-        <li><strong>Crisis Management: </strong> Developing crisis management plans to prepare for and respond to unexpected events, such as natural disasters, cyberattacks, and product recalls.</li>
-        <li><strong>Internal Controls: </strong> Evaluating and improving internal controls to safeguard assets, prevent fraud, and ensure the accuracy of financial information.</li>
+        <li><strong>Risk Assessment -  </strong>  We evaluate potential financial, operational, and compliance risks.</li>
+        <li><strong>Mitigation Strategies -  </strong>   We design internal controls and structured safeguards.</li>
+        <li><strong>Compliance Monitoring -  </strong>  We ensure continued adherence to applicable regulations.</li>
+        <li><strong>Crisis Management Planning -  </strong>  We develop contingency plans for unforeseen disruptions.</li>
+        <li><strong>Internal Control Enhancement -  </strong>  We strengthen control systems to prevent fraud and financial misstatement.</li>
       </ul>
     </div>
   </div>
@@ -284,38 +344,19 @@ export default function Services() {
   <div className="space-y-6">
     <div>
       <h4 className="font-semibold text-lg mb-2 text-lg mt-4 mb-2">
-        5. Mergers and Acquisitions (M&A)
+      Mergers, Acquisitions, and Restructuring
       </h4>
       <p className="text-gray-600 mb-3">
-        M&A advisory services assist organizations in buying, selling, or merging with other businesses.
+        We provide advisory support for significant business transitions.
       </p>
 
       <ul className="list-disc pl-5 space-y-2 text-gray-600">
-        <li><strong>Due Diligence: </strong> Conducting financial, operational, and legal due diligence to assess the value and risks associated with a potential transaction.</li>
-        <li><strong>Valuation: </strong> Providing valuation services to determine the fair market value of a business or asset.</li>
-        <li><strong>Negotiation: </strong> Assisting with negotiations to reach a mutually beneficial agreement between buyers and sellers.</li>
-        <li><strong>Transaction Structuring: </strong> Structuring transactions to minimize taxes, maximize value, and achieve strategic objectives.</li>
-        <li><strong>Integration Planning: </strong> Developing integration plans to ensure a smooth transition and realize synergies following a merger or acquisition.</li>
-      </ul>
-    </div>
-  </div>
-
-{/* SUB CATEGORY 6 */}
-  <div className="space-y-6">
-    <div>
-      <h4 className="font-semibold text-lg mb-2 text-lg mt-4 mb-2">
-        6. Restructuring and Turnaround
-      </h4>
-      <p className="text-gray-600 mb-3">
-        Restructuring and turnaround services help organizations facing financial distress or operational challenges to stabilize their business and return to profitability.
-      </p>
-
-      <ul className="list-disc pl-5 space-y-2 text-gray-600">
-        <li><strong>Financial Assessment: </strong> Conducting a thorough assessment of the organization's financial situation to identify the root causes of its problems.</li>
-        <li><strong>Restructuring Plan Development: </strong> Developing a restructuring plan to address financial challenges, reduce costs, and improve profitability.</li>
-        <li><strong>Operational Improvements: </strong> Implementing operational improvements to streamline processes, reduce waste, and improve efficiency.</li>
-        <li><strong>Debt Negotiation: </strong> Negotiating with creditors to restructure debt obligations and improve cash flow.</li>
-        <li><strong>Crisis Management: </strong> Providing crisis management support to stabilize the business and restore confidence among stakeholders.</li>
+        <li><strong>Due Diligence -  </strong>  We assess financial and operational risks prior to transactions.</li>
+        <li><strong>Business Valuation -  </strong>  We determine fair market value of businesses and assets.</li>
+        <li><strong>Negotiation Support -  </strong>  We assist in structuring agreements that align with strategic goals.</li>
+        <li><strong>Transaction Structuring -  </strong>  We optimize deal frameworks to minimize risk and tax exposure.</li>
+        <li><strong>Integration Planning -  </strong>  We guide post transaction integration for operational continuity.</li>
+        <li><strong>Restructuring and Turnaround -  </strong>  We assist financially distressed organizations in stabilizing operations and restoring profitability.</li>
       </ul>
     </div>
   </div>
@@ -325,28 +366,28 @@ export default function Services() {
 <ServiceAccordion title="Regulatory Compliance & Corporate Services">
   {/* INTRO */}
   <p className="mb-6 text-gray-600">
-    We assist businesses in meeting legal and regulatory requirements, ensuring smooth operations and risk mitigation.
-  </p>
+    Maintaining corporate compliance is essential for operational stability. We assist businesses across Mindanao in navigating SEC, BIR, and local government requirements.
+ </p>
 
   <p className="mb-8 text-gray-600">
-    These services are designed to help businesses in the Philippines navigate the complex landscape of regulatory requirements and corporate governance, ensuring compliance with local laws and regulations, particularly those mandated by the Securities and Exchange Commission (SEC).
-  </p>
+    With accessible offices in Kidapawan City, Midsayap, Koronadal City, Samal, Bukidnon and Davao City, we provide hands-on compliance support throughout the province.
+ </p>
 
 {/* SUB CATEGORY 1 */}
   <div className="space-y-6">
     <div>
       <h4 className="font-semibold text-lg mb-2 text-lg mt-4 mb-2">
-        1. Business Registration and Licensing
+      Business Registration and Licensing
       </h4>
       <p className="text-gray-600 mb-3">
-        Assisting new businesses with the registration process and obtaining the necessary licenses and permits to operate legally in the Philippines.
-      </p>
+        We facilitate registration of corporations and partnerships and assist in securing necessary permits and licenses.
+     </p>
 
       <ul className="list-disc pl-5 space-y-2 text-gray-600">
-        <li><strong>SEC Registration: </strong> Facilitating the registration of corporations, partnerships, and other entities with the SEC, including preparing and filing all required documents.</li>
-        <li><strong>Local Government Permits: </strong> Assisting with obtaining business permits and licenses from local government units (LGUs), such as mayor's permits and barangay clearances.</li>
-        <li><strong>BIR Registration: </strong> Facilitating the registration of businesses with the Bureau of Internal Revenue (BIR) to obtain a Tax Identification Number (TIN) and comply with tax regulations.</li>
-        <li><strong>Other Regulatory Permits: </strong> Assisting with obtaining other regulatory permits and licenses required for specific industries, such as those from the Department of Trade and Industry (DTI), the Food and Drug Administration (FDA), and other government agencies.</li>
+        <li><strong>SEC Registration -  </strong> Preparation and filing of incorporation documents.</li>
+        <li><strong>Local Government Permits -  </strong> Assistance with Mayor’s permits and local clearances.</li>
+        <li><strong>BIR Registration -  </strong> Processing of Tax Identification Numbers and tax registration requirements.</li>
+        <li><strong>Industry Specific Permits -  </strong> Coordination with relevant agencies when applicable.</li>
        </ul>
     </div>
   </div>
@@ -355,18 +396,18 @@ export default function Services() {
   <div className="space-y-6">
     <div>
       <h4 className="font-semibold text-lg mb-2 text-lg mt-4 mb-2">
-        2. Corporate Secretarial Services
+      Corporate Secretarial Services
       </h4>
       <p className="text-gray-600 mb-3">
-        Providing ongoing corporate secretarial services to ensure compliance with corporate governance requirements and maintain accurate corporate records.
+        We provide ongoing corporate governance and documentation support.
       </p>
 
       <ul className="list-disc pl-5 space-y-2 text-gray-600">
-        <li><strong>Preparation of Corporate Documents: </strong> Preparing and maintaining corporate documents, such as articles of incorporation, by-laws, minutes of meetings, and stock certificates.</li>
-        <li><strong>Filing of Annual Reports: </strong> Preparing and filing annual reports with the SEC and other regulatory agencies, ensuring timely submission and compliance with reporting requirements.</li>
-        <li><strong>Board and Shareholder Meetings: </strong> Organizing and facilitating board and shareholder meetings, including preparing notices, agendas, and minutes of meetings.</li>
-        <li><strong>Corporate Governance Compliance: </strong> Advising on corporate governance best practices and ensuring compliance with relevant laws and regulations, such as the Revised Corporation Code of the Philippines.</li>
-        <li><strong>Monitoring and Tracking of Deadlines: </strong> Ensuring that all regulatory deadlines are met to avoid penalties and maintain good standing with regulatory agencies.</li>
+        <li><strong>Preparation of Corporate Documents -  </strong> Maintenance of articles, by laws, and meeting minutes.</li>
+        <li><strong>Annual Report Filing -  </strong> Timely preparation and submission of required reports.</li>
+        <li><strong>Board and Shareholder Meeting Support -  </strong> Preparation of notices, agendas, and documentation.</li>
+        <li><strong>Governance Compliance -  </strong> Advisory on regulatory responsibilities and best practices.</li>
+        <li><strong>Deadline Monitoring -  </strong> Tracking of compliance deadlines to prevent penalties.</li>
        </ul>
     </div>
   </div>
@@ -375,19 +416,17 @@ export default function Services() {
   <div className="space-y-6">
     <div>
       <h4 className="font-semibold text-lg mb-2 text-lg mt-4 mb-2">
-        3. SEC Compliance Services
+      SEC Compliance Services
       </h4>
       <p className="text-gray-600 mb-3">
-        Providing specialized services to ensure compliance with SEC regulations and requirements.
+        We assist with mandatory reporting obligations and regulatory submissions.
       </p>
 
       <ul className="list-disc pl-5 space-y-2 text-gray-600">
-        <li><strong>Annual Report Filing: </strong> Preparing and filing annual reports with the SEC, including audited financial statements and other required information.</li>
-        <li><strong>Quarterly Report Filing: </strong> Preparing and filing quarterly reports with the SEC, providing updates on the company's financial performance and operations.</li>
-        <li><strong>Current Report Filing: </strong> Preparing and filing current reports (with the SEC to disclose material events or changes that could affect the company's financial condition or operations.</li>
-        <li><strong>Compliance with Disclosure Requirements: </strong> Ensuring compliance with SEC disclosure requirements, including disclosing material information to investors and the public in a timely and accurate manner.</li>
-        <li><strong>SEC Audit Assistance: </strong> Assisting companies with SEC audits and investigations, providing necessary documentation and responding to inquiries to ensure a smooth audit process.</li>
-        </ul>
+        <li><strong>Annual and Quarterly Filings - </strong> Preparation and submission of required disclosures.</li>
+        <li><strong>Current Report Filing - </strong> Disclosure of material events.</li>
+        <li><strong>SEC Audit Assistance -  </strong> Coordination during regulatory reviews.</li>
+       </ul>
     </div>
   </div>
 
@@ -395,20 +434,20 @@ export default function Services() {
   <div className="space-y-6">
     <div>
       <h4 className="font-semibold text-lg mb-2 text-lg mt-4 mb-2">
-        4. Risk Management and Internal Controls
+      Risk Management and Internal Controls
       </h4>
       <p className="text-gray-600 mb-3">
-        Assisting companies in developing and implementing risk management and internal control systems to safeguard assets and ensure compliance.
+        We design and implement systems that safeguard assets and ensure reporting accuracy.
       </p>
 
       <ul className="list-disc pl-5 space-y-2 text-gray-600">
-        <li><strong>Risk Assessment: </strong> Conducting risk assessments to identify potential risks and vulnerabilities.</li>
-        <li><strong>Internal Control Design: </strong> Designing and implementing internal control systems to mitigate identified risks and ensure the accuracy and reliability of financial information.</li>
-        <li><strong>Compliance Monitoring: </strong> Monitoring compliance with internal controls and regulatory requirements, and providing recommendations for improvement.</li>
-        <li><strong>Fraud Prevention: </strong> Implementing fraud prevention measures to detect and prevent fraudulent activities.</li>
-        <li><strong>Valuation Services: </strong> Providing valuation services for businesses, assets, and intellectual property.</li>
-        <li><strong>Feasibility Studies: </strong> Conducting feasibility studies to assess the viability of new projects or business ventures.</li>
-        <li><strong>Business Process Improvement: </strong> Analyzing and improving business processes to enhance efficiency, reduce costs, and improve customer satisfaction.</li>
+        <li><strong>Risk Assessment -  </strong>  Identification of vulnerabilities.</li>
+        <li><strong>Internal Control Design - </strong> Structured control implementation</li>
+        <li><strong>Compliance Monitoring -  </strong> Ongoing evaluation of regulatory adherence.</li>
+        <li><strong>Fraud Prevention - </strong> Development of fraud detection and prevention measures.</li>
+        <li><strong>Valuation Services -  </strong> Business and asset valuation support.</li>
+        <li><strong>Feasibility Studies - </strong> Assessment of new business ventures and expansion projects.</li>
+        <li><strong>Business Process Improvement - </strong> Analysis and enhancement of operational systems to improve efficiency, reduce costs, and strengthen overall performance.</li>
         </ul>
     </div>
   </div>

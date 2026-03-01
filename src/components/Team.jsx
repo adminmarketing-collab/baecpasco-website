@@ -25,7 +25,10 @@ const TeamData = {
       img: img2,
       title: "Rezyl Mae Emperado-Tero, CPA, MBA",
       desig: "Managing Partner",
+      accreditation: ["BOA", "BIR"],
+      affiliations: ["PICPA", "ACPAPP", "Chamber of Commerce"],
       spec: "Contact for corporate partnerships, regulatory concerns, and financial advisory",
+      
     },
     {
       img: img3,
@@ -55,6 +58,7 @@ const TeamData = {
       img: img7,
       title: "Rey N. Cabilan",
       desig: "Branch Manager",
+      accreditation: ["Quickbooks Certified Advisor"],
       spec: "Contact  for branch-specific concerns, accounting solutions, and local compliance assistance",
     },
     {
@@ -83,11 +87,11 @@ const Team = () => {
         </div>
 
         {/* Team Profiles */}
-        <div className="flex flex-wrap justify-center mx-[-12px]">
+        <div className="flex flex-wrap justify-center mx-[-40px]">
           {TeamData.TeamList.map((item, i) => (
             <div
               key={i}
-              className="xl:w-1/4 lg:w-1/4 md:w-6/12 sm:w-full px-[12px] mb-[50px]"
+              className="xl:w-1/4 lg:w-1/4 md:w-6/12 sm:w-full px-[8px] mb-[50px]"
             >
               {/* ✅ IMPORTANT: relative + pb reserves space so bottom is FIXED */}
               <div className="single-team-wrapper group relative text-center shadow-[0px_8px_20px_rgba(0,0,0,0.14)] cursor-pointer rounded-[10px] overflow-visible pb-[210px]">
@@ -125,13 +129,25 @@ const Team = () => {
                     "
                   >
                     <h4 className="text-lg font-bold mb-[5px] group-hover:text-white">
-                      {item.title}
+                      {item.title}                  
                     </h4>
 
                     {/* ROLE */}
                     <span className="uppercase text-sm font-semibold block text-[#f90908] group-hover:text-white">
                       {item.desig}
                     </span>
+
+                    {item.accreditation && (
+  <div className="mt-2 text-[13px] leading-[18px] text-white">
+    Accreditation: {item.accreditation.join(", ")}
+  </div>
+)}
+
+{item.affiliations && (
+  <div className="text-[13px] leading-[18px] text-white">
+    Affiliations: {item.affiliations.join(", ")}
+  </div>
+)}
 
                     {/* Divider line (hidden -> show on hover) */}
                     <div
@@ -152,8 +168,9 @@ const Team = () => {
                         group-hover:opacity-100 group-hover:translate-y-0
                         text-white/95
                       "
-                    >
-                      {item.spec}
+                    >                     
+                      {item.spec} 
+                                      
                     </p>
                   </div>
                 </div>
