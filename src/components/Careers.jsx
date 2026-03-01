@@ -8,7 +8,7 @@ const Careers = () => {
       className="bg-[#fffff] relative z-[1] py-1 md:py-2 "
     >
       <div className="container">
-        <p className="font-bold text-[20px] text-center relative pl-[30px] mb-6 ">
+        <p className="font-bold text-[20px] text-red-500 text-center relative pl-[30px] mb-6 ">
           Build Your Future with Balagot & Emperado CPA’s Co.
         </p>
 
