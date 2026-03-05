@@ -11,7 +11,7 @@ const HeroDataa = {
       title: "always top rated",
       title2: 'Empowering Businesses.',
       brief:
-        "At Balagot & Emperado CPA’s Co., we are more than just a financial services firm—we are your trusted partners in achieving sustainable growth beyond the financials. With a steadfast commitment to accuracy, integrity, and strategic insight, we empower businesses and individuals to navigate the complexities of financial management with confidence and clarity.",
+        "BAECPAs Co provides reliable accounting services Mindanao businesses trust for financial clarity and long term stability. We operate physical offices in Kidapawan City, Midsayap, Koronadal City, Bukidnon, Davao, and Samal, providing structured bookkeeping, tax compliance, payroll processing, and financial advisory solutions that support long term business growth and financial stability." <br> "Our team combines technical expertise with practical business insight to deliver solutions that are accurate, compliant, and aligned with your goals.",
       btntext: "get started",
       btnlink: "/contact",
       btntext2: "learn more",
