@@ -5,14 +5,14 @@ const Careers = () => {
   return (
     <div
       id="merox-careers-area "
-      className="bg-[#fffff] relative z-[1] py-1 md:py-2 "
+      className="bg-[#fffff] relative z-[1] py-1 mt-0 md:py-1 "
     >
       <div className="container">
-        <p className="font-bold text-[20px] text-red-500 text-center relative pl-[30px] mb-6 ">
+        <p className="font-bold text-[20px] text-red-500 text-center relative pl-[30px] mb-2 ">
           Build Your Future with Balagot & Emperado CPA’s Co.
         </p>
 
-        <p className="text-left text-[18px] text-center leading-7 mb-4">
+        <p className="text-left text-[18px] text-center leading-6 mb-2">
           At <span className="text-red-500">Balagot & Emperado CPA’s Co.</span>,
           we are more than just an accounting firm—we are a community of
           professionals dedicated to excellence, growth, and innovation. We

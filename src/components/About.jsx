@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div
       id="merox-about-area"
-      className="merox-about-area py-[60px] md:py-[60px]"
+      className="merox-about-area py-[50px] md:py-[60px]"
     >
       <div className="container">
         <div className="flex flex-wrap mx-[-12px] items-start">
@@ -20,11 +20,8 @@ const About = () => {
 
           {/* Content */}
           <div className="xl:ml-[8.33333333%] xl:w-6/12 lg:w-6/12 md:w-full sm:w-full xsm:w-full px-[12px] wow fadeInRight">
-            <div className="section-title mb-6 md:mb-8 md:mt-10 sm:mt-10">
-              <h4 className="uppercase font-medium text-[18px] ">
-                overview
-              </h4>
-              <h3 className="text-[40px] md:text-[50px] font-bold leading-tight uppercase">
+            <div className="section-title mb-6 md:mb-6 md:mt-6 sm:mt-6">
+              <h3 className="text-[40px] md:text-[40px] font-bold leading-tight uppercase">
                 about{" "}
                 <span className="text-[#f90908]">Balagot &amp; Emperado CPA’s Co</span>
               </h3>
@@ -36,31 +33,15 @@ const About = () => {
               </p>
 
               <p className="mb-3 leading-7">
-                At Balagot &amp; Emperado CPA’s Co., we believe that our people are the
-                driving force behind our success. We cultivate a culture of
-                professionalism, collaboration, and continuous learning, where every
-                team member is empowered to grow, innovate, and make a meaningful
-                impact.
+                At Balagot &amp; Emperado CPA’s Co., we believe strong financial foundations create strong businesses. As an established CPA firm Mindanao organizations rely on, we help entrepreneurs, corporations, and institutions manage financial responsibilities with professionalism and integrity.
               </p>
 
               <p className="mb-3 leading-7">
-                Our firm fosters an environment of mentorship and expertise, where
-                knowledge is shared, achievements are celebrated, and growth
-                opportunities are abundant. Whether through industry-leading training
-                programs, leadership development, or hands-on experience, we ensure
-                that our professionals are equipped to thrive in an evolving financial
-                landscape.
-              </p>
-
-              <p className="mb-3 leading-7">
-                Beyond work, we value work-life balance and camaraderie, encouraging a
-                supportive community that uplifts and inspires. At Balagot &amp;
-                Emperado CPA’s Co., we don’t just build careers—we build futures.
+                Our Certified Public Accountants Philippines team brings industry knowledge, regulatory expertise, and hands on experience to every engagement. We focus on delivering practical solutions that strengthen internal controls, improve reporting accuracy, and support strategic decision making.
               </p>
 
               <p className="mb-0 leading-7">
-                Be part of a team that values excellence, integrity, and innovation.
-                Your journey to professional success starts here.
+                We do not just prepare reports. We build long term financial systems that help businesses operate responsibly and grow sustainably.
               </p>
             </div>
           </div>

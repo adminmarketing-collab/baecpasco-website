@@ -80,7 +80,7 @@ const Industries = () => {
   return (
     <div
       id="merox-services-area"
-      className="merox-services-area py-10 bg-left z-[1] md:pb-20 sm:pb-20"
+      className="merox-services-area py-2 bg-left z-[1] md:pb-4 sm:pb-2"
     >
       <div className="container text-center mt-8 mb-8">
         <h1 className="text-[50px] font-bold leading-[49px] uppercase">
@@ -140,7 +140,7 @@ const Industries = () => {
           </div>
         </div>
 
-        <p className="text-left mt-10 text-[18px]">
+        <p className="text-left text-[18px] ">
           At <span className="text-red-500">Balagot & Emperado CPA’s Co.</span>, we go beyond numbers—we build partnerships that drive success.
           No matter your industry, we are here to help you navigate financial complexities and achieve long-term financial stability.
         </p>
