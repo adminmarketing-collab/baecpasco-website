@@ -451,3 +451,55 @@ body.search-active .search-form-area {
   font-style: normal;
   font-display: swap;
 }
+
+.footer-layout{
+display:grid;
+grid-template-columns: 1fr;
+gap:40px;
+}
+
+@media (min-width:640px){
+.footer-layout{
+grid-template-columns:2fr 0.8fr 1fr;
+}
+}
+
+.footer-logo{
+width:110px;
+height:auto;
+}
+
+@media (max-width:768px){
+.footer-logo{
+width:140px;
+}
+}
+
+.footer-title{
+font-weight:600;
+color:white;
+margin-bottom:20px;
+position:relative;
+}
+
+.footer-title:after{
+content:"";
+position:absolute;
+left:0;
+bottom:-8px;
+width:55px;
+height:3px;
+background:#f90908;
+}
+
+.icon-circle{
+width:28px;
+height:28px;
+border-radius:50%;
+background:white;
+color:#f90908;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:13px;
+}

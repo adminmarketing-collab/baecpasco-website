@@ -29,94 +29,80 @@ const FooterData = {
 
 const Footer = () => {
   return (
-    <footer className="m-0 p-0 bg-white">
-      {/* DARK FOOTER CONTENT */}
-      <div id="merox-footer-area" className="bg-[#24262d] pt-[35px] pb-[25px]">
-        <div className="container">
-          {/* Desktop: 12-col grid for better balance */}
-          <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-12 gap-x-12 gap-y-8 items-start">
+    <footer className="bg-white">
+      <div className="bg-[#24262d] pt-[35px] pb-[25px]">
+        <div className="max-w-6xl mx-auto px-6">
 
-            {/* LEFT BLOCK (Logo + brief + social) */}
-            <div className="xl:col-span-5">
-              <div className="flex items-start">
-                {/* Bigger logo */}
-                <Link href="/" aria-label="Go to homepage" className="flex-shrink-0">
+          {/* GRID */}
+          <div className="footer-layout">
+
+            {/* LOGO + DESCRIPTION */}
+            <div className="footer-col logo-col">
+              <div className="flex items-start gap-4">
+
+                <Link href="/">
                   <Image
                     src={FooterData.logo}
                     alt="logo"
-                    width={70}
-                    height={70}
-                    className="h-auto w-[70px] cursor-pointer"
-                    priority={false}
+                    width={120}
+                    height={120}
+                    className="footer-logo"
                   />
                 </Link>
 
-                {/* Brief moved slightly left by being beside logo */}
-                <div className="w-full">
-                  <p className="text-[14px] text-white/90 leading-[22px] max-w-[320px] lg:max-w-[360px]">
+                <div className="max-w-[420px]">
+                  <p className="text-[14px] text-white leading-[22px]">
                     {FooterData.brief}
                   </p>
 
-                  <div className="mt-4 pt-4 border-t border-white/20 max-w-[360px]">
+                  <div className="mt-4 pt-4 border-t border-white/20">
                     {FooterData.SocialList.map((item, i) => (
                       <Link
                         key={i}
-                        className="inline-flex items-center justify-center text-white text-[16px] hover:text-[#f90908] transition"
+                        className="inline-flex text-white text-[16px] hover:text-[#f90908] active:text-[#f90908] transition-colors duration-200 mr-3"
                         href={item.link}
                         target="_blank"
-                        rel="noreferrer"
-                        aria-label="Facebook"
                       >
                         <i className={`fa fa-${item.icon}`} />
                       </Link>
                     ))}
                   </div>
                 </div>
+
               </div>
             </div>
 
             {/* QUICK LINKS */}
-            <div className="lg:col-span-1 xl:col-span-3 xl:pl-2">
-              <h3
-                className="font-semibold text-white mb-5 capitalize text-[18px] relative
-                before:absolute before:left-0 before:content-[''] before:-bottom-[10px]
-                before:w-[55px] before:h-[3px] before:bg-[#f90908]"
-              >
-                {FooterData.title}
-              </h3>
+            <div className="footer-col quick-col">
+              <h3 className="footer-title">{FooterData.title}</h3>
 
-              <ul className="m-0 p-0 list-none space-y-2">
+              <ul className="space-y-2">
                 {FooterData.QuicklinkList.map((item, i) => (
                   <li key={i}>
                     <Link
                       href={item.link}
-                      className="flex items-center gap-3 text-white font-semibold text-[14px] hover:text-[#ff60a3] transition"
-                    >
-                      <span className="w-[16px] text-white/80">→</span>
-                      <span>{item.title}</span>
+                      className="flex items-center gap-3 text-white text-[14px] font-semibold hover:text-[#f90908] active:text-[#f90908] transition"
+>
+                    <span className="font-bold">→</span>
+                    <span>{item.title}</span>
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* CONTACT INFO */}
-            <div className="lg:col-span-1 xl:col-span-4 xl:pl-2">
-              <h3
-                className="font-semibold text-white mb-5 capitalize text-[18px] relative
-                before:absolute before:left-0 before:content-[''] before:-bottom-[10px]
-                before:w-[55px] before:h-[3px] before:bg-[#f90908]"
-              >
-                {FooterData.title3}
-              </h3>
+            {/* CONTACT */}
+            <div className="footer-col contact-col">
+              <h3 className="footer-title">{FooterData.title3}</h3>
 
-              <ul className="m-0 p-0 list-none space-y-3">
+              <ul className="space-y-3">
                 {FooterData.ContactinfoList.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="w-[28px] h-[28px] rounded-full bg-white text-[#f90908] flex items-center justify-center flex-shrink-0">
-                      <i className={`${item.icon} text-[13px]`} />
+                  <li key={i} className="flex gap-3">
+                    <span className="icon-circle">
+                      <i className={`${item.icon}`} />
                     </span>
-                    <span className="text-white text-[14px] leading-[20px] break-all">
+
+                    <span className="text-white text-[14px] break-words">
                       {item.title}
                     </span>
                   </li>
@@ -125,10 +111,9 @@ const Footer = () => {
             </div>
 
           </div>
+
         </div>
       </div>
-
-      
     </footer>
   );
 };
