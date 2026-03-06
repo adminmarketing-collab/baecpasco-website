@@ -34,26 +34,26 @@ const Footer = () => {
       <div id="merox-footer-area" className="bg-[#24262d] pt-[35px] pb-[25px]">
         <div className="container">
           {/* Desktop: 12-col grid for better balance */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-x-10 gap-y-10 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-12 gap-x-12 gap-y-8 items-start">
 
             {/* LEFT BLOCK (Logo + brief + social) */}
             <div className="xl:col-span-5">
-              <div className="flex items-start gap-5">
+              <div className="flex items-start">
                 {/* Bigger logo */}
                 <Link href="/" aria-label="Go to homepage" className="flex-shrink-0">
                   <Image
                     src={FooterData.logo}
                     alt="logo"
-                    width={80}
-                    height={80}
-                    className="h-auto w-auto cursor-pointer"
+                    width={70}
+                    height={70}
+                    className="h-auto w-[70px] cursor-pointer"
                     priority={false}
                   />
                 </Link>
 
                 {/* Brief moved slightly left by being beside logo */}
                 <div className="w-full">
-                  <p className="text-[14px] text-white/90 leading-[22px] max-w-[360px]">
+                  <p className="text-[14px] text-white/90 leading-[22px] max-w-[320px] lg:max-w-[360px]">
                     {FooterData.brief}
                   </p>
 
@@ -76,7 +76,7 @@ const Footer = () => {
             </div>
 
             {/* QUICK LINKS */}
-            <div className="xl:col-span-3 xl:pl-2">
+            <div className="lg:col-span-1 xl:col-span-3 xl:pl-2">
               <h3
                 className="font-semibold text-white mb-5 capitalize text-[18px] relative
                 before:absolute before:left-0 before:content-[''] before:-bottom-[10px]
@@ -101,7 +101,7 @@ const Footer = () => {
             </div>
 
             {/* CONTACT INFO */}
-            <div className="xl:col-span-4 xl:pl-2">
+            <div className="lg:col-span-1 xl:col-span-4 xl:pl-2">
               <h3
                 className="font-semibold text-white mb-5 capitalize text-[18px] relative
                 before:absolute before:left-0 before:content-[''] before:-bottom-[10px]
