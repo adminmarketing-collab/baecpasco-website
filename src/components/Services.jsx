@@ -109,9 +109,9 @@ export default function Services() {
 
   {/* SUB CATEGORY 1 */}
   <div>
-    <h4 className="font-semibold text-lg mb-2 pl-6">Core Accounting</h4>
+    <h4 className="font-semibold text-lg mb-2 list-disc list-outside pl-6 space-y-2 ">Core Accounting</h4>
 
-    <ul className="list-disc pl-5 space-y-2 text-gray-600 pl-20">
+    <ul className="list-disc pl-5 space-y-2 text-gray-600 list-outside pl-20">
       <li><strong>General Ledger Maintenance -  </strong>   We maintain comprehensive and properly structured general ledgers to ensure accurate documentation of all transactions.</li>
       <li><strong>Bank Reconciliations -  </strong>   We reconcile internal accounting records with bank statements to detect discrepancies and maintain reporting integrity.</li>
       <li><strong>Accounts Payable & Receivable Management -  </strong>   We assist businesses in managing supplier obligations and customer receivables to improve working capital management.</li>
