@@ -8,17 +8,17 @@ import "swiper/css/pagination";
 
 const TestimonialData = {
   title: "TESTIMONIALS",
-  title2: "CLIENT’S SAY",
+  title2: "CLIENT'S SAY",
   TesstimonialList: [
     {
       title: "Anonymous",
       brief:
-        "I’ve tried other bookkeeping services before, but BALAGOT & Co. is the best. I’ve been with them since 2014. They reply fast, usually within minutes, and are always ready to help. My books are always updated early each month. I highly recommend them for any business, big or small",
+        "I've tried other bookkeeping services before, but BALAGOT & Co. is the best. I've been with them since 2014. They reply fast, usually within minutes, and are always ready to help. My books are always updated early each month. I highly recommend them for any business, big or small",
     },
     {
       title: "Anonymous",
       brief:
-        "On our 23rd year in business, we were lucky to find an accounting firm that patiently guided us with our tax concerns and BSP reports. Thank you, Balagot & Emperado CPA’s Co.—keep up the great work!",
+        "On our 23rd year in business, we were lucky to find an accounting firm that patiently guided us with our tax concerns and BSP reports. Thank you, Balagot & Emperado CPA's Co. - keep up the great work!",
     },
   ],
 };
