@@ -162,6 +162,8 @@ const Header = () => {
             alt="logo"
             className="block h-[46px] w-auto object-contain md:h-[50px] xl:h-[54px]"
             priority
+            fetchPriority="high"
+            sizes="(max-width: 767px) 112px, (max-width: 1279px) 124px, 136px"
           />
         </Link>
       </div>
