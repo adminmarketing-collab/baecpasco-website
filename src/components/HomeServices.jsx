@@ -68,8 +68,14 @@ export default function HomeServices() {
 
         <div className="flex flex-wrap justify-center gap-6">
           {services.map((service, index) => (
-            <div key={index} className="w-full max-w-[380px] md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)]">
-              <div className="flex h-full w-full flex-col overflow-hidden rounded-xl bg-white shadow-lg transition duration-300 hover:shadow-2xl">
+            <div
+              key={index}
+              className="w-full max-w-[380px] md:w-[calc(50%-12px)] xl:w-[calc(33.333%-16px)]"
+            >
+              <Link
+                href="/services"
+                className="flex h-full w-full flex-col overflow-hidden rounded-xl bg-white shadow-lg transition duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_10px_24px_rgba(255,255,255,0.14)]"
+              >
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -87,14 +93,11 @@ export default function HomeServices() {
                     {service.description}
                   </p>
 
-                  <Link
-                    href="/services"
-                    className="font-semibold text-[#f90908] hover:underline"
-                  >
+                  <span className="font-semibold text-[#f90908] hover:underline">
                     Read More
-                  </Link>
+                  </span>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>
@@ -102,4 +105,3 @@ export default function HomeServices() {
     </section>
   );
 }
-
