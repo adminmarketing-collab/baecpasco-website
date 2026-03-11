@@ -154,13 +154,13 @@ const Header = () => {
           <div className="container h-full">
   <div className="flex flex-wrap mx-[-12px] relative h-full items-center">
     {/* LOGO */}
-    <div className="xl:w-28 lg:w-2/12 md:w-3/12 sm:w-3/12 xsm:w-3/12 px-[12px] flex-[0_0_auto] h-full flex items-center">
+    <div className="xl:w-28 lg:w-4/12 md:w-6/12 sm:w-6/12 xsm:w-6/12 px-[12px] flex-[0_0_auto] h-full flex items-center">
       <div className="header-logo">
         <Link className="block" href="/">
           <Image
             src={HeaderData.logo}
             alt="logo"
-            className="h-[54px] w-auto object-contain block"
+            className="block h-[46px] w-auto object-contain md:h-[50px] xl:h-[54px]"
             priority
           />
         </Link>
@@ -168,8 +168,8 @@ const Header = () => {
     </div>
 
     {/* MENU */}
-    <div className="xl:w-10/12 lg:w-10/12 md:w-9/12 sm:w-9/12 xsm:w-9/12 px-[12px] flex-[0_0_auto] h-full flex items-center">
-      <div className="main-menu-area text-center md:hidden sm:hidden w-full h-full flex items-center justify-center">
+    <div className="xl:w-10/12 lg:w-8/12 md:w-6/12 sm:w-6/12 xsm:w-6/12 px-[12px] flex-[0_0_auto] h-full flex items-center justify-end">
+      <div className="main-menu-area hidden h-full w-full items-center justify-center text-center xl:flex">
         <div className="main-menu w-full">
           <nav className="h-full flex items-center justify-center">
             <ul
@@ -193,7 +193,7 @@ const Header = () => {
                       : ""
                   }`}
                 >
-                  <Link href={item.link} prefetch className="px-5">
+                  <Link href={item.link} prefetch className="px-4 2xl:px-5">
                     {item.title}
                     {item.submenu && (
                       <i className="fa fa-angle-down ml-[4px]"></i>
@@ -219,10 +219,10 @@ const Header = () => {
       </div>
     </div>
 
-              <div className="mobile-menu dropdown inline-block md:visible sm:visible invisible absolute w-full top-full inset-x-0">
+              <div className="mobile-menu dropdown visible absolute inset-x-0 top-full inline-block w-full xl:hidden">
                 <div
                   tabIndex={0}
-                  className="meanmenu-reveal xl:hidden lg:hidden border text-white cursor-pointer block h-10 w-[45px] px-[9px] py-2 border-solid border-white absolute right-0 top-[-75px]"
+                  className="meanmenu-reveal block h-10 w-[45px] cursor-pointer border border-solid border-white px-[9px] py-2 text-white absolute right-0 top-[-56px] md:top-[-60px] xl:hidden"
                 >
                   <span className="block h-[3px] relative mt-[3px] before:content-[''] before:absolute before:block before:h-[3px] before:mt-[3px] before:top-3 before:inset-x-0 after:content-[''] after:absolute after:block after:h-[3px] after:mt-[3px] after:top-1 after:inset-x-0 bg-white before:bg-white after:bg-white"></span>
                 </div>
@@ -277,3 +277,4 @@ const Header = () => {
 };
 
 export default Header;
+

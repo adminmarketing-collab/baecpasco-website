@@ -6,20 +6,20 @@ export default function ServiceAccordion({ title, children }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-t border-b border-gray-600 transition-all duration-300">
+    <div className="transition-all duration-300">
      
       {/* HEADER */}
       <button
         onClick={(e) => {
     e.currentTarget.blur(); // removes focus after click
     setOpen(!open); }}
-        className={`flex w-full items-center justify-between py-2 text-left transition-all duration-300
-        ${open ? "bg-white px-6 rounded-t-lg" : "bg-transparent px-0"}`}
+        className={`flex w-full items-center justify-between gap-4 py-3 text-left transition-all duration-300 md:py-4
+        ${open ? "rounded-t-lg bg-white px-4 md:px-6" : "bg-transparent px-0"}`}
         
 
       >
         <h3
-          className={`text-2xl font-semibold transition-colors duration-300 ${
+          className={`text-xl font-semibold leading-snug transition-colors duration-300 md:text-2xl ${
             open ? "text-red-600" : "text-white"
           }`}
         >
@@ -27,8 +27,8 @@ export default function ServiceAccordion({ title, children }) {
         </h3>
 
         <ChevronDown
-          size={22}
-          className={`transition-transform duration-300${
+          size={20}
+          className={`transition-transform duration-300 ${
             open ? "rotate-180 text-red-600" : "text-white"
           }`}
         />
@@ -36,10 +36,11 @@ export default function ServiceAccordion({ title, children }) {
 
       {/* CONTENT */}
       {open && (
-        <div className="bg-white rounded-b-lg px-6 pb-6 text-gray-800">
+        <div className="rounded-b-lg bg-white px-4 pb-6 text-gray-800 md:px-6">
           {children}
         </div>
       )}
     </div>
   );
 }
+

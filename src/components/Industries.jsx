@@ -80,18 +80,18 @@ const Industries = () => {
   return (
     <div
       id="merox-services-area"
-      className="merox-services-area py-2 bg-left z-[1] md:pb-4 sm:pb-2"
+      className="merox-services-area bg-left py-8 md:py-12 z-[1]"
     >
-      <div className="container text-center mt-8 mb-8">
-        <h1 className="text-[50px] font-bold leading-[49px] uppercase">
+      <div className="container mt-8 mb-8 text-center">
+        <h1 className="text-3xl font-bold uppercase leading-tight md:text-4xl xl:text-[50px] xl:leading-[49px]">
           Industries We Serve
         </h1>
 
-        <p className="mt-8 mb-8 font-bold text-center text-[18px]">
+        <p className="mb-6 mt-6 text-center text-base font-bold md:text-lg">
           Empowering Businesses Across Diverse Sectors
         </p>
 
-        <p className="mb-10 text-center text-[18px]">
+        <p className="mx-auto mb-10 max-w-5xl text-center text-base leading-7 md:text-lg">
           At <span className="text-red-500">Balagot & Emperado CPA’s Co.</span>, we
           take pride in delivering expert financial solutions tailored to a wide range of industries.
           With our deep understanding of sector-specific challenges, regulatory requirements, and growth opportunities,
@@ -100,17 +100,17 @@ const Industries = () => {
           to enhance financial stability, compliance, and long-term success.
         </p>
 
-        <div className="xl:grid xl:grid-cols-2 xl:gap-x-8">
+        <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
           {/* First Services Column */}
-          <div className="about-single-counter border-[1px] border-solid border-[#f1f1f1] py-10 px-[10px] rounded-[20px] transition-all duration-[0.3s] cursor-pointer mb-[30px] hover:shadow-[0px_8px_20px_0px_rgba(0,0,0,0.14)] text-left services-box bg-white xl:p-[20px] lg:p-[100px] md:p-20 sm:py-20 sm:px-10">
+          <div className="about-single-counter mb-[30px] rounded-[20px] border-[1px] border-solid border-[#f1f1f1] bg-white px-4 py-6 text-left transition-all duration-[0.3s] cursor-pointer hover:shadow-[0px_8px_20px_0px_rgba(0,0,0,0.14)] sm:px-6 md:p-8 lg:mb-0 lg:p-8 xl:p-[20px]">
             {ServicesData.ServicesList.map((item, i) => (
               <div
                 className="single-services flex mb-9 transition-all duration-[0.3s] cursor-pointer hover:scale-[0.90] last:mb-0"
                 key={i}
               >
                 {/* <Image src={item.icon} alt="icon" className="w-[50px] h-[50px]" /> */}
-                <div className="services-content-box ml-[30px]">
-                  <p className="text-left text-[24px] font-medium leading-none capitalize mb-[15px]">
+                <div className="services-content-box ml-4 md:ml-5">
+                  <p className="mb-[15px] text-left text-xl font-medium capitalize leading-tight md:text-[22px]">
                     <i className="fa fa-check text-[#f90908] mr-[10px]"></i>
                     {item.title}
                   </p>
@@ -121,15 +121,15 @@ const Industries = () => {
           </div>
 
           {/* Second Services Column */}
-          <div className="about-single-counter border-[1px] border-solid border-[#f1f1f1] py-10 px-[10px] rounded-[20px] transition-all duration-[0.3s] cursor-pointer mb-[30px] hover:shadow-[0px_8px_20px_0px_rgba(0,0,0,0.14)] text-left services-box bg-white xl:p-[20px] lg:p-[100px] md:p-20 sm:py-20 sm:px-10">
+          <div className="about-single-counter mb-[30px] rounded-[20px] border-[1px] border-solid border-[#f1f1f1] bg-white px-4 py-6 text-left transition-all duration-[0.3s] cursor-pointer hover:shadow-[0px_8px_20px_0px_rgba(0,0,0,0.14)] sm:px-6 md:p-8 lg:mb-0 lg:p-8 xl:p-[20px]">
             {ServicesData2.ServicesList.map((item, i) => (
               <div
                 className="single-services flex mb-9 transition-all duration-[0.3s] cursor-pointer hover:scale-[0.90] last:mb-0"
                 key={i}
               >
                 {/* <Image src={item.icon} alt="icon" className="w-[50px] h-[50px]" /> */}
-                <div className="services-content-box ml-[30px]">
-                  <p className="text-left text-[24px] font-medium leading-none capitalize mb-[15px]">
+                <div className="services-content-box ml-4 md:ml-5">
+                  <p className="mb-[15px] text-left text-xl font-medium capitalize leading-tight md:text-[22px]">
                     <i className="fa fa-check text-[#f90908] mr-[10px]"></i>
                     {item.title}
                   </p>
@@ -140,7 +140,7 @@ const Industries = () => {
           </div>
         </div>
 
-        <p className="text-left text-[18px] ">
+        <p className="mx-auto max-w-5xl text-left text-base leading-7 md:text-lg">
           At <span className="text-red-500">Balagot & Emperado CPA’s Co.</span>, we go beyond numbers—we build partnerships that drive success.
           No matter your industry, we are here to help you navigate financial complexities and achieve long-term financial stability.
         </p>
@@ -150,3 +150,4 @@ const Industries = () => {
 };
 
 export default Industries;
+

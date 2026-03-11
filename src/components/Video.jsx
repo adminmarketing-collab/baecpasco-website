@@ -13,7 +13,7 @@ const VideoData = {
 export default function Video() {
   const videoRef = useRef(null);
 
-  const [isMuted, setIsMuted] = useState(true); // autoplay must start muted
+  const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
 
   const [duration, setDuration] = useState(0);
@@ -25,7 +25,6 @@ export default function Video() {
     if (!video) return;
 
     if (video.paused) {
-      // user interaction -> allow sound now
       video.muted = false;
       video.volume = 1;
       setIsMuted(false);
@@ -71,42 +70,36 @@ export default function Video() {
   return (
     <section
       id="merox-video-area"
-      className="relative pt-48 pb-24 bg-[#24262d] overflow-hidden"
+      className="relative overflow-hidden bg-[#24262d] pb-16 pt-32 md:pb-20 md:pt-36 xl:pb-24 xl:pt-48"
     >
-      {/* Background image */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      <div className="pointer-events-none absolute inset-0 z-0">
         <Image
           src={VideoData.bgimg}
           alt="video-bg"
           fill
           priority
           className="object-cover"
-          style={{ objectPosition: "10% center" }}
+          style={{ objectPosition: "center 35%" }}
         />
         <div className="absolute inset-0 bg-[#24262d] opacity-35"></div>
       </div>
 
       <div className="container relative z-0">
-        <div className="flex flex-wrap items-start gap-y-10">
-          {/* LEFT: Titles */}
-          <div className="w-full lg:w-5/12 order-2 lg:order-1 relative -top-64">
-            <div className="section-title lite">
-              <h4
-                className="text-white uppercase font-medium text-[20px] mb-[5px]">
-
+        <div className="flex flex-col items-center gap-8 md:gap-10 xl:flex-row xl:items-center xl:gap-y-10">
+          <div className="order-1 w-full text-center xl:order-1 xl:w-5/12 xl:-translate-y-6 xl:text-left">
+            <div className="section-title lite mx-auto max-w-xl xl:mx-0">
+              <h4 className="mb-2 text-xl font-medium uppercase text-white md:text-[24px] xl:mb-2 xl:text-[28px]">
                 {VideoData.title}
               </h4>
 
-              <h3 className="text-white text-[50px] font-bold leading-[49px] uppercase">
+              <h3 className="text-3xl font-bold uppercase leading-tight text-white md:text-4xl xl:text-[50px] xl:leading-[49px]">
                 {VideoData.title2}
               </h3>
             </div>
           </div>
 
-          {/* RIGHT: Video */}
-          <div className="w-full lg:w-7/12 order-1 lg:order-2">
-            <div className="ml-auto relative w-full max-w-[720px] aspect-[21/9] translate-x-6 lg:translate-x-12 rounded-[20px] overflow-hidden bg-black shadow-lg">
-              {/* Video */}
+          <div className="order-2 flex w-full justify-center xl:w-7/12 xl:justify-end">
+            <div className="relative w-full max-w-[720px] aspect-[21/9] overflow-hidden rounded-[20px] bg-black shadow-lg xl:translate-x-12">
               <video
                 ref={videoRef}
                 id="services-video"
@@ -117,11 +110,9 @@ export default function Video() {
                 playsInline
                 preload="metadata"
                 poster="/img/video/video-bg.png"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover xl:object-[center_35%]"
               />
 
-              {/* ✅ CLICK-CATCHER LAYER (covers entire video, like YouTube) */}
-              {/* Put this ABOVE the video, BELOW the slider */}
               <button
                 type="button"
                 onClick={togglePlayPause}
@@ -130,17 +121,15 @@ export default function Video() {
                 style={{ background: "transparent" }}
               />
 
-              {/* Center play icon when paused (does NOT block clicks) */}
-              <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+              <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
                 {!isPlaying && (
-                  <div className="bg-black/60 text-white w-16 h-16 rounded-full flex items-center justify-center backdrop-blur">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur">
                     ▶
                   </div>
                 )}
               </div>
 
-              {/* ✅ Timeline (above click-catcher) */}
-              <div className="absolute left-0 right-0 bottom-0 z-30 px-4 pb-3">
+              <div className="absolute bottom-0 left-0 right-0 z-30 px-4 pb-3">
                 <input
                   type="range"
                   min={0}
@@ -163,9 +152,9 @@ export default function Video() {
                     e.stopPropagation();
                     setIsSeeking(false);
                   }}
-                  onClick={(e) => e.stopPropagation()} // prevent toggling play/pause
+                  onClick={(e) => e.stopPropagation()}
                   onChange={(e) => seekTo(parseFloat(e.target.value))}
-                  className="w-full h-1 rounded-full accent-[#f90908] cursor-pointer opacity-95"
+                  className="h-1 w-full cursor-pointer rounded-full accent-[#f90908] opacity-95"
                   aria-label="Seek video"
                 />
               </div>
@@ -176,3 +165,5 @@ export default function Video() {
     </section>
   );
 }
+
+
