@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { Volume2, VolumeX } from "lucide-react";
 import bgimg from "../../public/img/video/video-bg.png";
 
 const VideoData = {
@@ -14,6 +15,7 @@ export default function Video() {
   const videoRef = useRef(null);
 
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [isSeeking, setIsSeeking] = useState(false);
@@ -37,6 +39,16 @@ export default function Video() {
     }
   };
 
+  const toggleMute = (event) => {
+    event.stopPropagation();
+    const video = videoRef.current;
+    if (!video) return;
+
+    const nextMuted = !video.muted;
+    video.muted = nextMuted;
+    setIsMuted(nextMuted);
+  };
+
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -44,6 +56,7 @@ export default function Video() {
     const tryAutoplay = async () => {
       try {
         video.muted = true;
+        setIsMuted(true);
         await video.play();
         setIsPlaying(true);
       } catch {
@@ -58,6 +71,7 @@ export default function Video() {
     };
     const onPlay = () => setIsPlaying(true);
     const onPause = () => setIsPlaying(false);
+    const onVolumeChange = () => setIsMuted(video.muted);
     const onError = () => setShowControls(true);
 
     tryAutoplay();
@@ -65,6 +79,7 @@ export default function Video() {
     video.addEventListener("timeupdate", onTimeUpdate);
     video.addEventListener("play", onPlay);
     video.addEventListener("pause", onPause);
+    video.addEventListener("volumechange", onVolumeChange);
     video.addEventListener("error", onError);
 
     return () => {
@@ -72,6 +87,7 @@ export default function Video() {
       video.removeEventListener("timeupdate", onTimeUpdate);
       video.removeEventListener("play", onPlay);
       video.removeEventListener("pause", onPause);
+      video.removeEventListener("volumechange", onVolumeChange);
       video.removeEventListener("error", onError);
     };
   }, [isSeeking]);
@@ -86,7 +102,7 @@ export default function Video() {
   return (
     <section
       id="merox-video-area"
-      className="relative overflow-hidden bg-[#24262d] pb-16 pt-32 md:pb-20 md:pt-36 xl:pb-24 xl:pt-48"
+      className="relative overflow-hidden bg-[#24262d] pb-16 pt-32 z-[1] md:pb-20 md:pt-36 xl:pb-24 xl:pt-48"
     >
       <div className="pointer-events-none absolute inset-0 z-0">
         <Image
@@ -120,7 +136,7 @@ export default function Video() {
                 ref={videoRef}
                 id="services-video"
                 autoPlay
-                muted
+                muted={isMuted}
                 loop
                 playsInline
                 controls={showControls}
@@ -139,6 +155,15 @@ export default function Video() {
                 className="absolute inset-0 z-10 cursor-pointer"
                 style={{ background: "transparent" }}
               />
+
+              <button
+                type="button"
+                onClick={toggleMute}
+                aria-label={isMuted ? "Unmute video" : "Mute video"}
+                className="absolute right-4 top-4 z-30 flex h-11 w-11 items-center justify-center rounded-full bg-black/55 text-white backdrop-blur transition hover:bg-black/70"
+              >
+                {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+              </button>
 
               <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
                 {!isPlaying && !showControls && (
