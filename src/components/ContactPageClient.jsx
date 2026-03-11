@@ -15,33 +15,19 @@ export default function ContactPageClient() {
       <Header />
 
       <main>
-        {/* Breadcrumb / Hero */}
-        <Breadcrumb title="Contact" />
+        <Breadcrumb compact position="center 42%" />
 
-        {/* Contact Section */}
-        <div id="merox-contact-area" className="merox-contact-area my-[100px]">
+        <div id="merox-contact-area" className="merox-contact-area mt-[36px] mb-[72px] md:mt-[42px] md:mb-[84px]">
           <div className="container">
-
-            {/* Title */}
-            <div className="mb-10 text-center">
-              <h4
-                className="uppercase font-medium text-[20px] relative inline-block pl-[30px] mb-[15px]
-                before:w-5 before:content-['']
-                before:absolute before:left-0 before:top-[11px]"
-              >
-                contact
-              </h4>
-
-              <h1 className="text-[50px] font-bold leading-[49px] uppercase">
+            <div className="mb-6 text-center md:mb-8">
+              <h1 className="text-center text-[38px] font-bold uppercase leading-tight md:text-[50px] md:leading-[49px]">
                 contact us
               </h1>
             </div>
 
-            {/* Form */}
-            <div className="w-full max-w-3xl mx-auto px-4">
+            <div className="mx-auto w-full max-w-3xl px-4">
               <ContactForm />
             </div>
-
           </div>
         </div>
       </main>
@@ -51,3 +37,4 @@ export default function ContactPageClient() {
     </>
   );
 }
+

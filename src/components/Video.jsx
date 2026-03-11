@@ -13,24 +13,26 @@ const VideoData = {
 export default function Video() {
   const videoRef = useRef(null);
 
-  const [isMuted, setIsMuted] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(true);
-
+  const [isMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [isSeeking, setIsSeeking] = useState(false);
 
-  const togglePlayPause = () => {
+  const togglePlayPause = async () => {
     const video = videoRef.current;
     if (!video) return;
 
     if (video.paused) {
-      video.muted = false;
-      video.volume = 1;
-      setIsMuted(false);
-      video.play().catch(() => {});
+      try {
+        await video.play();
+        setIsPlaying(true);
+      } catch {
+        setIsPlaying(false);
+      }
     } else {
       video.pause();
+      setIsPlaying(false);
     }
   };
 
@@ -38,15 +40,23 @@ export default function Video() {
     const video = videoRef.current;
     if (!video) return;
 
-    const onLoaded = () => setDuration(video.duration || 0);
+    const tryAutoplay = async () => {
+      try {
+        await video.play();
+        setIsPlaying(true);
+      } catch {
+        setIsPlaying(false);
+      }
+    };
 
+    const onLoaded = () => setDuration(video.duration || 0);
     const onTimeUpdate = () => {
       if (!isSeeking) setCurrentTime(video.currentTime || 0);
     };
-
     const onPlay = () => setIsPlaying(true);
     const onPause = () => setIsPlaying(false);
 
+    tryAutoplay();
     video.addEventListener("loadedmetadata", onLoaded);
     video.addEventListener("timeupdate", onTimeUpdate);
     video.addEventListener("play", onPlay);
@@ -99,7 +109,7 @@ export default function Video() {
           </div>
 
           <div className="order-2 flex w-full justify-center xl:w-7/12 xl:justify-end">
-            <div className="relative w-full max-w-[720px] aspect-[21/9] overflow-hidden rounded-[20px] bg-black shadow-lg xl:translate-x-12">
+            <div className="relative aspect-[21/9] w-full max-w-[720px] overflow-hidden rounded-[20px] bg-black shadow-lg xl:translate-x-12">
               <video
                 ref={videoRef}
                 id="services-video"
@@ -124,7 +134,7 @@ export default function Video() {
               <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
                 {!isPlaying && (
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur">
-                    ▶
+                    Play
                   </div>
                 )}
               </div>
@@ -165,5 +175,4 @@ export default function Video() {
     </section>
   );
 }
-
 

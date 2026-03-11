@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useMemo, useState } from "react";
 
 const DEFAULT_SERVICES = [
   "Audit & Assurance",
@@ -10,6 +10,22 @@ const DEFAULT_SERVICES = [
   "Regulatory Compliance & Corporate Services",
 ];
 
+const FILLED_FIELD_STYLE = {
+  border: "1px solid #D1D5DB",
+  borderRadius: 8,
+  padding: "12px 14px",
+  fontSize: 15,
+  color: "#4A4A4A",
+  background: "#FFFFFF",
+};
+
+const EMPTY_FIELD_STYLE = {
+  ...FILLED_FIELD_STYLE,
+  border: "1px solid #4A4A4A",
+  color: "#FFFFFF",
+  background: "#4A4A4A",
+};
+
 export default function ContactForm({ services = DEFAULT_SERVICES }) {
   const list = useMemo(() => services.filter(Boolean), [services]);
 
@@ -17,7 +33,7 @@ export default function ContactForm({ services = DEFAULT_SERVICES }) {
     name: "",
     email: "",
     phone: "",
-    services: [], // ✅ array for multi-select
+    services: [],
     message: "",
   });
 
@@ -29,47 +45,62 @@ export default function ContactForm({ services = DEFAULT_SERVICES }) {
     message: false,
   });
 
+  const [focused, setFocused] = useState({
+    name: false,
+    email: false,
+    phone: false,
+    message: false,
+  });
+
   const [submitted, setSubmitted] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
 
   const setField = (name, value) => setForm((p) => ({ ...p, [name]: value }));
   const touch = (name) => setTouched((p) => ({ ...p, [name]: true }));
+  const setFocus = (name, value) => setFocused((p) => ({ ...p, [name]: value }));
 
   const toggleService = (service) => {
     setForm((p) => {
       const exists = p.services.includes(service);
-      const next = exists ? p.services.filter((s) => s !== service) : [...p.services, service];
+      const next = exists
+        ? p.services.filter((s) => s !== service)
+        : [...p.services, service];
       return { ...p, services: next };
     });
     touch("services");
   };
 
-  // ✅ Validation
   const errors = useMemo(() => {
     const e = {};
 
     if (!form.name.trim()) e.name = "Full name is required.";
     if (!form.email.trim()) e.email = "Email address is required.";
-    else if (!/^\S+@\S+\.\S+$/.test(form.email.trim())) e.email = "Please enter a valid email.";
+    else if (!/^\S+@\S+\.\S+$/.test(form.email.trim())) {
+      e.email = "Please enter a valid email.";
+    }
 
     if (!form.phone.trim()) e.phone = "Phone number is required.";
-
-    if (!form.services || form.services.length === 0)
+    if (!form.services || form.services.length === 0) {
       e.services = "Please select at least one service.";
-
+    }
     if (!form.message.trim()) e.message = "Message is required.";
 
     return e;
   }, [form]);
 
   const isValid = useMemo(() => Object.keys(errors).length === 0, [errors]);
-
   const showErr = (field) => (submitted || touched[field]) && errors[field];
+
+  const getInteractiveFieldStyle = (field) => {
+    const hasValue = Boolean(form[field]?.trim());
+    return hasValue || focused[field] ? FILLED_FIELD_STYLE : EMPTY_FIELD_STYLE;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
+    setSuccessMessage("");
 
-    // ✅ Block submit if invalid (before submit)
     if (!isValid) return;
 
     try {
@@ -82,9 +113,6 @@ export default function ContactForm({ services = DEFAULT_SERVICES }) {
       const result = await res.json();
 
       if (result.success) {
-        alert("Message sent successfully!");
-
-        // Reset
         setForm({
           name: "",
           email: "",
@@ -99,7 +127,14 @@ export default function ContactForm({ services = DEFAULT_SERVICES }) {
           services: false,
           message: false,
         });
+        setFocused({
+          name: false,
+          email: false,
+          phone: false,
+          message: false,
+        });
         setSubmitted(false);
+        setSuccessMessage("Email successfully sent!");
       } else {
         alert("Failed to send message. Please try again.");
       }
@@ -111,17 +146,20 @@ export default function ContactForm({ services = DEFAULT_SERVICES }) {
 
   return (
     <form onSubmit={handleSubmit} style={styles.card}>
-      {/* FULL NAME */}
       <div style={styles.row}>
         <label style={styles.label}>Full Name</label>
         <input
           style={{
-            ...styles.input,
+            ...getInteractiveFieldStyle("name"),
             ...(showErr("name") ? styles.inputError : null),
           }}
           value={form.name}
           onChange={(e) => setField("name", e.target.value)}
-          onBlur={() => touch("name")}
+          onFocus={() => setFocus("name", true)}
+          onBlur={() => {
+            setFocus("name", false);
+            touch("name");
+          }}
           name="name"
           required
           placeholder="Your full name"
@@ -129,17 +167,20 @@ export default function ContactForm({ services = DEFAULT_SERVICES }) {
         {showErr("name") ? <div style={styles.errorText}>{errors.name}</div> : null}
       </div>
 
-      {/* EMAIL */}
       <div style={styles.row}>
         <label style={styles.label}>Email Address</label>
         <input
           style={{
-            ...styles.input,
+            ...getInteractiveFieldStyle("email"),
             ...(showErr("email") ? styles.inputError : null),
           }}
           value={form.email}
           onChange={(e) => setField("email", e.target.value)}
-          onBlur={() => touch("email")}
+          onFocus={() => setFocus("email", true)}
+          onBlur={() => {
+            setFocus("email", false);
+            touch("email");
+          }}
           name="email"
           required
           type="email"
@@ -148,17 +189,20 @@ export default function ContactForm({ services = DEFAULT_SERVICES }) {
         {showErr("email") ? <div style={styles.errorText}>{errors.email}</div> : null}
       </div>
 
-      {/* PHONE */}
       <div style={styles.row}>
         <label style={styles.label}>Phone Number</label>
         <input
           style={{
-            ...styles.input,
+            ...getInteractiveFieldStyle("phone"),
             ...(showErr("phone") ? styles.inputError : null),
           }}
           value={form.phone}
           onChange={(e) => setField("phone", e.target.value)}
-          onBlur={() => touch("phone")}
+          onFocus={() => setFocus("phone", true)}
+          onBlur={() => {
+            setFocus("phone", false);
+            touch("phone");
+          }}
           name="phone"
           required
           placeholder="Your phone number"
@@ -166,7 +210,6 @@ export default function ContactForm({ services = DEFAULT_SERVICES }) {
         {showErr("phone") ? <div style={styles.errorText}>{errors.phone}</div> : null}
       </div>
 
-      {/* ✅ SERVICES (CHECKBOXES) */}
       <div style={styles.row}>
         <label style={styles.label}>Service</label>
 
@@ -195,7 +238,6 @@ export default function ContactForm({ services = DEFAULT_SERVICES }) {
         {showErr("services") ? <div style={styles.errorText}>{errors.services}</div> : null}
       </div>
 
-      {/* MESSAGE */}
       <div style={styles.row}>
         <label style={styles.label}>Message</label>
         <textarea
@@ -205,7 +247,11 @@ export default function ContactForm({ services = DEFAULT_SERVICES }) {
           }}
           value={form.message}
           onChange={(e) => setField("message", e.target.value)}
-          onBlur={() => touch("message")}
+          onFocus={() => setFocus("message", true)}
+          onBlur={() => {
+            setFocus("message", false);
+            touch("message");
+          }}
           name="message"
           rows={5}
           required
@@ -215,24 +261,52 @@ export default function ContactForm({ services = DEFAULT_SERVICES }) {
       </div>
 
       <button
+        className="contact-submit"
         type="submit"
-        style={{
-          ...styles.submit,
-          ...(isValid ? null : styles.submitDisabled),
-        }}
+        style={styles.submit}
         disabled={!isValid}
       >
         Send Message
       </button>
 
-      {/* focus ring */}
+      {successMessage ? <p style={styles.successText}>{successMessage}</p> : null}
+
       <style jsx>{`
+        input::placeholder {
+          color: rgba(255, 255, 255, 0.72);
+        }
+
+        textarea::placeholder {
+          color: #9ca3af;
+        }
+
         input:focus,
         textarea:focus,
         button:focus {
           outline: none;
           border-color: #ef4444;
           box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25);
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+          -webkit-text-fill-color: #4a4a4a;
+          -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+          box-shadow: 0 0 0 1000px #ffffff inset;
+          transition: background-color 5000s ease-in-out 0s;
+          caret-color: #4a4a4a;
+        }
+
+        .contact-submit:hover,
+        .contact-submit:active {
+          background: #fe0004 !important;
+        }
+
+        .contact-submit:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
         }
       `}</style>
     </form>
@@ -241,10 +315,10 @@ export default function ContactForm({ services = DEFAULT_SERVICES }) {
 
 const styles = {
   card: {
-    background: "#fff",
+    background: "#f8f5ef",
     padding: 32,
     borderRadius: 10,
-    boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+    boxShadow: "0 14px 36px rgba(15, 23, 42, 0.10)",
     display: "flex",
     flexDirection: "column",
     gap: 18,
@@ -258,21 +332,15 @@ const styles = {
     fontWeight: 700,
     color: "#111827",
   },
-  input: {
-    border: "1px solid #D1D5DB",
-    borderRadius: 8,
-    padding: "12px 14px",
-    fontSize: 15,
-  },
   textarea: {
     border: "1px solid #D1D5DB",
     borderRadius: 8,
     padding: "12px 14px",
     fontSize: 15,
+    color: "#4A4A4A",
+    background: "#FFFFFF",
     resize: "vertical",
   },
-
-  // ✅ Checkbox styling
   checkboxBox: {
     border: "1px solid #D1D5DB",
     borderRadius: 8,
@@ -280,7 +348,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     gap: 10,
-    background: "#fff",
+    background: "#f8f5ef",
   },
   checkboxRow: {
     display: "flex",
@@ -300,8 +368,6 @@ const styles = {
     color: "#111827",
     fontWeight: 600,
   },
-
-  // ✅ Errors + disabled
   inputError: {
     borderColor: "#EF4444",
   },
@@ -310,6 +376,13 @@ const styles = {
     fontSize: 13,
     fontWeight: 600,
     marginTop: 2,
+  },
+  successText: {
+    color: "#16A34A",
+    fontSize: 14,
+    fontWeight: 700,
+    textAlign: "center",
+    marginTop: -4,
   },
   submit: {
     background: "#EF4444",
@@ -320,9 +393,6 @@ const styles = {
     fontWeight: 900,
     textTransform: "uppercase",
     cursor: "pointer",
-  },
-  submitDisabled: {
-    opacity: 0.6,
-    cursor: "not-allowed",
+    transition: "background 0.2s ease",
   },
 };
