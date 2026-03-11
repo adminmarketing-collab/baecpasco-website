@@ -3,6 +3,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import React from "react";
+import logo from "../../public/img/logo-1.png";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -30,7 +31,6 @@ const Testimonial = () => {
       id="merox-testimonial-area"
       className="merox-testimonial-area py-[60px] md:py-[80px] wow fadeInUp"
     >
-      {/* HEADER */}
       <div className="container mb-10">
         <h4 className="uppercase font-medium text-[20px] 
            before:w-5 before:absolute before:left-0 before:top-[11px]">
@@ -42,7 +42,6 @@ const Testimonial = () => {
         </h3>
       </div>
 
-      {/* SLIDER */}
       <div className="container">
         <Swiper
           modules={[Pagination, Autoplay]}
@@ -60,41 +59,35 @@ const Testimonial = () => {
           {TestimonialData.TesstimonialList.map((item, i) => (
             <SwiperSlide key={i}>
               <div className="flex items-start gap-4">
-                
-               {/* ICON: black user behind, red ring in front (guaranteed) */}
-<span className="relative w-[22px] h-[22px] flex-shrink-0 mt-[4px]">
-  {/* black user (behind) */}
-  <span className="absolute inset-0 rounded-full bg-white overflow-hidden flex items-start justify-center pt-[3px] z-[1]">
-    <i className="fa fa-user text-black text-[10px] leading-none" />
-  </span>
+                <span className="relative mt-[4px] h-[26px] w-[26px] flex-shrink-0">
+                  <span className="absolute inset-0 z-[1] overflow-hidden rounded-full bg-white flex items-center justify-center p-[3px]">
+                    <Image
+                      src={logo}
+                      alt="BAECPASCO logo"
+                      width={18}
+                      height={18}
+                      className="h-[18px] w-[18px] object-contain"
+                    />
+                  </span>
 
-  {/* red ring (front) - SVG so it will NEVER disappear */}
-  <svg
-    className="absolute inset-0 z-[5] pointer-events-none"
-    viewBox="0 0 22 22"
-    fill="none"
-  >
-    <circle
-      cx="11"
-      cy="11"
-      r="9"
-      stroke="#f90908"
-      strokeWidth="3"
-    />
-  </svg>
-</span>
+                  <svg
+                    className="pointer-events-none absolute inset-0 z-[5]"
+                    viewBox="0 0 26 26"
+                    fill="none"
+                  >
+                    <circle cx="13" cy="13" r="11" stroke="#f90908" strokeWidth="3" />
+                  </svg>
+                </span>
 
-                {/* TEXT */}
                 <div>
-                  <p className="text-[#6b7280] leading-relaxed mb-4">
+                  <p className="mb-4 leading-relaxed text-[#6b7280]">
                     {item.brief}
                   </p>
 
-                  <h4 className="font-bold text-[#24262d] text-[20px]">
+                  <h4 className="text-[20px] font-bold text-[#24262d]">
                     {item.title}
                   </h4>
                 </div>
-
               </div>
             </SwiperSlide>
           ))}
