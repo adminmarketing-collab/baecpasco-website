@@ -13,11 +13,11 @@ const VideoData = {
 export default function Video() {
   const videoRef = useRef(null);
 
-  const [isMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [isSeeking, setIsSeeking] = useState(false);
+  const [showControls, setShowControls] = useState(false);
 
   const togglePlayPause = async () => {
     const video = videoRef.current;
@@ -29,6 +29,7 @@ export default function Video() {
         setIsPlaying(true);
       } catch {
         setIsPlaying(false);
+        setShowControls(true);
       }
     } else {
       video.pause();
@@ -42,10 +43,12 @@ export default function Video() {
 
     const tryAutoplay = async () => {
       try {
+        video.muted = true;
         await video.play();
         setIsPlaying(true);
       } catch {
         setIsPlaying(false);
+        setShowControls(true);
       }
     };
 
@@ -55,18 +58,21 @@ export default function Video() {
     };
     const onPlay = () => setIsPlaying(true);
     const onPause = () => setIsPlaying(false);
+    const onError = () => setShowControls(true);
 
     tryAutoplay();
     video.addEventListener("loadedmetadata", onLoaded);
     video.addEventListener("timeupdate", onTimeUpdate);
     video.addEventListener("play", onPlay);
     video.addEventListener("pause", onPause);
+    video.addEventListener("error", onError);
 
     return () => {
       video.removeEventListener("loadedmetadata", onLoaded);
       video.removeEventListener("timeupdate", onTimeUpdate);
       video.removeEventListener("play", onPlay);
       video.removeEventListener("pause", onPause);
+      video.removeEventListener("error", onError);
     };
   }, [isSeeking]);
 
@@ -113,15 +119,18 @@ export default function Video() {
               <video
                 ref={videoRef}
                 id="services-video"
-                src="/video/services-v2.mp4"
                 autoPlay
-                muted={isMuted}
+                muted
                 loop
                 playsInline
-                preload="metadata"
+                controls={showControls}
+                preload="auto"
                 poster="/img/video/video-bg.png"
                 className="absolute inset-0 h-full w-full object-cover xl:object-[center_35%]"
-              />
+              >
+                <source src="/video/services-v2.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
 
               <button
                 type="button"
@@ -132,7 +141,7 @@ export default function Video() {
               />
 
               <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
-                {!isPlaying && (
+                {!isPlaying && !showControls && (
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur">
                     Play
                   </div>
@@ -175,4 +184,3 @@ export default function Video() {
     </section>
   );
 }
-
