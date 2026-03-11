@@ -1,6 +1,8 @@
 "use client";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
+
+const DESKTOP_BREAKPOINT = 1280;
 
 const Vision_Mission = () => {
   const coreValues = useMemo(
@@ -28,7 +30,7 @@ const Vision_Mission = () => {
       {
         key: "nurturing_growth",
         title: "Nurturing Growth",
-        desc: "We don’t just manage finances; we empower businesses to expand, innovate, and thrive in a competitive landscape.",
+        desc: "We do not just manage finances; we empower businesses to expand, innovate, and thrive in a competitive landscape.",
       },
       {
         key: "dedication",
@@ -39,194 +41,180 @@ const Vision_Mission = () => {
     []
   );
 
-  const [activeKey, setActiveKey] = useState("accountability");
-  const active = coreValues.find((v) => v.key === activeKey) || coreValues[0];
+  const [activeKey, setActiveKey] = useState("dedication");
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const updateViewportMode = () => {
+      setIsDesktop(window.innerWidth >= DESKTOP_BREAKPOINT);
+    };
+
+    updateViewportMode();
+    window.addEventListener("resize", updateViewportMode);
+
+    return () => window.removeEventListener("resize", updateViewportMode);
+  }, []);
+
+  const active = coreValues.find((value) => value.key === activeKey) || coreValues[0];
+
+  const tooltipPosition = {
+    accountability: "left-1/2 top-[-42%] -translate-x-1/2 xl:top-[-52%]",
+    sustainability: "right-[-56%] top-[10%] xl:right-[-84%] xl:top-[8%]",
+    collaboration: "right-[-60%] bottom-[16%] xl:right-[-88%] xl:bottom-[15%]",
+    excellence: "bottom-[-38%] left-1/2 -translate-x-1/2 xl:bottom-[-58%]",
+    nurturing_growth: "bottom-[16%] left-[-60%] xl:left-[-88%] xl:bottom-[15%]",
+    dedication: "left-[-56%] top-[10%] xl:left-[-92%] xl:top-[8%]",
+  };
+
+  const hotspotBaseClass = "absolute cursor-pointer rounded-[999px] bg-transparent select-none";
+
+  const handleActivate = (key) => {
+    setActiveKey(key);
+  };
+
+  const handleHover = (key) => {
+    if (isDesktop) {
+      setActiveKey(key);
+    }
+  };
+
+  const handleKeyDown = (event, key) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setActiveKey(key);
+    }
+  };
+
+  const Hotspot = ({ className, valueKey, label }) => (
+    <div
+      role="button"
+      tabIndex={0}
+      aria-label={label}
+      className={`${hotspotBaseClass} ${className}`}
+      onMouseEnter={() => handleHover(valueKey)}
+      onFocus={() => handleHover(valueKey)}
+      onClick={() => handleActivate(valueKey)}
+      onKeyDown={(event) => handleKeyDown(event, valueKey)}
+    />
+  );
 
   return (
-    <>
-      <div
-        id="merox-services-area"
-        className="merox-services-area relative z-[1] md:pb-20 sm:pb-20"
-      >
-        <div className="container text-center mt-8 mb-12">
-          <h2 className="text-[50px] font-bold leading-[49px] uppercase">
+    <section id="merox-services-area" className="relative z-[1] py-8 md:py-12">
+      <div className="container">
+        <div className="mb-8 text-center md:mb-12">
+          <h2 className="text-[34px] font-bold uppercase leading-tight md:text-[42px] xl:text-[50px]">
             Vision and Mission
           </h2>
         </div>
 
-        <div className="container">
-          {/* Vision */}
-      
-  <div className="justify-center gap-3 mt-12 mb-[14px]">
-  <p className="uppercase font-bold text-[20px] text-[#24262d]">
-    Vision Statement
-  </p>
-</div>
-          <p className="text-left text-[18px]">
-            Our vision is to be the{" "}
-            <span className="text-[#f90908]">
-              trusted partner in financial excellence
-            </span>
-            , known for our commitment to{" "}
-            <span className="text-[#f90908]">
-              trust, innovation, and holistic growth.
-            </span>{" "}
-            We aim to help businesses and individuals not just achieve financial
-            stability but thrive with confidence, supported by strategic insights
-            and sustainable solutions. Rooted in{" "}
-            <span className="text-[#f90908]">
-              integrity and long-term partnerships
-            </span>
-            , we strive to strengthen our foundation while expanding our reach,
-            embracing opportunities beyond local markets. By upholding our ASCEND
-            values, we transform the way businesses grow, ensuring success is
-            measured not just in numbers but in lasting impact and shared
-            prosperity. We see{" "}
-            <span className="text-[#f90908]">
-              Balagot &amp; Emperado CPAs Co.
-            </span>{" "}
-            as more than a financial firm, we are a force for progress, helping
-            businesses elevate their potential, expand their horizons, and build
-            a lasting legacy.
-          </p>
-
-          {/* Mission */}
-          <div className="justify-center gap-3 mt-12 mb-[15px]">
-  <p className="uppercase font-bold text-[20px] text-[#24262d]">
-    Mission Statement
-  </p>
-</div>
-
-          <p className="text-left text-[18px]">
-            At{" "}
-            <span className="text-[#f90908]">
-              Balagot &amp; Emperado CPAs Co.
-            </span>
-            , we go beyond numbers to help businesses and individuals achieve
-            lasting success. Guided by our{" "}
-            <span className="text-[#f90908]">ASCEND</span> values, we provide
-            strategic financial solutions that support growth in every aspect. We
-            are committed to building trust, fostering long-term relationships,
-            and upholding integrity, ensuring a strong foundation for our
-            clients. At the same time, we embrace innovation, expand beyond local
-            markets, and provide insights that drive sustainable progress.
-          </p>
-
-          {/* CORE VALUES HEADER */}
-<div className="flex items-center justify-center gap-3 mt-16 mb-[15px]">
-  
-  <p className="uppercase font-bold text-[20px] text-[#24262d]">
-    CORE VALUES
-  </p>
-</div>
-
-
-  <p className="uppercase font-semibold tracking-widest text-[18px]">
-    Ascend Onwards Center
-  </p>
-</div>
-         
-        {/* ✅ Core Values (Desktop: wheel + floating tooltip outside; Mobile: centered) */}
-<div className="mt-10 w-full text-left">
-  <div className="flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-14 text-left">
-
-    {/* LEFT: Wheel */}
-    <div className="w-full lg:w-[380px] max-w-[340px] lg:max-w-none shrink-0 mx-auto lg:mx-0">
-      {/* ✅ allow tooltip outside */}
-      <div className="relative w-full aspect-square overflow-visible">
-        <Image
-          src="/img/core-values-wheel.png"
-          alt="ASCEND Core Values Wheel"
-          fill
-          priority
-          className="object-contain select-none"
-          draggable={false}
-        />
-
-        {/* ✅ FLOATING TOOLTIP (OUTSIDE THE WHEEL, no overlap) */}
-        <div
-          className={`
-            absolute z-20 w-[260px] sm:w-[320px]
-            rounded-xl bg-white shadow-lg border border-black/10 p-4
-            ${activeKey === "accountability" ? "left-1/2 -translate-x-1/2 top-[-55%]" : ""}
-            ${activeKey === "sustainability" ? "right-[-78%] top-[10%]" : ""}
-            ${activeKey === "collaboration" ? "right-[-82%] bottom-[18%]" : ""}
-            ${activeKey === "excellence" ? "left-1/2 -translate-x-1/2 bottom-[-50%]" : ""}
-            ${activeKey === "nurturing_growth" ? "left-[-82%] bottom-[18%]" : ""}
-            ${activeKey === "dedication" ? "left-[-78%] top-[10%]" : ""}
-          `}
-        >
-          <div className="text-[#24262d] font-extrabold text-lg leading-tight">
-            {active.title}
+        <div className="space-y-10 text-left">
+          <div>
+            <p className="mb-4 text-center text-[18px] font-bold uppercase text-[#24262d] md:text-[20px]">
+              Vision Statement
+            </p>
+            <p className="text-[16px] leading-7 text-[#4b5563] md:text-[18px] md:leading-8">
+              Our vision is to be the <span className="text-[#f90908]">trusted partner in financial excellence</span>, known for our commitment to <span className="text-[#f90908]">trust, innovation, and holistic growth.</span> We aim to help businesses and individuals not just achieve financial stability but thrive with confidence, supported by strategic insights and sustainable solutions. Rooted in <span className="text-[#f90908]">integrity and long-term partnerships</span>, we strive to strengthen our foundation while expanding our reach, embracing opportunities beyond local markets. By upholding our ASCEND values, we transform the way businesses grow, ensuring success is measured not just in numbers but in lasting impact and shared prosperity. We see <span className="text-[#f90908]">Balagot &amp; Emperado CPAs Co.</span> as more than a financial firm, we are a force for progress, helping businesses elevate their potential, expand their horizons, and build a lasting legacy.
+            </p>
           </div>
-          <div className="mt-2 text-[#24262d]/80 text-sm leading-relaxed">
-            {active.desc}
+
+          <div>
+            <p className="mb-4 text-center text-[18px] font-bold uppercase text-[#24262d] md:text-[20px]">
+              Mission Statement
+            </p>
+            <p className="text-[16px] leading-7 text-[#4b5563] md:text-[18px] md:leading-8">
+              At <span className="text-[#f90908]">Balagot &amp; Emperado CPAs Co.</span>, we go beyond numbers to help businesses and individuals achieve lasting success. Guided by our <span className="text-[#f90908]">ASCEND</span> values, we provide strategic financial solutions that support growth in every aspect. We are committed to building trust, fostering long-term relationships, and upholding integrity, ensuring a strong foundation for our clients. At the same time, we embrace innovation, expand beyond local markets, and provide insights that drive sustainable progress.
+            </p>
           </div>
+
+          <div className="pt-2 text-center">
+            <p className="text-[18px] font-bold uppercase text-[#24262d] md:text-[20px]">
+              Core Values
+            </p>
+            <p className="mt-3 text-[15px] font-semibold uppercase tracking-[0.28em] text-[#475569] md:text-[18px]">
+              Ascend Onwards Center
+            </p>
+          </div>
+
+          <div className="mx-auto max-w-5xl">
+            <div className="flex flex-col items-center gap-8 md:gap-10">
+              <div className="w-full max-w-[320px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[440px]">
+                <div className="relative aspect-square w-full overflow-visible">
+                  <Image
+                    src="/img/core-values-wheel.png"
+                    alt="ASCEND Core Values Wheel"
+                    fill
+                    priority
+                    className="select-none object-contain"
+                    draggable={false}
+                  />
+
+                  {isDesktop ? (
+                    <div
+                      className={`absolute z-20 w-[250px] rounded-xl border border-black/10 bg-white p-4 shadow-lg lg:w-[280px] ${tooltipPosition[activeKey]}`}
+                    >
+                      <div className="text-center text-lg font-extrabold leading-tight text-[#24262d] lg:text-[22px]">
+                        {active.title}
+                      </div>
+                      <div className="mt-2 text-center text-sm leading-relaxed text-[#24262d]/80 lg:text-[15px]">
+                        {active.desc}
+                      </div>
+                    </div>
+                  ) : null}
+
+                  <Hotspot
+                    className="left-1/2 top-[4%] h-[20%] w-[46%] -translate-x-1/2"
+                    valueKey="accountability"
+                    label="Accountability"
+                  />
+                  <Hotspot
+                    className="right-[0%] top-[18%] h-[42%] w-[28%]"
+                    valueKey="sustainability"
+                    label="Sustainability"
+                  />
+                  <Hotspot
+                    className="bottom-[22%] right-[6%] h-[26%] w-[36%] rotate-[22deg]"
+                    valueKey="collaboration"
+                    label="Collaboration"
+                  />
+                  <Hotspot
+                    className="bottom-[5%] left-1/2 h-[22%] w-[52%] -translate-x-1/2"
+                    valueKey="excellence"
+                    label="Excellence"
+                  />
+                  <Hotspot
+                    className="bottom-[14%] left-[4%] h-[40%] w-[30%] -rotate-[18deg]"
+                    valueKey="nurturing_growth"
+                    label="Nurturing Growth"
+                  />
+                  <Hotspot
+                    className="left-[2%] top-[18%] h-[32%] w-[30%] -rotate-[25deg]"
+                    valueKey="dedication"
+                    label="Dedication"
+                  />
+                </div>
+              </div>
+
+              {!isDesktop ? (
+                <div className="w-full">
+                  <div className="rounded-2xl border border-black/10 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.08)]">
+                    <div className="text-center text-[22px] font-extrabold leading-tight text-[#24262d]">
+                      {active.title}
+                    </div>
+                    <div className="mt-3 text-center text-[15px] leading-7 text-[#475569]">
+                      {active.desc}
+                    </div>
+                  </div>
+                </div>
+              ) : null}
+            </div>
+          </div>
+
+          <p className="text-[16px] leading-7 text-[#4b5563] md:text-[18px] md:leading-8">
+            With <span className="font-bold text-[#f90908]">ASCEND</span> as our guiding principle, we do not just serve; we elevate. By staying accountable, fostering sustainability, collaborating with clients, delivering excellence, nurturing growth, and remaining dedicated to success, Balagot &amp; Emperado CPAs Co. continues to reach new heights while empowering businesses to grow not just financially, but strategically and sustainably.
+          </p>
         </div>
-
-        {/* Hotspots */}
-        <div
-          className="absolute left-1/2 -translate-x-1/2 top-[4%] w-[46%] h-[20%] rounded-[999px] cursor-pointer"
-          onMouseEnter={() => setActiveKey("accountability")}
-          onClick={() => setActiveKey("accountability")}
-          tabIndex={0}
-          aria-label="Accountability"
-        />
-        <div
-          className="absolute right-[0%] top-[18%] w-[28%] h-[42%] rounded-[999px] cursor-pointer"
-          onMouseEnter={() => setActiveKey("sustainability")}
-          onClick={() => setActiveKey("sustainability")}
-          tabIndex={0}
-          aria-label="Sustainability"
-        />
-        <div
-          className="absolute right-[6%] bottom-[22%] w-[36%] h-[26%] rounded-[999px] cursor-pointer rotate-[22deg]"
-          onMouseEnter={() => setActiveKey("collaboration")}
-          onClick={() => setActiveKey("collaboration")}
-          tabIndex={0}
-          aria-label="Collaboration"
-        />
-        <div
-          className="absolute left-1/2 -translate-x-1/2 bottom-[5%] w-[52%] h-[22%] rounded-[999px] cursor-pointer"
-          onMouseEnter={() => setActiveKey("excellence")}
-          onClick={() => setActiveKey("excellence")}
-          tabIndex={0}
-          aria-label="Excellence"
-        />
-        <div
-          className="absolute left-[4%] bottom-[14%] w-[30%] h-[40%] rounded-[999px] cursor-pointer -rotate-[18deg]"
-          onMouseEnter={() => setActiveKey("nurturing_growth")}
-          onClick={() => setActiveKey("nurturing_growth")}
-          tabIndex={0}
-          aria-label="Nurturing Growth"
-        />
-        <div
-          className="absolute left-[2%] top-[18%] w-[30%] h-[32%] rounded-[999px] cursor-pointer -rotate-[25deg]"
-          onMouseEnter={() => setActiveKey("dedication")}
-          onClick={() => setActiveKey("dedication")}
-          tabIndex={0}
-          aria-label="Dedication"
-        />
       </div>
-    </div>
-
-   
-  </div>
-</div>
-
-          {/* Closing paragraph */}
-          <p className="text-left mt-6 text-[18px]">
-            With{" "}
-            <span className="text-[#f90908] font-bold">ASCEND</span> as our guiding
-            principle, we don’t just serve; we elevate. By staying accountable,
-            fostering sustainability, collaborating with clients, delivering
-            excellence, nurturing growth, and remaining dedicated to success,
-            Balagot &amp; Emperado CPAs Co. continues to reach new heights while
-            empowering businesses to grow not just financially, but strategically
-            and sustainably.
-          </p>
-        </div>
-    </>
+    </section>
   );
 };
 

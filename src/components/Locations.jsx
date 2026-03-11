@@ -40,20 +40,19 @@ const Locations = () => {
       >
         <div className="container mx-auto px-2">
           <div className="text-center">
-             <h1 className="text-[50px] font-bold leading-[1.1] uppercase mb-8">
+            <h1 className="text-[50px] font-bold leading-[1.1] uppercase mb-8">
               Offices/Our Locations
             </h1>
 
             <h3 className="text-[18px] pb-10">
-              Find the nearest{" "}
-              <span className="text-red-500">Balagot & Emperado CPA’s Co.</span>{" "}
+              Find the nearest {" "}
+              <span className="text-red-500">Balagot & Emperado CPA&apos;s Co.</span>{" "}
               location and the direct contact numbers of our offices to ensure a
               seamless and efficient communication experience. Our dedicated
               professionals are always here to help!
             </h3>
           </div>
 
-          {/* ✅ DESKTOP-ONLY CUSTOM LAYOUT (no Tailwind breakpoints needed) */}
           <div className="locationsGrid">
             <Card
               title="Davao-Main"
@@ -94,11 +93,10 @@ const Locations = () => {
         </div>
       </div>
 
-      {/* ✅ CSS MEDIA QUERIES: 1 col mobile, 2 cols tablet, 3 cols desktop */}
       <style jsx>{`
         .locationsGrid {
-          display: flex;
-          flex-wrap: wrap;
+          display: grid;
+          grid-template-columns: 1fr;
           gap: 24px;
           align-items: stretch;
         }
@@ -108,15 +106,15 @@ const Locations = () => {
           min-width: 0;
         }
 
-        @media (min-width: 640px) {
-          .locationCard {
-            width: calc((100% - 24px) / 2);
+        @media (min-width: 768px) and (max-width: 1279px) {
+          .locationsGrid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
           }
         }
 
-        @media (min-width: 1024px) {
-          .locationCard {
-            width: calc((100% - 48px) / 3);
+        @media (min-width: 1280px) {
+          .locationsGrid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
           }
         }
       `}</style>
