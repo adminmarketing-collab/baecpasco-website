@@ -1,3 +1,4 @@
+import Script from "next/script";
 import "./globals.css";
 import "swiper/css";
 import "../../public/css/animate.min.css";
@@ -13,6 +14,8 @@ const inter = Inter({
   variable: "--font-inter",
   display: "swap",
 });
+
+const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export const metadata = {
   metadataBase: new URL("https://www.baecpasco.com"),
@@ -37,6 +40,24 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth">
       <head>
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
+        {gaMeasurementId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaMeasurementId}', {
+                  page_path: window.location.pathname,
+                });
+              `}
+            </Script>
+          </>
+        ) : null}
       </head>
       <body className={`${inter.variable} bg-white`}>
         {children}
