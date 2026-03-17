@@ -17,14 +17,14 @@ export default function ServiceAccordion({ title, children }) {
   };
 
   return (
-    <div className="transition-all duration-300">
+    <div className="service-accordion-shell -mx-2 md:-mx-4 transition-all duration-300">
       <button
         onClick={(e) => {
           e.currentTarget.blur();
           toggleOpen();
         }}
         className={`flex w-full items-center justify-between gap-4 py-3 text-left transition-all duration-300 md:py-4
-        ${open ? "rounded-t-lg bg-white px-4 md:px-6" : "bg-transparent px-0"}`}
+        ${open ? "bg-white px-6 md:px-8" : "bg-transparent px-2 md:px-4"}`}
       >
         <h3
           className={`text-xl font-semibold leading-snug transition-colors duration-300 md:text-2xl ${
@@ -44,12 +44,18 @@ export default function ServiceAccordion({ title, children }) {
 
       {open && (
         <div
-          className="cursor-pointer rounded-b-lg bg-white px-4 pb-6 text-gray-800 md:px-6"
+          className="cursor-pointer bg-white px-6 pb-6 text-gray-800 md:px-8"
           onClick={handleContentClick}
         >
           {children}
         </div>
       )}
+
+      <style jsx>{`
+        .service-accordion-shell:hover {
+          box-shadow: 0 0 22px rgba(255, 255, 255, 0.18);
+        }
+      `}</style>
     </div>
   );
 }
