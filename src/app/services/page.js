@@ -1,9 +1,20 @@
 import ServicesPageClient from "@/components/ServicesPageClient";
 
 export const metadata = {
-  title: "Accounting Services in North Cotabato",
+  title: "Accounting Services in Mindanao",
   description:
-    "Comprehensive accounting services in North Cotabato including bookkeeping, payroll, tax compliance, audit, and business advisory support.",
+    "Professional accounting services in Mindanao offering bookkeeping, payroll, tax compliance, and business advisory for local businesses.",
+  alternates: {
+    canonical: "https://www.baecpasco.com/services",
+  },
+  openGraph: {
+    title: "Accounting Services in Mindanao",
+    description:
+      "Professional accounting services in Mindanao offering bookkeeping, payroll, tax compliance, and business advisory for local businesses.",
+    url: "https://www.baecpasco.com/services",
+    siteName: "BAECPASCO",
+    type: "website",
+  },
 };
 
 export default function Page() {

@@ -375,7 +375,7 @@ export default function Services() {
 
           <ServiceAccordion
             index={3}
-            imageSrc="/img/services/bookkeeping-services.JPG"
+            imageSrc="/img/services/bookkeeping-services.jpg"
             title="Bookkeeping Services"
             summary="Consistent bookkeeping support that keeps transactions organized, books current, and financial records ready for reporting, tax, and management review."
           >
