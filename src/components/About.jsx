@@ -14,7 +14,14 @@ const About = () => {
         <div className="flex flex-wrap mx-[-12px] items-start">
           <div className="xl:w-5/12 lg:w-6/12 md:w-full sm:w-full xsm:w-full px-[12px] wow fadeInLeft">
             <div className="about-img-area relative">
-              <Image className="w-full h-auto" src={about} alt="about" />
+              <Image
+                className="h-auto w-full"
+                src={about}
+                alt="about"
+                priority
+                fetchPriority="high"
+                sizes="(max-width: 991px) 100vw, 42vw"
+              />
             </div>
           </div>
 
