@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import logo from "../../public/img/logo-1.png";
@@ -94,53 +94,22 @@ const Header = () => {
   
   const currentRoute = usePathname();
   
-  //sticky menu function
   const [sticky, setSticky] = useState(false);
-  const stickyHeader = () => {
-    if (window.scrollY > 200) {
-      setSticky(true);
-    } else {
-      setSticky(false);
-    }
-  };
   useEffect(() => {
-  let ticking = false;
+    let ticking = false;
 
-  const onScroll = () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        setSticky(window.scrollY > 200);
-        ticking = false;
-      });
-      ticking = true;
-    }
-  };
-
-  window.addEventListener("scroll", onScroll, { passive: true });
-  return () => window.removeEventListener("scroll", onScroll);
-}, []);
-
-  //mobile menu
-  const navLinksRef = useRef(null);
-
-  useEffect(() => {
-    const handleClick = (event) => {
-      const clickedLink = event.target;
-      const clickedLinkId = clickedLink.href.split("#")[1];
-
-      navLinksRef.current
-        .querySelector("ul")
-        .querySelectorAll("a")
-        .forEach((link) => {
-          link.parentNode.classList.remove("active");
-          if (link.href.includes(clickedLinkId)) {
-            link.parentNode.classList.add("active");
-          }
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setSticky(window.scrollY > 200);
+          ticking = false;
         });
-
-      const targetSection = document.getElementById(clickedLinkId);
-      targetSection.scrollIntoView({ behavior: "smooth" });
+        ticking = true;
+      }
     };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return ( 

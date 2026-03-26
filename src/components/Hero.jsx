@@ -1,9 +1,11 @@
 "use client";
+
+import Image from "next/image";
+import Link from "next/link";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import bgimg from "../../public/img/slider/slider-1.png";
 import bgimg2 from "../../public/img/slider/slider-2.png";
-import Link from "next/link";
 
 const HeroDataa = {
   HeroList: [
@@ -13,10 +15,14 @@ const HeroDataa = {
       brief: (
         <>
           <p className="text-white">
-            At Balagot & Emperado CPA’s Co., we are more than just a financial services firm—we are your trusted partners in achieving sustainable growth beyond the financials.
+            At Balagot & Emperado CPA&apos;s Co., we are more than just a
+            financial services firm. We are your trusted partners in achieving
+            sustainable growth beyond the financials.
           </p>
           <p className="mt-4 text-white">
-            With a steadfast commitment to accuracy, integrity, and strategic insight, we empower businesses and individuals to navigate the complexities of financial management with confidence and clarity.
+            With a steadfast commitment to accuracy, integrity, and strategic
+            insight, we empower businesses and individuals to navigate the
+            complexities of financial management with confidence and clarity.
           </p>
         </>
       ),
@@ -24,7 +30,7 @@ const HeroDataa = {
       btnlink: "/contact",
       btntext2: "learn more",
       btnlink2: "/about",
-      bgimg: bgimg,
+      bgimg,
     },
     {
       title: "always top rated",
@@ -51,22 +57,14 @@ const Hero = () => {
         modules={[Pagination, Autoplay]}
         slidesPerView="auto"
         breakpoints={{
-          0: {
-            slidesPerView: 1,
-          },
-          600: {
-            slidesPerView: 1,
-          },
-          992: {
-            slidesPerView: 1,
-          },
-          1200: {
-            slidesPerView: 1,
-          },
+          0: { slidesPerView: 1 },
+          600: { slidesPerView: 1 },
+          992: { slidesPerView: 1 },
+          1200: { slidesPerView: 1 },
         }}
-        autoplay={true}
-        allowTouchMove={true}
-        loop={true}
+        autoplay
+        allowTouchMove
+        loop
         pagination={{
           clickable: true,
         }}
@@ -74,16 +72,22 @@ const Hero = () => {
       >
         {HeroDataa.HeroList.map((item, i) => (
           <SwiperSlide key={i}>
-            <div className="merox-single-slider relative min-h-[680px] md:min-h-[760px] xl:h-[868px] before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-[#0000004d] before:content-['']">
-              <div
-                className="slid-bg-1 absolute left-0 top-0 h-full w-full scale-[1] bg-cover bg-center bg-no-repeat transition-all duration-[5000ms] ease-linear"
-                style={{ backgroundImage: `url(${item.bgimg.src})` }}
-              ></div>
-              <div className="merox-single-table table h-full w-full">
+            <div className="merox-single-slider relative min-h-[680px] md:min-h-[760px] xl:h-[868px] before:absolute before:left-0 before:top-0 before:z-[1] before:h-full before:w-full before:bg-[#0000004d] before:content-['']">
+              <Image
+                src={item.bgimg}
+                alt={item.title2}
+                fill
+                priority={i === 0}
+                quality={85}
+                sizes="100vw"
+                className="slid-bg-1 object-cover transition-all duration-[5000ms] ease-linear"
+              />
+
+              <div className="merox-single-table relative z-[2] table h-full w-full">
                 <div className="merox-single-tablecell table-cell align-middle">
                   <div className="container py-28 md:py-32 xl:py-0">
-                    <div className="flex flex-wrap mx-[-12px]">
-                      <div className="xl:w-8/12 lg:w-11/12 md:w-full sm:w-full xsm:w-full px-[12px] flex-[0_0_auto]">
+                    <div className="mx-[-12px] flex flex-wrap">
+                      <div className="xsm:w-full flex-[0_0_auto] px-[12px] sm:w-full md:w-full lg:w-11/12 xl:w-8/12">
                         <div className="merox-slider-area-content mt-[72px] max-w-4xl md:mt-[87px]">
                           <h4 className="relative mb-5 inline-block bg-[#f90908] py-3 pl-6 pr-4 text-lg font-bold capitalize text-white opacity-0 transition-all duration-[700ms] ease-linear before:absolute before:left-full before:top-0 before:-ml-[1px] before:border-b-[14px] before:border-r-[18px] before:border-r-transparent before:border-solid after:absolute after:bottom-0 after:left-full after:-ml-[1px] after:h-[44px] after:w-[18px] after:bg-[#f90908] after:content-[''] md:py-4 md:pl-8 md:pr-5 md:text-[22px] xl:py-5 xl:pl-10 xl:pr-[18px] xl:text-[24px]">
                             {item.title}
@@ -128,4 +132,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
