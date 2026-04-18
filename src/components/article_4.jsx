@@ -29,13 +29,27 @@ const article = {
     {
       headline: "This event also marked two historic highlights:",
       description:
-        "• The launching of Business Edge Consulting Corporation (BECC International), a newly built corporation for international services.\n • The orientation of our new standardized HR Policies, aligned for both local and international operations, setting the path for professional growth and global opportunities.",
-    },
+      `
+  <ul class="list-disc pl-5">
+    <li> The launching of Business Edge Consulting Corporation (BECC International), a newly built corporation for international services. </li>
+    <li>
+        The orientation of our new standardized HR Policies, aligned for both local and international operations, setting the path for professional growth and global opportunities.",
+    </li>
+      </ul>
+  `,
+},
     {
       headline: "Special thanks to our inspiring orientation speakers:",
       description:
-        "• Ms. Vee Hornoz, Training Manager at RAH Dallas\n • Ms. Kitty Ramos, RPM, Newly Registered Psychometrician\nfor sharing their expertise and encouraging us to embrace growth with confidence.",
-    },
+      `
+  <ul class="list-disc pl-5">
+    <li> Ms. Vee Hornoz, Training Manager at RAH Dallas </li>
+    <li>
+    Ms. Kitty Ramos, RPM, Newly Registered Psychometrician \n for sharing their expertise and encouraging us to embrace growth with confidence.",
+    </li>
+      </ul>
+  `,
+},
     {
       description:
         "This successful event was made possible through the leadership of our HR Team, headed by Jouie Kristian Tero, CPA, together with the creativity and production of Francis Leodel U. Ibot, Creative Director of Ideya Projects.",
