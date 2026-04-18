@@ -29,12 +29,12 @@ const article = {
     {
       headline: "This event also marked two historic highlights:",
       description:
-        "- The launching of Business Edge Consulting Corporation (BECC International), a newly built corporation for international services.\n- The orientation of our new standardized HR Policies, aligned for both local and international operations, setting the path for professional growth and global opportunities.",
+        "• The launching of Business Edge Consulting Corporation (BECC International), a newly built corporation for international services.\n • The orientation of our new standardized HR Policies, aligned for both local and international operations, setting the path for professional growth and global opportunities.",
     },
     {
       headline: "Special thanks to our inspiring orientation speakers:",
       description:
-        "- Ms. Vee Hornoz, Training Manager at RAH Dallas\n- Ms. Kitty Ramos, RPM, Newly Registered Psychometrician\nfor sharing their expertise and encouraging us to embrace growth with confidence.",
+        "• Ms. Vee Hornoz, Training Manager at RAH Dallas\n • Ms. Kitty Ramos, RPM, Newly Registered Psychometrician\nfor sharing their expertise and encouraging us to embrace growth with confidence.",
     },
     {
       description:
