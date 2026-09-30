@@ -54,12 +54,6 @@ const TeamData = [
     spec: "Contact for branch-specific concerns, accounting solutions, and local compliance assistance",
   },
   {
-    img: img8,
-    title: "Esther Racquel O. Balagot",
-    desig: "Business Operations Head",
-    spec: "Contact for operational concerns, corporate structuring, and business process improvements",
-  },
-  {
     img: img9,
     title: "Wellore John S. Grado",
     desig: "Senior Tax Associate",
