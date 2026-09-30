@@ -57,7 +57,7 @@ const Locations = () => {
             <Card
               title="Davao-Main"
               desc="3rd Floor, Room 3A: Upbrofill Corporate Center, 168 Mitsui Bussan Road, J.P. Laurel Avenue, Davao City, 8000"
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3263.3645715602315!2d125.60545666974438!3d7.086201200740576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32f96dbe99f61877%3A0x4db1e08d79c739eb!2sUPBROFIL%20Corporate%20Center%20(ULI)!5e1!3m2!1sen!2sph!4v1790723933630!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+              mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3263.3645715602315!2d125.60545666974438!3d7.086201200740576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32f96dbe99f61877%3A0x4db1e08d79c739eb!2sUPBROFIL%20Corporate%20Center%20(ULI)!5e1!3m2!1sen!2sph!4v1790723933630!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
             />
 
             <Card
