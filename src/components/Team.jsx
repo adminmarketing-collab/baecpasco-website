@@ -47,12 +47,6 @@ const TeamData = [
     spec: "Contact For tax-related concerns, compliance support, and advisory services",
   },
   {
-    img: img6,
-    title: "Von Zerick M. Casero, CPA, CTT",
-    desig: "Branch Manager - Partner",
-    spec: "Contact for audit inquiries, corporate compliance, and business consultancy",
-  },
-  {
     img: img7,
     title: "Rey N. Cabilan",
     desig: "Branch Manager",
