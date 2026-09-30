@@ -83,12 +83,6 @@ const Locations = () => {
               desc="Bukidnon Corporate Office: 2F, No. 0430 Zone 1, Brgy. 10 Impalambong, Malaybalay City, 8700"
               mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.5187793543655!2d125.12332757571951!3d8.150370502121708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32ff01794fcd7095%3A0x9d1a4831c15e98b5!2sBalagot%20and%20Emperado%20CPA&#39;s%20Co!5e0!3m2!1sen!2sph!4v1747107670225!5m2!1sen!2sph"
             />
-
-            <Card
-              title="Samal"
-              desc="Samal Corporate Office: 2F TMC Building, Sitio Kaimito, Brgy. Miranda-Pichon, Babak District, Island Garden City of Samal, Davao del Norte, 8119"
-              mapSrc="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d561.14091213977!2d125.69016533441177!3d7.140626118220857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBrgy.%20Miranda-Pichon%2C%20Babak%20District%2C%20Island%20Garden%20City%20of%20Samal%2C%20Davao%20del%20Norte%2C%208119!5e0!3m2!1sen!2sph!4v1770730305227!5m2!1sen!2sph"
-            />
           </div>
         </div>
       </div>
