@@ -56,7 +56,7 @@ const Locations = () => {
           <div className="locationsGrid">
             <Card
               title="Davao-Main"
-              desc="Davao East Head Corporate Office: 2F GDCI Building, F. Torres St., Davao City, 8000"
+              desc="3rd Floor, Room 3A: Upbrofill Corporate Center, 168 Mitsui Bussan Road, J.P. Laurel Avenue, Davao City, 8000"
               mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.372628222302!2d125.6092571757151!3d7.082727816410669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32f96da71cb5e95f%3A0x54abcc56c5caee02!2sBalagot%20%26%20Co.!5e0!3m2!1sen!2sph!4v1747107484426!5m2!1sen!2sph"
             />
 
